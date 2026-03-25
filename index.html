@@ -47,9 +47,9 @@ body{font-family:'Nunito',sans-serif;overflow-x:hidden;overscroll-behavior:none;
 /* ── MOBILE NAV ── */
 .mob-nav{display:flex;background:var(--sb);padding:6px 0 env(safe-area-inset-bottom,6px);border-top:1.5px solid var(--sb-border);position:sticky;bottom:0;z-index:100;order:2;}
 @media(min-width:600px){.mob-nav{display:none;}}
-.mob-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 1px;cursor:pointer;color:var(--sb-text);font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;border:none;background:none;font-family:'Nunito',sans-serif;}
+.mob-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;padding:5px 1px;cursor:pointer;color:var(--sb-text);font-size:7px;font-weight:800;text-transform:uppercase;letter-spacing:.2px;border:none;background:none;font-family:'Nunito',sans-serif;}
 .mob-btn.active{color:var(--sb-active-text);}
-.mob-btn svg{width:20px;height:20px;transition:transform .2s;}
+.mob-btn svg{width:18px;height:18px;transition:transform .2s;}
 .mob-btn.active svg{transform:scale(1.15);}
 .mob-btn:active svg{transform:scale(.85);}
 
@@ -411,6 +411,95 @@ body{font-family:'Nunito',sans-serif;overflow-x:hidden;overscroll-behavior:none;
 .notif-perm-btn{font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;padding:10px 18px;border-radius:10px;border:1.5px solid var(--btn-border);background:var(--btn-bg);color:var(--btn-text);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px;}
 .notif-perm-btn:active{transform:scale(.95);}
 .notif-status{font-size:12px;font-weight:700;color:var(--inp-ph);margin-top:6px;}
+
+/* ══════════════════════════════════
+   BUDGET SECTION
+══════════════════════════════════ */
+.budget-hero{background:var(--panel-bg);border:1.5px solid var(--panel-border);border-radius:16px;padding:18px;margin-bottom:13px;text-align:center;}
+.budget-hero-label{font-size:11px;font-weight:800;color:var(--inp-ph);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;}
+.budget-input-row{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:14px;}
+.budget-currency{font-size:20px;font-weight:900;color:var(--panel-title);}
+.budget-amount-inp{font-family:'Nunito',sans-serif;font-size:28px;font-weight:900;color:var(--panel-title);background:var(--inp-bg);border:1.5px solid var(--inp-border);border-radius:12px;padding:10px 16px;width:200px;text-align:center;outline:none;-webkit-appearance:none;}
+.budget-amount-inp:focus{border-color:var(--inp-focus);}
+.budget-amount-inp::placeholder{color:var(--inp-ph);font-weight:600;font-size:20px;}
+.budget-split-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.budget-split-card{border-radius:12px;padding:12px;text-align:center;border:1.5px solid rgba(255,255,255,.5);}
+.bsc-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px;opacity:.75;}
+.bsc-pct{font-size:16px;font-weight:900;margin-bottom:2px;}
+.bsc-amt{font-size:19px;font-weight:900;}
+.bsc-sub{font-size:10px;font-weight:700;margin-top:2px;opacity:.6;}
+.bsc-needs{background:#d8f5ec;color:#0d5a40;}
+.bsc-wants{background:#ede0f8;color:#5a2080;}
+.bsc-save{background:#fde8d0;color:#7a3010;}
+
+.budget-col-grid{display:grid;grid-template-columns:1fr;gap:13px;}
+@media(min-width:500px){.budget-col-grid{grid-template-columns:1fr 1fr;}}
+
+.budget-cat-panel{background:var(--panel-bg);border:1.5px solid var(--panel-border);border-radius:15px;padding:14px;}
+.budget-cat-title{font-size:14px;font-weight:900;color:var(--panel-title);margin-bottom:4px;display:flex;align-items:center;gap:7px;}
+.budget-cat-subtitle{font-size:11px;font-weight:700;color:var(--inp-ph);margin-bottom:10px;}
+.budget-prog-wrap{margin-bottom:12px;}
+.budget-prog-bar{height:8px;border-radius:20px;overflow:hidden;background:var(--prog-track);}
+.budget-prog-fill{height:100%;border-radius:20px;transition:width .5s cubic-bezier(.34,1.2,.64,1);}
+.budget-prog-over{background:#e55!important;}
+.budget-prog-labels{display:flex;justify-content:space-between;margin-top:4px;}
+.budget-prog-used{font-size:11px;font-weight:800;color:var(--panel-title);}
+.budget-prog-rem{font-size:11px;font-weight:700;color:var(--inp-ph);}
+.budget-prog-rem.over{color:#e55;font-weight:900;}
+.budget-warn{background:#fff0f0;border:1.5px solid #f0b0b0;border-radius:8px;padding:7px 10px;font-size:12px;font-weight:800;color:#c03030;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+
+.budget-item-list{display:flex;flex-direction:column;gap:5px;margin-bottom:10px;}
+.budget-item{display:flex;align-items:center;gap:7px;background:var(--task-bg);border:1px solid var(--task-border);border-radius:8px;padding:8px 10px;transition:all .2s;}
+.budget-item:active{transform:scale(.97);}
+.budget-item.paid{opacity:.45;}
+.budget-item.paid .bi-name{text-decoration:line-through;}
+.bi-chk{width:20px;height:20px;flex-shrink:0;border:2px solid var(--chk-border);border-radius:5px;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:transparent;transition:all .2s;}
+.bi-chk.yes{background:var(--chk-bg);border-color:var(--chk-border2);color:var(--chk-text);}
+.bi-name{flex:1;font-size:13px;font-weight:700;color:var(--inp-text);}
+.bi-amt{font-size:13px;font-weight:800;color:var(--panel-title);white-space:nowrap;}
+.bi-del{background:none;border:none;cursor:pointer;color:var(--inp-ph);font-size:16px;padding:1px 3px;transition:opacity .2s;opacity:0;}
+.budget-item:hover .bi-del,.budget-item:active .bi-del{opacity:1;}
+
+.budget-add-row{display:flex;gap:6px;flex-wrap:wrap;}
+.budget-add-row input{font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;background:var(--inp-bg);border:1.5px solid var(--inp-border);border-radius:9px;padding:8px 10px;color:var(--inp-text);outline:none;-webkit-appearance:none;}
+.budget-add-row input::placeholder{color:var(--inp-ph);font-weight:600;}
+.budget-add-row input:focus{border-color:var(--inp-focus);}
+.bi-name-inp{flex:2;min-width:100px;}
+.bi-amt-inp{width:80px;}
+
+/* quick-add chip suggestions */
+.budget-suggestions{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px;}
+.budget-sug{font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;padding:3px 9px;border-radius:20px;cursor:pointer;background:var(--floor-bg);color:var(--panel-title);border:1.5px solid var(--floor-border);transition:all .2s;white-space:nowrap;}
+.budget-sug:active{transform:scale(.9);}
+
+/* savings / loan toggle */
+.save-type-row{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;}
+.save-type-btn{font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;padding:5px 12px;border-radius:20px;border:1.5px solid var(--floor-border);background:var(--floor-bg);color:var(--inp-ph);cursor:pointer;transition:all .2s;}
+.save-type-btn.on{background:var(--btn-bg);color:var(--btn-text);border-color:var(--btn-border);}
+.save-type-btn:active{transform:scale(.92);}
+
+/* history */
+.budget-hist-item{background:var(--floor-bg);border:1.5px solid var(--floor-border);border-radius:11px;padding:11px 13px;margin-bottom:8px;cursor:pointer;transition:all .2s;}
+.budget-hist-item:active{transform:scale(.98);}
+.budget-hist-hdr{display:flex;align-items:center;justify-content:space-between;}
+.budget-hist-month{font-size:13px;font-weight:900;color:var(--panel-title);}
+.budget-hist-total{font-size:13px;font-weight:800;color:var(--inp-ph);}
+.budget-hist-bars{display:flex;gap:4px;margin-top:8px;height:6px;}
+.budget-hist-bar{height:100%;border-radius:3px;}
+.bhb-needs{background:#4a9a70;}
+.bhb-wants{background:#9060c0;}
+.bhb-save{background:#d07050;}
+
+.budget-tabs{display:flex;gap:0;background:var(--floor-bg);border-radius:10px;padding:3px;border:1.5px solid var(--floor-border);margin-bottom:13px;width:fit-content;}
+.budget-tab{font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;padding:5px 14px;border-radius:7px;border:none;background:transparent;color:var(--inp-ph);cursor:pointer;transition:all .2s;}
+.budget-tab.on{background:var(--btn-bg);color:var(--btn-text);}
+.budget-tab:active{transform:scale(.93);}
+
+/* photo duration picker */
+.pdur-grid{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+.pdur-btn{font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;padding:6px 12px;border-radius:20px;border:1.5px solid var(--floor-border);background:var(--floor-bg);color:var(--inp-ph);cursor:pointer;transition:all .2s;}
+.pdur-btn.on{background:var(--btn-bg);color:var(--btn-text);border-color:var(--btn-border);}
+.pdur-btn:active{transform:scale(.92);}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <!-- Firebase SDKs -->
@@ -492,6 +581,9 @@ onAuthStateChanged(auth, (user) => {
       <div class="nav-item" data-view="progress" onclick="switchView(this,event)">
         <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="2,13 6,8 9,10 13,5 16,7"/><line x1="2" y1="16" x2="16" y2="16"/></svg>Progress
       </div>
+      <div class="nav-item" data-view="budget" onclick="switchView(this,event)">
+        <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="9" r="7"/><line x1="9" y1="5" x2="9" y2="9"/><line x1="9" y1="9" x2="12" y2="12"/><path d="M6 3.5C6 3.5 7 2 9 2s3 1.5 3 1.5"/></svg>Spending Plan
+      </div>
       <div class="nav-item" data-view="pomo" onclick="switchView(this,event)">
         <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="9" r="6"/><line x1="9" y1="5" x2="9" y2="9"/><line x1="9" y1="9" x2="12" y2="11"/></svg>Pomodoro
       </div>
@@ -557,6 +649,9 @@ onAuthStateChanged(auth, (user) => {
     <button class="mob-btn" data-view="progress" onclick="switchView(this,event)">
       <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="2,13 6,8 9,10 13,5 16,7"/><line x1="2" y1="16" x2="16" y2="16"/></svg>Chart
     </button>
+    <button class="mob-btn" data-view="budget" onclick="switchView(this,event)">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="14" height="10" rx="2"/><line x1="2" y1="8" x2="16" y2="8"/><line x1="6" y1="12" x2="8" y2="12"/></svg>Plan
+    </button>
     <button class="mob-btn" data-view="pomo" onclick="switchView(this,event)">
       <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="9" r="6"/><line x1="9" y1="5" x2="9" y2="9"/><line x1="9" y1="9" x2="12" y2="11"/></svg>Timer
     </button>
@@ -585,6 +680,7 @@ const DEFAULT_DAILY=['Bath','Brush teeth','Eat','Use washroom','Work','Write the
 const THEMES=[{id:'pastel',label:'Pastel',sw:'linear-gradient(135deg,#e8d5f0,#d8f5ec)'},{id:'storybook',label:'Storybook',sw:'linear-gradient(135deg,#2a4a30,#7ac870)'},{id:'sunset',label:'Sunset',sw:'linear-gradient(135deg,#3a1a2a,#e8b898)'},{id:'black',label:'Minimal',sw:'#111'},{id:'red',label:'Red',sw:'linear-gradient(135deg,#1a0505,#e87070)'},{id:'ocean',label:'Ocean',sw:'linear-gradient(135deg,#0a1a2a,#60b0e8)'},{id:'sand',label:'Sand',sw:'linear-gradient(135deg,#2a200a,#d8c070)'},{id:'white',label:'White',sw:'linear-gradient(135deg,#f0f0f0,#e8e8e8)'}];
 
 let tasks=[],grocs=[],pomoLog=[],photos=[],dailyTasks=[],dailyState={},progressHistory={},stuffiesState={};
+let budget={amount:0,needs:[],wants:[],savings:[],saveType:'savings',history:[]};
 let flipClockMode=false;
 let stuffiesView='list'; // 'list' or 'stuffies'
 let openDishes=new Set();
@@ -596,6 +692,7 @@ try{dailyTasks=JSON.parse(localStorage.getItem('tw7_dtasks')||'null')||[...DEFAU
 try{dailyState=JSON.parse(localStorage.getItem('tw7_dstate')||'{}');}catch(e){dailyState={};}
 try{progressHistory=JSON.parse(localStorage.getItem('tw7_phist')||'{}');}catch(e){progressHistory={};}
 try{stuffiesState=JSON.parse(localStorage.getItem('tw7_stuffies')||'{}');}catch(e){stuffiesState={};}
+try{budget=JSON.parse(localStorage.getItem('tw7_budget')||'null')||{amount:0,needs:[],wants:[],savings:[],saveType:'savings',history:[]};}catch(e){}
 try{flipClockMode=localStorage.getItem('tw7_flipclock')==='true';}catch(e){}
 
 if(!tasks.length) tasks=[{id:1,text:'Finish the project report',cat:'work',done:false,date:'',attachments:[]},{id:2,text:'Morning walk',cat:'health',done:false,date:'',attachments:[]},{id:3,text:'Call mum',cat:'personal',done:true,date:'',attachments:[]},{id:4,text:'Read 20 pages',cat:'learning',done:false,date:'',attachments:[]},{id:5,text:'Water the plants',cat:'home',done:false,date:'',attachments:[]}];
@@ -605,6 +702,7 @@ tasks.forEach(t=>{if(!t.attachments)t.attachments=[];});
 
 const defaultPhotos=['https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=900&q=80','https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80','https://images.unsplash.com/photo-1501854140801-50d01698950b?w=900&q=80','https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900&q=80','https://images.unsplash.com/photo-1490750967868-88df5691cc17?w=900&q=80'];
 let allPhotos=photos.length?photos:defaultPhotos,curPhoto=0,curActive=0,photoInterval=null;
+let photoDuration=parseInt(localStorage.getItem('tw7_photodur')||'5000');
 let selCat='personal',filter='all',selGCat='other',curView='tasks',chipMode='cat';
 let calYear=new Date().getFullYear(),calMonth=new Date().getMonth(),selDate=toKey(new Date()),daySelCat='personal';
 let pomoSecs=25*60,pomoTotal=25*60,pomoRunning=false,pomoTimer=null,pomoCurMode='focus';
@@ -618,6 +716,9 @@ function save(){
   try{localStorage.setItem('tw7_tasks',JSON.stringify(tasks));}catch(e){alert('Storage full! Try removing some attachments to free up space.');}
   try{localStorage.setItem('tw7_grocs',JSON.stringify(grocs));}catch(e){}
   try{localStorage.setItem('tw7_plog',JSON.stringify(pomoLog));}catch(e){}
+}
+function saveBudget(){
+  try{localStorage.setItem('tw7_budget',JSON.stringify(budget));}catch(e){}
 }
 function saveDT(){try{localStorage.setItem('tw7_dtasks',JSON.stringify(dailyTasks));}catch(e){}}
 function todayStr(){const n=new Date();return n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-'+String(n.getDate()).padStart(2,'0');}
@@ -701,7 +802,7 @@ function setupSwipe(wrap,taskId){
 
 // ── SWIPE VIEWS ──
 let msX=0,msY=0;
-const VIEWS=['tasks','docket','progress','pomo','market','settings'];
+const VIEWS=['tasks','docket','progress','budget','pomo','market','settings'];
 document.getElementById('mainBody').addEventListener('touchstart',e=>{msX=e.touches[0].clientX;msY=e.touches[0].clientY;},{passive:true});
 document.getElementById('mainBody').addEventListener('touchend',e=>{
   const dx=e.changedTouches[0].clientX-msX,dy=e.changedTouches[0].clientY-msY;
@@ -715,8 +816,8 @@ document.getElementById('mainBody').addEventListener('touchend',e=>{
 function switchViewById(id){
   document.querySelectorAll('[data-view]').forEach(n=>n.classList.toggle('active',n.dataset.view===id));
   curView=id;
-  const titles={tasks:'My tasks',docket:'My docket',progress:'Progress history',pomo:'Pomodoro',market:'Stuffies 🛒',settings:'Settings'};
-  const subs={tasks:'One beautiful day at a time',docket:'Plan your days ahead',progress:'How far you have come',pomo:'Focus deep, rest well',market:"What are we cooking today?",settings:'Customise your tower'};
+  const titles={tasks:'My tasks',docket:'My docket',progress:'Progress history',budget:'Spending Plan',pomo:'Pomodoro',market:'Stuffies 🛒',settings:'Settings'};
+  const subs={tasks:'One beautiful day at a time',docket:'Plan your days ahead',progress:'How far you have come',budget:'50 / 30 / 20 rule — in GH₵',pomo:'Focus deep, rest well',market:"What are we cooking today?",settings:'Customise your tower'};
   document.getElementById('vTitle').textContent=titles[id];
   document.getElementById('vSub').textContent=subs[id];
   renderMain();
@@ -780,11 +881,11 @@ function renderDailyStrip(){
 function initHero(){
   const i0=document.getElementById('himg0'),i1=document.getElementById('himg1');
   i0.src=allPhotos[0];i0.classList.remove('hidden');i1.src=allPhotos[1%allPhotos.length];
-  curPhoto=0;curActive=0;renderDots();clearInterval(photoInterval);photoInterval=setInterval(nextPhoto,5000);
+  curPhoto=0;curActive=0;renderDots();clearInterval(photoInterval);photoInterval=setInterval(nextPhoto,photoDuration);
 }
 function nextPhoto(){const next=(curPhoto+1)%allPhotos.length;const imgs=[document.getElementById('himg0'),document.getElementById('himg1')];const ia=1-curActive;imgs[ia].src=allPhotos[next];imgs[ia].classList.remove('hidden');imgs[curActive].classList.add('hidden');curActive=ia;curPhoto=next;renderDots();}
 function prevPhoto(){const prev=(curPhoto-1+allPhotos.length)%allPhotos.length;const imgs=[document.getElementById('himg0'),document.getElementById('himg1')];const ia=1-curActive;imgs[ia].src=allPhotos[prev];imgs[ia].classList.remove('hidden');imgs[curActive].classList.add('hidden');curActive=ia;curPhoto=prev;renderDots();}
-function goToPhoto(i){clearInterval(photoInterval);const imgs=[document.getElementById('himg0'),document.getElementById('himg1')];const ia=1-curActive;imgs[ia].src=allPhotos[i];imgs[ia].classList.remove('hidden');imgs[curActive].classList.add('hidden');curActive=ia;curPhoto=i;renderDots();photoInterval=setInterval(nextPhoto,5000);}
+function goToPhoto(i){clearInterval(photoInterval);const imgs=[document.getElementById('himg0'),document.getElementById('himg1')];const ia=1-curActive;imgs[ia].src=allPhotos[i];imgs[ia].classList.remove('hidden');imgs[curActive].classList.add('hidden');curActive=ia;curPhoto=i;renderDots();photoInterval=setInterval(nextPhoto,photoDuration);}
 function renderDots(){document.getElementById('hdots').innerHTML=allPhotos.map((_,i)=>`<div class="hdot${i===curPhoto?' on':''}" onclick="goToPhoto(${i})"></div>`).join('');}
 function handlePhotos(inp){Array.from(inp.files).forEach(f=>{const r=new FileReader();r.onload=e=>{photos.push(e.target.result);allPhotos=photos;try{localStorage.setItem('tw7_photos',JSON.stringify(photos));}catch(e){}initHero();goToPhoto(allPhotos.length-1);};r.readAsDataURL(f);});}
 
@@ -985,6 +1086,7 @@ function renderMain(){renderStats();renderDailyStrip();tickClock();
   if(curView==='tasks')renderTasksView();
   else if(curView==='docket')renderDocketView();
   else if(curView==='progress')renderProgressView();
+  else if(curView==='budget')renderBudgetView();
   else if(curView==='pomo')renderPomoView();
   else if(curView==='market')renderMarketView();
   else renderSettingsView();
@@ -1195,6 +1297,295 @@ function renderStreakSummary(){
   </div>`;
 }
 
+
+// ════════════════════════════════════════
+// ── BUDGET 50/30/20 ──
+// ════════════════════════════════════════
+const BUDGET_TABS=['planner','history'];
+let budgetTab='planner';
+
+const NEEDS_SUGGESTIONS=['Rent / Housing','Electricity','Water bill','Food / Groceries','Transport','School fees','Internet / Data','Medical','Phone bill','Household items'];
+const WANTS_SUGGESTIONS=['Eating out','Clothing','Entertainment','Subscriptions','Salon / Barber','Gifts','Travel','Hobbies'];
+const SAVE_SUGGESTIONS=['Emergency fund','Investment','Church offering','Debt repayment','Business capital'];
+
+function fmt(n){return 'GH₵'+Number(n||0).toLocaleString('en-GH',{minimumFractionDigits:2,maximumFractionDigits:2});}
+
+function budgetAlloc(){
+  const a=budget.amount||0;
+  return {needs:a*0.5, wants:a*0.3, savings:a*0.2};
+}
+
+function catTotal(arr){return (arr||[]).reduce((s,i)=>s+(parseFloat(i.amount)||0),0);}
+
+function setBudgetTab(tab,e){
+  if(e)makeRipple(e);
+  budgetTab=tab;
+  renderBudgetView();
+}
+
+function updateBudgetAmount(e){
+  const val=parseFloat(document.getElementById('budgetAmtInp').value)||0;
+  budget.amount=val;
+  saveBudget();
+  renderBudgetSplitCards();
+  renderBudgetCategories();
+}
+
+function renderBudgetSplitCards(){
+  const alloc=budgetAlloc();
+  const needsEl=document.getElementById('bscNeeds');
+  const wantsEl=document.getElementById('bscWants');
+  const saveEl=document.getElementById('bscSave');
+  if(needsEl)needsEl.textContent=fmt(alloc.needs);
+  if(wantsEl)wantsEl.textContent=fmt(alloc.wants);
+  if(saveEl)saveEl.textContent=fmt(alloc.savings);
+}
+
+function renderBudgetCategories(){
+  ['needs','wants','savings'].forEach(cat=>renderBudgetCat(cat));
+}
+
+function renderBudgetCat(cat){
+  const el=document.getElementById('bcat-'+cat);if(!el)return;
+  const alloc=budgetAlloc();
+  const limit=alloc[cat==='savings'?'savings':cat];
+  const items=budget[cat]||[];
+  const used=catTotal(items);
+  const pct=limit>0?Math.min((used/limit)*100,100):0;
+  const over=used>limit&&limit>0;
+  const rem=limit-used;
+  const progColor=cat==='needs'?'#4a9a70':cat==='wants'?'#9060c0':'#d07050';
+
+  let itemsHTML=items.map((item,i)=>`
+    <div class="budget-item${item.paid?' paid':''}">
+      <div class="bi-chk${item.paid?' yes':''}" onclick="toggleBudgetItem('${cat}',${i},event)">${item.paid?'✓':''}</div>
+      <span class="bi-name">${esc(item.name)}</span>
+      <span class="bi-amt">${fmt(item.amount)}</span>
+      <button class="bi-del" onclick="delBudgetItem('${cat}',${i},event)">×</button>
+    </div>`).join('');
+
+  const sugs=cat==='needs'?NEEDS_SUGGESTIONS:cat==='wants'?WANTS_SUGGESTIONS:SAVE_SUGGESTIONS;
+  const usedNames=new Set(items.map(i=>i.name.toLowerCase()));
+  const availSugs=sugs.filter(s=>!usedNames.has(s.toLowerCase())).slice(0,5);
+
+  el.innerHTML=`
+    ${over?`<div class="budget-warn">⚠ Over budget by ${fmt(used-limit)}</div>`:''}
+    <div class="budget-prog-wrap">
+      <div class="budget-prog-bar">
+        <div class="budget-prog-fill${over?' budget-prog-over':''}" style="width:${pct}%;background:${over?'#e55':progColor};"></div>
+      </div>
+      <div class="budget-prog-labels">
+        <span class="budget-prog-used">${fmt(used)} used</span>
+        <span class="budget-prog-rem${over?' over':''}">${over?'Over '+fmt(used-limit):'Remaining '+fmt(rem)}</span>
+      </div>
+    </div>
+    ${availSugs.length?`<div class="budget-suggestions">${availSugs.map(s=>`<span class="budget-sug" onclick="quickAddBudget('${cat}','${s.replace(/'/g,"\'")}',event)">${s}</span>`).join('')}</div>`:''}
+    <div class="budget-item-list">${itemsHTML||'<div class="empty">No items yet — add one below or tap a suggestion</div>'}</div>
+    <div class="budget-add-row">
+      <input type="text" class="bi-name-inp" id="bi-name-${cat}" placeholder="Item name..." autocomplete="off"/>
+      <input type="number" class="bi-amt-inp" id="bi-amt-${cat}" placeholder="Amount" inputmode="decimal"/>
+      <button class="addbtn" onclick="addBudgetItem('${cat}',event)">+</button>
+    </div>
+    <div style="font-size:10px;font-weight:700;color:var(--inp-ph);margin-top:6px;">Target: ${fmt(limit)}</div>
+  `;
+  ['bi-name-'+cat,'bi-amt-'+cat].forEach(id=>{
+    const inp=document.getElementById(id);
+    if(inp)inp.addEventListener('keydown',e=>{if(e.key==='Enter')addBudgetItem(cat,e);});
+  });
+}
+
+function quickAddBudget(cat,name,e){
+  if(e)makeRipple(e);
+  const nameInp=document.getElementById('bi-name-'+cat);
+  if(nameInp){nameInp.value=name;nameInp.focus();}
+}
+
+function addBudgetItem(cat,e){
+  if(e)makeRipple(e);
+  const nameInp=document.getElementById('bi-name-'+cat);
+  const amtInp=document.getElementById('bi-amt-'+cat);
+  if(!nameInp||!amtInp)return;
+  const name=nameInp.value.trim();
+  const amount=parseFloat(amtInp.value)||0;
+  if(!name)return;
+  if(!budget[cat])budget[cat]=[];
+  budget[cat].push({name,amount,paid:false});
+  nameInp.value='';amtInp.value='';
+  saveBudget();
+  burst(e||{clientX:window.innerWidth/2,clientY:300},'💰');
+  renderBudgetCat(cat);
+}
+
+function delBudgetItem(cat,idx,e){
+  if(e){e.stopPropagation();makeRipple(e);}
+  budget[cat].splice(idx,1);
+  saveBudget();
+  renderBudgetCat(cat);
+}
+
+function toggleBudgetItem(cat,idx,e){
+  if(e)makeRipple(e);
+  budget[cat][idx].paid=!budget[cat][idx].paid;
+  saveBudget();
+  renderBudgetCat(cat);
+}
+
+function saveBudgetToHistory(e){
+  if(e)makeRipple(e);
+  if(!budget.amount){showNotif('⚠️','No amount set','Please enter your budget amount first.');return;}
+  const now=new Date();
+  const monthKey=MONTHS[now.getMonth()]+' '+now.getFullYear();
+  const alloc=budgetAlloc();
+  const snap={
+    month:monthKey,
+    amount:budget.amount,
+    needsAlloc:alloc.needs,needsUsed:catTotal(budget.needs),
+    wantsAlloc:alloc.wants,wantsUsed:catTotal(budget.wants),
+    saveAlloc:alloc.savings,saveUsed:catTotal(budget.savings),
+    savedAt:new Date().toISOString()
+  };
+  if(!budget.history)budget.history=[];
+  // Replace existing entry for this month if it exists
+  const existIdx=budget.history.findIndex(h=>h.month===monthKey);
+  if(existIdx>=0)budget.history[existIdx]=snap;
+  else budget.history.unshift(snap);
+  // Keep last 24 months
+  if(budget.history.length>24)budget.history=budget.history.slice(0,24);
+  saveBudget();
+  showNotif('📊','Spending plan saved',monthKey+' recorded.');
+  renderBudgetView();
+}
+
+function clearBudget(e){
+  if(e)makeRipple(e);
+  if(!confirm('Clear all current spending plan items? History will be kept.'))return;
+  budget.needs=[];budget.wants=[];budget.savings=[];
+  saveBudget();
+  renderBudgetView();
+}
+
+function setSaveType(type,e){
+  if(e)makeRipple(e);
+  budget.saveType=type;
+  saveBudget();
+  // Update button states
+  document.querySelectorAll('.save-type-btn').forEach(b=>b.classList.toggle('on',b.dataset.type===type));
+}
+
+function renderBudgetView(){
+  const mp=document.getElementById('mainPanel');
+  const alloc=budgetAlloc();
+  const amt=budget.amount||0;
+
+  // build history HTML
+  const histHTML=(budget.history||[]).length===0
+    ? '<div class="empty">No history yet — save a month to start tracking</div>'
+    : (budget.history||[]).map(h=>{
+        const nPct=h.needsAlloc>0?Math.min((h.needsUsed/h.needsAlloc)*100,100):0;
+        const wPct=h.wantsAlloc>0?Math.min((h.wantsUsed/h.wantsAlloc)*100,100):0;
+        const sPct=h.saveAlloc>0?Math.min((h.saveUsed/h.saveAlloc)*100,100):0;
+        return`<div class="budget-hist-item">
+          <div class="budget-hist-hdr">
+            <span class="budget-hist-month">${h.month}</span>
+            <span class="budget-hist-total">${fmt(h.amount)}</span>
+          </div>
+          <div style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-top:4px;display:flex;gap:12px;">
+            <span>Needs: ${fmt(h.needsUsed)}/${fmt(h.needsAlloc)}</span>
+            <span>Wants: ${fmt(h.wantsUsed)}/${fmt(h.wantsAlloc)}</span>
+            <span>Saves: ${fmt(h.saveUsed)}/${fmt(h.saveAlloc)}</span>
+          </div>
+          <div class="budget-hist-bars" style="margin-top:6px;">
+            <div class="budget-hist-bar bhb-needs" style="width:${nPct}%;flex-grow:${nPct||1}"></div>
+            <div class="budget-hist-bar bhb-wants" style="width:${wPct}%;flex-grow:${wPct||1}"></div>
+            <div class="budget-hist-bar bhb-save" style="width:${sPct}%;flex-grow:${sPct||1}"></div>
+          </div>
+        </div>`;
+      }).join('');
+
+  mp.innerHTML=`
+    <!-- hero amount input -->
+    <div class="budget-hero anim-up">
+      <div class="budget-hero-label">My spending plan</div>
+      <div class="budget-input-row">
+        <span class="budget-currency">GH₵</span>
+        <input type="number" class="budget-amount-inp" id="budgetAmtInp" placeholder="0.00"
+          value="${amt>0?amt:''}" inputmode="decimal" onchange="updateBudgetAmount(event)" oninput="updateBudgetAmount(event)"/>
+      </div>
+      <div class="budget-split-row">
+        <div class="budget-split-card bsc-needs">
+          <div class="bsc-label">Needs</div>
+          <div class="bsc-pct">50%</div>
+          <div class="bsc-amt" id="bscNeeds">${fmt(alloc.needs)}</div>
+          <div class="bsc-sub">essentials</div>
+        </div>
+        <div class="budget-split-card bsc-wants">
+          <div class="bsc-label">Wants</div>
+          <div class="bsc-pct">30%</div>
+          <div class="bsc-amt" id="bscWants">${fmt(alloc.wants)}</div>
+          <div class="bsc-sub">lifestyle</div>
+        </div>
+        <div class="budget-split-card bsc-save">
+          <div class="bsc-label">Save / Pay</div>
+          <div class="bsc-pct">20%</div>
+          <div class="bsc-amt" id="bscSave">${fmt(alloc.savings)}</div>
+          <div class="bsc-sub">future</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- tabs -->
+    <div class="budget-tabs">
+      <button class="budget-tab${budgetTab==='planner'?' on':''}" onclick="setBudgetTab('planner',event)">Planner</button>
+      <button class="budget-tab${budgetTab==='history'?' on':''}" onclick="setBudgetTab('history',event)">History</button>
+    </div>
+
+    ${budgetTab==='history'?`
+      <div class="panel anim-up">
+        <div class="ptitle">Past spending plans</div>
+        ${histHTML}
+      </div>
+    `:`
+    <!-- category panels -->
+    <div class="budget-col-grid">
+      <!-- NEEDS -->
+      <div class="budget-cat-panel">
+        <div class="budget-cat-title">🏠 Needs <span style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-left:auto;">${fmt(alloc.needs)}</span></div>
+        <div class="budget-cat-subtitle">Rent, food, transport, bills</div>
+        <div id="bcat-needs"></div>
+      </div>
+      <!-- WANTS -->
+      <div class="budget-cat-panel">
+        <div class="budget-cat-title">✨ Wants <span style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-left:auto;">${fmt(alloc.wants)}</span></div>
+        <div class="budget-cat-subtitle">Eating out, clothing, fun</div>
+        <div id="bcat-wants"></div>
+      </div>
+    </div>
+    <!-- SAVINGS full width -->
+    <div class="budget-cat-panel" style="margin-top:13px;">
+      <div class="budget-cat-title">💰 Savings / Loan payments <span style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-left:auto;">${fmt(alloc.savings)}</span></div>
+      <div class="save-type-row">
+        <button class="save-type-btn${(budget.saveType||'savings')==='savings'?' on':''}" data-type="savings" onclick="setSaveType('savings',event)">Savings</button>
+        <button class="save-type-btn${(budget.saveType||'savings')==='loan'?' on':''}" data-type="loan" onclick="setSaveType('loan',event)">Loan payment</button>
+        <button class="save-type-btn${(budget.saveType||'savings')==='both'?' on':''}" data-type="both" onclick="setSaveType('both',event)">Both</button>
+      </div>
+      <div id="bcat-savings"></div>
+    </div>
+    <!-- action buttons -->
+    <div style="display:flex;gap:8px;margin-top:13px;flex-wrap:wrap;">
+      <button class="addbtn" onclick="saveBudgetToHistory(event)">📊 Save to history</button>
+      <button class="gc-btn" onclick="clearBudget(event)">Clear items</button>
+    </div>
+    `}
+  `;
+
+  if(budgetTab==='planner'){
+    renderBudgetCat('needs');
+    renderBudgetCat('wants');
+    renderBudgetCat('savings');
+  }
+}
+
+
 function renderDocketView(){
   const today=toKey(new Date()),fd=new Date(calYear,calMonth,1).getDay(),dim=new Date(calYear,calMonth+1,0).getDate(),dip=new Date(calYear,calMonth,0).getDate();
   const tbd={};tasks.forEach(t=>{if(t.date){if(!tbd[t.date])tbd[t.date]=[];tbd[t.date].push(t);}});
@@ -1332,11 +1723,18 @@ function renderSettingsView(){
       <div class="sett-sec">Attachments info</div>
       <div class="att-notice">📎 Attachments are stored in your browser's local storage. Keep files small (under 4MB each) for best performance. If storage fills up, remove old attachments to free space.</div>
       <div class="sett-sec" style="margin-top:4px;">Photo banner</div>
-      <p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-bottom:10px;">Swipe left/right on the banner to change photos.</p>
+      <p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-bottom:10px;">Swipe left/right on the banner to change photos manually.</p>
       <label class="addbtn" for="photoUp2" style="display:inline-block;cursor:pointer;">+ Upload photos</label>
       <input type="file" id="photoUp2" class="up-inp" accept="image/*" multiple onchange="handlePhotos(this)"/>
       <p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-top:10px;">${allPhotos.length} photo${allPhotos.length!==1?'s':''} in rotation</p>
       ${photos.length?`<button class="gc-btn" style="margin-top:6px;" onclick="clearPhotos(event)">Reset to defaults</button>`:''}
+      <div style="margin-top:12px;">
+        <p style="font-size:12px;font-weight:800;color:var(--panel-title);margin-bottom:4px;">Auto-advance photos</p>
+        <p style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-bottom:0;">Currently: ${photoDurationLabel(photoDuration)}</p>
+        <div class="pdur-grid">
+          ${[{ms:5000,label:'5 sec'},{ms:30000,label:'30 sec'},{ms:60000,label:'1 min'},{ms:300000,label:'5 min'},{ms:1800000,label:'30 min'},{ms:3600000,label:'1 hour'},{ms:86400000,label:'1 day'}].map(o=>`<button class="pdur-btn${photoDuration===o.ms?' on':''}" data-dur="${o.ms}" onclick="setPhotoDuration(${o.ms},event)">${o.label}</button>`).join('')}
+        </div>
+      </div>
     </div>
   </div>`;
   document.getElementById('newDailyInp').addEventListener('keydown',e=>{if(e.key==='Enter')addDailyTask(e);});
@@ -1357,6 +1755,23 @@ function removeDT(i,e){
   renderDLEditList();renderDailyStrip();
 }
 function clearPhotos(e){if(e)makeRipple(e);photos=[];allPhotos=defaultPhotos;try{localStorage.removeItem('tw7_photos');}catch(ex){}initHero();renderSettingsView();}
+
+function setPhotoDuration(ms,e){
+  if(e)makeRipple(e);
+  photoDuration=ms;
+  try{localStorage.setItem('tw7_photodur',String(ms));}catch(ex){}
+  // restart interval with new duration
+  clearInterval(photoInterval);
+  photoInterval=setInterval(nextPhoto,photoDuration);
+  // update button states
+  document.querySelectorAll('.pdur-btn').forEach(b=>b.classList.toggle('on',parseInt(b.dataset.dur)===ms));
+  showNotif('🖼️','Photo timer updated',photoDurationLabel(ms));
+}
+
+function photoDurationLabel(ms){
+  const map={5000:'Every 5 seconds',30000:'Every 30 seconds',60000:'Every minute',300000:'Every 5 minutes',1800000:'Every 30 minutes',3600000:'Every hour',86400000:'Once a day'};
+  return map[ms]||'Custom';
+}
 
 // ── SHARED RENDERS ──
 function renderTaskMini(){const el=document.getElementById('taskMini');if(!el)return;const p=tasks.filter(t=>!t.done).slice(0,5);el.innerHTML=p.length?p.map(t=>`<div class="trow"><div class="chk" onclick="toggleTask(${t.id},this,event)">&nbsp;</div><div class="task-body"><div class="tlabel">${esc(t.text)}</div></div></div>`).join(''):`<div class="empty">All done!</div>`;}
@@ -1613,6 +2028,7 @@ function startRealtimeSync(uid){
       if(d.dailyState){dailyState=d.dailyState;changed=true;}
       if(d.progressHistory){progressHistory=d.progressHistory;}
       if(d.stuffiesState){stuffiesState=d.stuffiesState;changed=true;}
+      if(d.budget){budget=d.budget;}
 
       _isApplyingRemote=false;
 
@@ -1648,7 +2064,7 @@ window.saveToFirestore=function(){
       _lastRemoteUpdate=ts;
       const tasksLite=tasks.map(t=>({...t,attachments:(t.attachments||[]).map(a=>({name:a.name,type:a.type,size:a.size||0}))}));
       await window._fbSetDoc(window._fbDoc(window._fbDb,'users',window._currentUser.uid),{
-        tasks:tasksLite,grocs,pomoLog,dailyTasks,dailyState,progressHistory,stuffiesState,
+        tasks:tasksLite,grocs,pomoLog,dailyTasks,dailyState,progressHistory,stuffiesState,budget,
         lastDay:localStorage.getItem('tw7_dlast')||'',
         updatedAt:ts
       },{merge:true});
