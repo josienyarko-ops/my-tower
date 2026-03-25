@@ -393,6 +393,24 @@ body{font-family:'Nunito',sans-serif;overflow-x:hidden;overscroll-behavior:none;
 @keyframes pulse-sync{0%,100%{opacity:1}50%{opacity:.4}}
 .sync-row{display:flex;align-items:center;gap:5px;padding:4px 14px 8px;}
 .sync-lbl{font-size:10px;font-weight:700;color:var(--sb-section);}
+
+/* ── NOTIFICATION BANNER ── */
+.notif-banner{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:99999;background:var(--panel-bg);border:1.5px solid var(--panel-border);border-radius:14px;padding:12px 18px;display:flex;align-items:center;gap:10px;max-width:340px;width:90%;box-shadow:0 4px 24px rgba(0,0,0,.12);animation:notifSlide .35s cubic-bezier(.34,1.4,.64,1) forwards;}
+.notif-banner.hiding{animation:notifHide .3s ease forwards;}
+.notif-icon{font-size:20px;flex-shrink:0;}
+.notif-body{flex:1;min-width:0;}
+.notif-title{font-size:13px;font-weight:900;color:var(--panel-title);line-height:1.2;}
+.notif-msg{font-size:11px;font-weight:700;color:var(--inp-ph);margin-top:2px;line-height:1.4;}
+.notif-close{font-size:16px;color:var(--inp-ph);cursor:pointer;flex-shrink:0;padding:2px;}
+@keyframes notifSlide{from{opacity:0;transform:translateX(-50%) translateY(-20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes notifHide{from{opacity:1;transform:translateX(-50%) translateY(0)}to{opacity:0;transform:translateX(-50%) translateY(-16px)}}
+/* sync pulse on data change */
+@keyframes syncPulse{0%{transform:scale(1)}50%{transform:scale(1.6)}100%{transform:scale(1)}}
+.sync-dot.pulse{animation:syncPulse .4s ease;}
+/* notif permission button in settings */
+.notif-perm-btn{font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;padding:10px 18px;border-radius:10px;border:1.5px solid var(--btn-border);background:var(--btn-bg);color:var(--btn-text);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px;}
+.notif-perm-btn:active{transform:scale(.95);}
+.notif-status{font-size:12px;font-weight:700;color:var(--inp-ph);margin-top:6px;}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <!-- Firebase SDKs -->
@@ -435,6 +453,8 @@ onAuthStateChanged(auth, (user) => {
 </script>
 </head>
 <body>
+<!-- NOTIFICATION BANNER (injected by JS) -->
+<div id="notifContainer"></div>
 <!-- AUTH OVERLAY -->
 <div id="authOverlay" class="auth-overlay" style="display:none;">
   <div class="auth-card">
@@ -1289,6 +1309,12 @@ function renderSettingsView(){
       <div class="t-tiles">${THEMES.map(t=>`<div class="t-tile${cur===t.id?' on':''}" onclick="setTheme('${t.id}')"><div class="t-swatch" style="background:${t.sw}"></div><div class="t-label">${t.label}</div></div>`).join('')}</div>
     </div>
     <div class="panel">
+      <div class="sett-sec">Notifications</div>
+      <p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-bottom:12px;">Get notified when Pomodoro sessions finish and when you have tasks due today (checked at 6:00 AM).</p>
+      <button class="notif-perm-btn" id="notifPermBtn" onclick="requestNotifPermission()">🔔 Enable notifications</button>
+      <div class="notif-status" id="notifStatus">Tap to allow reminders.</div>
+    </div>
+    <div class="panel">
       <div class="sett-sec">Daily routine</div>
       <p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-bottom:10px;">Resets every midnight.</p>
       <div class="sett-inp-row"><input type="text" id="newDailyInp" placeholder="Add a daily task..." autocomplete="off"/><button class="addbtn" onclick="addDailyTask(event)">+ Add</button></div>
@@ -1315,6 +1341,8 @@ function renderSettingsView(){
   </div>`;
   document.getElementById('newDailyInp').addEventListener('keydown',e=>{if(e.key==='Enter')addDailyTask(e);});
   renderDLEditList();
+  // update notif button state
+  if(typeof Notification!=='undefined') setTimeout(updateNotifSettingsUI,50);
 }
 function renderDLEditList(){
   const el=document.getElementById('dlEditList');if(!el)return;
@@ -1414,7 +1442,9 @@ function togglePomo(e){
       if(pomoSecs<=0){clearInterval(pomoTimer);pomoRunning=false;const b=document.getElementById('pomoBtn');if(b)b.textContent='Start';
         confettiBurst();
         const now=new Date(),tstr=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-        pomoLog.push({mode:pomoCurMode,time:tstr});save();renderStats();renderPomoLogEl('plog2');return;}
+        pomoLog.push({mode:pomoCurMode,time:tstr});save();renderStats();renderPomoLogEl('plog2');
+        notifyPomoComplete(pomoCurMode);
+        return;}
       pomoSecs--;
       if(flipClockMode){renderFlipClock(pomoSecs);}
       else{const d=document.getElementById('pomoD');if(d)d.textContent=fmtTime(pomoSecs);updateArc();}
@@ -1422,6 +1452,216 @@ function togglePomo(e){
   }
 }
 function resetPomo(e){if(e)makeRipple(e);clearInterval(pomoTimer);pomoRunning=false;pomoSecs=pomoTotal;const d=document.getElementById('pomoD');if(d)d.textContent=fmtTime(pomoSecs);const b=document.getElementById('pomoBtn');if(b)b.textContent='Start';updateArc();}
+
+
+// ════════════════════════════════════════════
+// ── IN-APP NOTIFICATION SYSTEM ──
+// ════════════════════════════════════════════
+let _notifQueue=[];
+let _notifShowing=false;
+
+function showNotif(icon,title,msg,duration=4000){
+  _notifQueue.push({icon,title,msg,duration});
+  if(!_notifShowing)_drainNotifQueue();
+}
+
+function _drainNotifQueue(){
+  if(!_notifQueue.length){_notifShowing=false;return;}
+  _notifShowing=true;
+  const {icon,title,msg,duration}=_notifQueue.shift();
+  const id='nb'+Date.now();
+  const el=document.createElement('div');
+  el.className='notif-banner';el.id=id;
+  el.innerHTML=`<span class="notif-icon">${icon}</span>
+    <div class="notif-body"><div class="notif-title">${title}</div>${msg?`<div class="notif-msg">${msg}</div>`:''}
+    </div><span class="notif-close" onclick="_dismissNotif('${id}')">×</span>`;
+  document.getElementById('notifContainer').appendChild(el);
+  const timer=setTimeout(()=>_dismissNotif(id),duration);
+  el._timer=timer;
+}
+
+function _dismissNotif(id){
+  const el=document.getElementById(id);if(!el)return;
+  clearTimeout(el._timer);
+  el.classList.add('hiding');
+  setTimeout(()=>{el.remove();setTimeout(_drainNotifQueue,150);},300);
+}
+
+// ── BROWSER / PWA PUSH NOTIFICATIONS ──
+let _notifPermission='default';
+
+async function requestNotifPermission(){
+  if(!('Notification' in window)){
+    showNotif('⚠️','Notifications not supported','Your browser does not support notifications.');
+    return;
+  }
+  const result=await Notification.requestPermission();
+  _notifPermission=result;
+  updateNotifSettingsUI();
+  if(result==='granted'){
+    showNotif('🔔','Notifications enabled','You will get reminders for Pomodoro and docket tasks.');
+    scheduleNotifications();
+  } else {
+    showNotif('🔕','Notifications blocked','You can enable them in your browser settings.');
+  }
+}
+
+function updateNotifSettingsUI(){
+  const btn=document.getElementById('notifPermBtn');
+  const status=document.getElementById('notifStatus');
+  if(!btn||!status)return;
+  const p=Notification.permission||'default';
+  if(p==='granted'){
+    btn.textContent='✓ Notifications enabled';
+    btn.style.opacity='.6';btn.style.cursor='default';
+    status.textContent='You will be notified when Pomodoro sessions finish and when you have tasks due today (6 AM).';
+  } else if(p==='denied'){
+    btn.textContent='Notifications blocked';
+    btn.style.opacity='.6';
+    status.textContent='Notifications are blocked. To enable, go to your browser/phone settings and allow notifications for this site.';
+  } else {
+    btn.textContent='🔔 Enable notifications';
+    status.textContent='Tap to allow reminders for Pomodoro sessions and tasks due today.';
+  }
+}
+
+function sendPushNotif(title,body,icon=''){
+  if(Notification.permission!=='granted')return;
+  try{
+    const n=new Notification(title,{body,icon:icon||'/favicon.ico',badge:'/favicon.ico',vibrate:[200,100,200]});
+    setTimeout(()=>n.close(),8000);
+  } catch(e){console.warn('Push notif error',e);}
+}
+
+// ── SCHEDULE DAILY TASK NOTIFICATIONS ──
+let _notifScheduleInterval=null;
+function scheduleNotifications(){
+  clearInterval(_notifScheduleInterval);
+  _checkScheduledNotifs();
+  // check every minute
+  _notifScheduleInterval=setInterval(_checkScheduledNotifs,60000);
+}
+
+function _checkScheduledNotifs(){
+  const now=new Date();
+  const h=now.getHours(),m=now.getMinutes();
+  const todayKey=toKey(now);
+
+  // 6:00 AM — tasks due today from docket
+  if(h===6&&m===0){
+    const todayTasks=tasks.filter(t=>t.date===todayKey&&!t.done);
+    if(todayTasks.length>0){
+      const names=todayTasks.slice(0,3).map(t=>t.text).join(', ')+(todayTasks.length>3?'...':'');
+      sendPushNotif(
+        `📅 ${todayTasks.length} task${todayTasks.length>1?'s':''} due today`,
+        names
+      );
+      showNotif('📅',`${todayTasks.length} task${todayTasks.length>1?'s':''} due today`,names,6000);
+    }
+  }
+}
+
+// Called when Pomodoro session ends
+function notifyPomoComplete(mode){
+  const msgs={
+    focus:{icon:'🍅',title:'Focus session complete!',body:'Great work. Time for a break.'},
+    short:{icon:'☕',title:'Short break over',body:'Ready to focus again?'},
+    long:{icon:'🌿',title:'Long break over',body:'Refreshed and ready to go!'}
+  };
+  const m=msgs[mode]||msgs.focus;
+  showNotif(m.icon,m.title,m.body,5000);
+  sendPushNotif(m.title,m.body);
+}
+
+// ════════════════════════════════════════════
+// ── REAL-TIME FIRESTORE LISTENER ──
+// ════════════════════════════════════════════
+let _realtimeUnsub=null;
+let _lastRemoteUpdate='';
+let _isApplyingRemote=false;
+
+function startRealtimeSync(uid){
+  // Unsubscribe any existing listener
+  if(_realtimeUnsub){_realtimeUnsub();_realtimeUnsub=null;}
+  if(!window._fbDb||!window._fbDoc||!window._fbOnSnapshot)return;
+
+  _realtimeUnsub=window._fbOnSnapshot(
+    window._fbDoc(window._fbDb,'users',uid),
+    (snap)=>{
+      if(!snap.exists())return;
+      const d=snap.data();
+      // Ignore if this update was triggered by our own save
+      if(d.updatedAt&&d.updatedAt===_lastRemoteUpdate)return;
+      if(d.updatedAt)_lastRemoteUpdate=d.updatedAt;
+
+      // Don't overwrite local changes that are being typed right now
+      if(_syncTimeout)return;
+
+      _isApplyingRemote=true;
+      let changed=false;
+
+      if(d.tasks){
+        // merge attachments back from localStorage (not stored in firestore)
+        const localAttMap={};
+        tasks.forEach(t=>{if(t.attachments&&t.attachments.length)localAttMap[t.id]=t.attachments;});
+        tasks=d.tasks.map(t=>({...t,attachments:localAttMap[t.id]||t.attachments||[]}));
+        changed=true;
+      }
+      if(d.grocs){grocs=d.grocs;changed=true;}
+      if(d.pomoLog){pomoLog=d.pomoLog;}
+      if(d.dailyTasks){dailyTasks=d.dailyTasks;changed=true;}
+      if(d.dailyState){dailyState=d.dailyState;changed=true;}
+      if(d.progressHistory){progressHistory=d.progressHistory;}
+      if(d.stuffiesState){stuffiesState=d.stuffiesState;changed=true;}
+
+      _isApplyingRemote=false;
+
+      if(changed){
+        // pulse the sync dot
+        const dot=document.getElementById('syncDot');
+        if(dot){dot.classList.add('pulse');setTimeout(()=>dot.classList.remove('pulse'),500);}
+        setSyncStatus('synced');
+        renderMain();
+        showNotif('🔄','Synced from another device','Your data was updated.');
+      }
+    },
+    (err)=>{
+      console.warn('Realtime sync error',err);
+      setSyncStatus('offline');
+    }
+  );
+}
+
+function stopRealtimeSync(){
+  if(_realtimeUnsub){_realtimeUnsub();_realtimeUnsub=null;}
+}
+
+// ── Override saveToFirestore to track our own update timestamp ──
+// saveToFirestore defined below as window.saveToFirestore
+window.saveToFirestore=function(){
+  if(!window._currentUser||!window._fbDb)return;
+  setSyncStatus('syncing');
+  clearTimeout(_syncTimeout);
+  _syncTimeout=setTimeout(async()=>{
+    try{
+      const ts=new Date().toISOString();
+      _lastRemoteUpdate=ts;
+      const tasksLite=tasks.map(t=>({...t,attachments:(t.attachments||[]).map(a=>({name:a.name,type:a.type,size:a.size||0}))}));
+      await window._fbSetDoc(window._fbDoc(window._fbDb,'users',window._currentUser.uid),{
+        tasks:tasksLite,grocs,pomoLog,dailyTasks,dailyState,progressHistory,stuffiesState,
+        lastDay:localStorage.getItem('tw7_dlast')||'',
+        updatedAt:ts
+      },{merge:true});
+      setSyncStatus('synced');
+      _syncTimeout=null;
+    } catch(e){
+      console.warn('Firestore save error',e);
+      setSyncStatus('offline');
+      _syncTimeout=null;
+    }
+  },1200);
+};
+
 
 // ── INIT ──
 try{const t=localStorage.getItem('tw7_theme');if(t)document.getElementById('app').className='shell theme-'+t;}catch(e){}
@@ -1486,37 +1726,24 @@ async function loadFromFirestore(uid){
   }
 }
 
-function saveToFirestore(){
-  if(!window._currentUser||!window._fbDb)return;
-  setSyncStatus('syncing');
-  clearTimeout(_syncTimeout);
-  _syncTimeout=setTimeout(async()=>{
-    try{
-      // strip attachment data for Firestore (too large — keep locally)
-      const tasksLite=tasks.map(t=>({...t,attachments:(t.attachments||[]).map(a=>({name:a.name,type:a.type,size:a.size||0}))}));
-      await window._fbSetDoc(window._fbDoc(window._fbDb,'users',window._currentUser.uid),{
-        tasks:tasksLite,grocs,pomoLog,dailyTasks,dailyState,progressHistory,stuffiesState,
-        lastDay:localStorage.getItem('tw7_dlast')||'',
-        updatedAt:new Date().toISOString()
-      },{merge:true});
-      setSyncStatus('synced');
-    } catch(e){
-      console.warn('Firestore save error',e);
-      setSyncStatus('offline');
-    }
-  },1200);
-}
+
 
 // Override save() to also push to Firestore
 const _localSave=save;
-window.save=function(){_localSave();saveToFirestore();};
+window.save=function(){_localSave();if(typeof saveToFirestore==='function')saveToFirestore();};
 
 window._onAuthChange=function(user){
   updateSbUserArea(user);
   document.getElementById('authOverlay').style.display='none';
   if(user){
     loadFromFirestore(user.uid);
+    startRealtimeSync(user.uid);
+    // start notification schedule if permission already granted
+    if(typeof Notification!=='undefined'&&Notification.permission==='granted'){
+      scheduleNotifications();
+    }
   } else {
+    stopRealtimeSync();
     renderMain();
   }
 };
