@@ -742,6 +742,11 @@ body{font-family:'Nunito',sans-serif;overflow-x:hidden;overscroll-behavior:none;
 .hist-detail-item{font-size:11px;font-weight:700;color:var(--inp-ph);display:flex;align-items:center;gap:4px;}
 .hist-detail-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
 .hist-empty{text-align:center;padding:24px;color:var(--empty);font-size:13px;font-weight:700;}
+
+/* king toggle */
+.king-toggle{cursor:pointer;transition:opacity .35s,transform .35s;}
+.king-toggle.hidden{opacity:0;transform:scale(.7) translateY(10px);pointer-events:none;}
+.king-hint{text-align:center;font-size:10px;font-weight:800;color:var(--empty);margin-top:2px;cursor:pointer;transition:opacity .3s;}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <!-- Firebase SDKs -->
@@ -929,7 +934,8 @@ let budget={amount:0,needs:[],wants:[],savings:[],saveType:'savings',history:[]}
 let customDishes=[];
 let notifyBeforeMins=15; // default: notify 15 mins before deadline
 try{notifyBeforeMins=parseInt(localStorage.getItem('tw7_notifbefore')||'15');}catch(e){}
-let _notifiedTasks=new Set(); // track which tasks we already notified to avoid repeats
+let _notifiedTasks=new Set();
+let _kingVisible=true; // track which tasks we already notified to avoid repeats
 let flipClockMode=false;
 let stuffiesView='list'; // 'list' or 'stuffies'
 let openDishes=new Set();
@@ -1127,7 +1133,7 @@ function renderDailyStrip(){
     <div class="daily-tasks">${dailyTasks.map((t,i)=>{const d=!!dailyState['d'+i];const name=getDailyName(t);const timeBadge=dailyTimeBadge(t);return`<div class="dtask${d?' done':''}" onclick="toggleDaily(${i},event)"><div class="dtask-chk">${d?'✓':''}</div><span class="dtask-lbl">${esc(name)}</span>${timeBadge}</div>`;}).join('')}</div>
     <div class="dpb"><div class="dpbf" style="width:${pct}%"></div></div>
     <div class="dplbl">${pct}% complete</div>
-    ${pct===100?mascotCelebrating():''}
+    ${pct===100?`<div class="king-toggle${_kingVisible?'':' hidden'}" id="kingWrap" onclick="toggleKing(event)" title="${_kingVisible?'Tap to hide':'Tap to show'}">${mascotCelebrating()}</div><div class="king-hint" onclick="toggleKing(event)">${_kingVisible?'tap to dismiss':'👑 tap to summon'}</div>`:''}
   </div>`;
 }
 
@@ -2304,6 +2310,20 @@ function mascotCelebrating(){
   </div>`;
 }
 
+
+function toggleKing(e){
+  if(e)makeRipple(e);
+  _kingVisible=!_kingVisible;
+  const wrap=document.getElementById('kingWrap');
+  const hint=wrap&&wrap.nextElementSibling;
+  if(wrap){
+    wrap.classList.toggle('hidden',!_kingVisible);
+    wrap.title=_kingVisible?'Tap to hide':'Tap to show';
+  }
+  if(hint){
+    hint.textContent=_kingVisible?'tap to dismiss':'👑 tap to summon';
+  }
+}
 
 // ── Trigger pomo mascot — start typing when timer runs ──
 function triggerMascotFocus(running){
