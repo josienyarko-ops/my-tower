@@ -816,8 +816,8 @@ body{font-family:'Nunito',sans-serif;overflow-x:hidden;overscroll-behavior:none;
 
 /* ── ROUTINE VIEW ── */
 .routine-card{background:var(--panel-bg);border:1.5px solid var(--panel-border);border-radius:13px;padding:14px 16px;margin-bottom:10px;}
-.routine-ring-wrap{display:flex;align-items:center;gap:16px;margin-bottom:14px;}
-.routine-ring-side{flex:1;display:flex;flex-direction:column;gap:4px;}
+.routine-ring-wrap{display:flex;align-items:center;gap:16px;margin-bottom:14px;overflow-x:auto;}
+.routine-ring-side{flex:1;display:flex;flex-direction:column;gap:4px;min-width:120px;}
 .rstep{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:9px;cursor:pointer;transition:background .15s;}
 .rstep:active{transform:scale(.97);}
 .rstep.done .rstep-name{text-decoration:line-through;color:var(--inp-ph);}
@@ -829,7 +829,7 @@ body{font-family:'Nunito',sans-serif;overflow-x:hidden;overscroll-behavior:none;
 .rstep-chk{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--chk-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
 .rstep-chk.done{background:var(--chk-bg);border-color:var(--chk-border2);}
 .rstep-chk.done::after{content:'';width:4px;height:4px;border-radius:50%;background:var(--chk-text);}
-.routine-ring-center{flex-shrink:0;width:130px;height:130px;position:relative;}
+.routine-ring-center{flex-shrink:0;width:130px;height:130px;position:relative;min-width:130px;}
 .routine-ring-center canvas{display:block;}
 .routine-ring-lbl{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;}
 .rlbl-pct{font-size:22px;font-weight:900;color:var(--panel-title);line-height:1;}
@@ -867,7 +867,7 @@ body{font-family:'Nunito',sans-serif;overflow-x:hidden;overscroll-behavior:none;
 .day-holiday-banner{background:var(--db);border:1px solid var(--dbo);border-radius:8px;padding:6px 10px;margin-bottom:8px;font-size:12px;font-weight:800;color:var(--da);display:flex;align-items:center;gap:6px;}
 
 /* ── MY DAY STRIP (compact habit bar at top of sections) ── */
-.myday-strip{background:var(--panel-bg);border-bottom:1px dashed var(--sec-dash);padding:8px 14px 10px;margin:-1px -1px 12px;display:flex;flex-direction:column;gap:6px;}
+.myday-strip{background:var(--panel-bg);border-bottom:1px dashed var(--sec-dash);padding:7px 14px 8px;margin:0 0 10px;display:flex;flex-direction:column;gap:5px;}
 .myday-hdr{display:flex;align-items:center;justify-content:space-between;}
 .myday-title{font-size:10px;font-weight:900;color:var(--inp-ph);text-transform:uppercase;letter-spacing:.8px;}
 .myday-meta{font-size:10px;font-weight:700;color:var(--inp-ph);}
@@ -1123,7 +1123,7 @@ tasks.forEach(t=>{if(!t.attachments)t.attachments=[];if(!('deadline' in t))t.dea
 const defaultPhotos=['https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=900&q=80','https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80','https://images.unsplash.com/photo-1501854140801-50d01698950b?w=900&q=80','https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900&q=80','https://images.unsplash.com/photo-1490750967868-88df5691cc17?w=900&q=80'];
 let allPhotos=photos.length?photos:defaultPhotos,curPhoto=0,curActive=0,photoInterval=null;
 let photoDuration=parseInt(localStorage.getItem('tw7_photodur')||'5000');
-let selCat='personal',filter='all',selGCat='other',curView='tasks',chipMode='cat';
+let selCat='personal',filter='all',selGCat='other',curView='brain',chipMode='cat';
 let calYear=new Date().getFullYear(),calMonth=new Date().getMonth(),selDate=toKey(new Date()),daySelCat='personal';
 let pomoSecs=25*60,pomoTotal=25*60,pomoRunning=false,pomoTimer=null,pomoCurMode='focus';
 let expandedAtts=new Set(); // task ids with expanded attachments
@@ -3113,8 +3113,9 @@ function renderBrainView(){
 
   mp.innerHTML=`<div class="panel anim-up">
     ${myDayStripHTML()}
-    <div class="brain-input-wrap">
-      <input class="brain-inp" id="brainInp" type="text" placeholder="What's on your mind…" autocomplete="off"/>
+    <div class="brain-input-wrap" style="display:flex;gap:8px;align-items:center;">
+      <input class="brain-inp" id="brainInp" type="text" placeholder="What's on your mind…" autocomplete="off" onkeydown="if(event.key==='Enter')addBrainItem(event)" style="flex:1;"/>
+      <button class="addbtn" onclick="addBrainItem(event)" style="flex-shrink:0;">+</button>
     </div>
     <div class="brain-list" id="brainList">
       ${todo.length||done.length?todoHTML+doneHTML:'<div class="brain-empty">Nothing here yet — just start typing</div>'}
