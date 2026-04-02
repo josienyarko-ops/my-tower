@@ -55,6 +55,35 @@ body{font-family:'Nunito',sans-serif;overflow-x:hidden;overscroll-behavior:none;
   --groc-clear-bg:#f0e0b0;--groc-clear-t:#8b3010;--groc-clear-b:#d4a870;
 }
 
+.theme-pink{
+  --sb:#fdf0f5;--sb-text:#a03060;--sb-active:rgba(220,80,130,.12);--sb-active-text:#7a1a40;--sb-section:#d47090;--sb-border:rgba(200,80,120,.18);--sb-logo:#f8d0e0;--sb-logo-text:#c04070;
+  --sb-stat1:#fde8f0;--sb-stat1t:#8a2050;--sb-stat2:#fde8f0;--sb-stat2t:#8a2050;--sb-stat3:#fde8f0;--sb-stat3t:#8a2050;
+  --bg:#fdf0f5;
+  --panel-bg:#fff8fb;--panel-border:rgba(220,100,140,.2);
+  --inp-bg:#fde8f0;--inp-border:rgba(220,80,120,.3);--inp-focus:#d4537e;--inp-text:#4a1030;--inp-ph:#c080a0;
+  --btn-bg:#d4537e;--btn-text:#fff0f5;--btn-border:#993556;
+  --chip-on:#993556;--fall-bg:#fde8f0;--fall-text:#7a1a40;--fall-border:#f0b0c8;
+  --floor-bg:#fdf0f5;--floor-border:rgba(220,100,140,.2);--floor-dash:rgba(220,100,140,.25);
+  --task-bg:#fff8fb;--task-border:rgba(220,100,140,.15);--task-hover:#fde8f0;
+  --chk-border:#f0b0c8;--chk-bg:#d4537e;--chk-border2:#993556;--chk-text:#fff0f5;
+  --prog-track:#fde8f0;--prog-fill:#d4537e;--prog-border:#f0b0c8;--prog-text:#993556;
+  --panel-title:#3a0820;--sec-dash:rgba(220,100,140,.2);--empty:#c080a0;--stat-op:.7;
+  --hero-ov:linear-gradient(to bottom,rgba(253,240,245,0) 30%,rgba(253,240,245,.9) 100%);
+  --hero-title:#3a0820;--hero-sub:#c04070;--dot:rgba(212,83,126,.3);--dot-on:#d4537e;
+  --up-bg:rgba(255,248,251,.95);--up-text:#c04070;--up-border:rgba(220,100,140,.3);
+  --pt:#d4537e;--ps:#7a9070;--pl:#6080b0;
+  --pmf-bg:#fde8f0;--pmf-t:#7a1a40;--pms-bg:#e8f0e0;--pms-t:#3a5020;--pml-bg:#e0e8f5;--pml-t:#203060;
+  --pb-bg:#d4537e;--pb-t:#fff0f5;--pb-b:#993556;--pr-bg:#fde8f0;--pr-t:#7a1a40;--pr-b:#f0b0c8;
+  --ptime:#3a0820;--psub:#c080a0;--plog:#c04070;--plog-dash:rgba(220,100,140,.2);
+  --gc-bg:#fde8f0;--gc-t:#7a1a40;--gc-b:#f0b0c8;--logout:#c080a0;
+  --ch:#3a0820;--ct-bg:#d4537e;--ct-t:#fff0f5;--cdot:#d4537e;--csel:#fde8f0;--chov:#fdf0f5;--cwknd:#fde0ec;
+  --clk-bg:#fff8fb;--clk-b:rgba(220,100,140,.2);--clk-t:#3a0820;--clk-s:#c080a0;--clk-d:#d4537e;
+  --sw:#d4537e;--sp:#7a9070;--sh:#6080b0;--sl:#9060a0;--shm:#c07050;--so:#c04070;
+  --db:#fde8f0;--dbo:rgba(220,100,140,.2);--da:#d4537e;
+  --att-bg:#fde8f0;--att-border:rgba(220,100,140,.25);--att-text:#7a1a40;
+  --del-bg:#f0b0c8;--del-icon:#7a1a40;--mascot-skin:#F0997B;--mascot-hair:#712B13;
+  --groc-clear-bg:#fde8f0;--groc-clear-t:#8b1a40;--groc-clear-b:#f0b0c8;
+}
 .theme-journal{
   --sb:#f5f0e8;--sb-text:#6b5e4e;--sb-active:rgba(107,94,78,.12);--sb-active-text:#3d3028;--sb-section:#b0a090;--sb-border:rgba(107,94,78,.15);--sb-logo:#e8e0d0;--sb-logo-text:#6b5e4e;
   --sb-stat1:#f0ebe0;--sb-stat1t:#5a4a38;--sb-stat2:#f0ebe0;--sb-stat2t:#5a4a38;--sb-stat3:#f0ebe0;--sb-stat3t:#5a4a38;
@@ -390,7 +419,7 @@ body{font-family:'Nunito',sans-serif;overflow-x:hidden;overscroll-behavior:none;
 .t-tile:active{transform:scale(.9);}
 .t-tile.on{border-color:var(--panel-title);}
 .t-swatch{height:44px;}
-.t-label{font-size:10px;font-weight:800;padding:4px 5px;background:var(--floor-bg);color:var(--panel-title);text-align:center;}
+.t-label{font-size:9px;font-weight:800;padding:3px 4px;background:var(--floor-bg);color:var(--panel-title);text-align:center;}
 .sett-inp-row{display:flex;gap:7px;margin-bottom:8px;}
 .sett-inp-row input{flex:1;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;background:var(--inp-bg);border:1.5px solid var(--inp-border);border-radius:10px;padding:10px 12px;color:var(--inp-text);outline:none;-webkit-appearance:none;}
 .sett-inp-row input:focus{border-color:var(--inp-focus);}
@@ -747,6 +776,107 @@ body{font-family:'Nunito',sans-serif;overflow-x:hidden;overscroll-behavior:none;
 .king-toggle{cursor:pointer;transition:opacity .35s,transform .35s;}
 .king-toggle.hidden{opacity:0;transform:scale(.7) translateY(10px);pointer-events:none;}
 .king-hint{text-align:center;font-size:10px;font-weight:800;color:var(--empty);margin-top:2px;cursor:pointer;transition:opacity .3s;}
+
+/* ── AUTO-CAT TOAST ── */
+.cat-toast{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--panel-bg);border:1.5px solid var(--panel-border);border-radius:10px;padding:8px 12px;margin:6px 0 4px;animation:popIn .25s cubic-bezier(.34,1.4,.64,1);transition:opacity .3s,transform .3s;}
+.cat-toast-lbl{font-size:12px;font-weight:700;color:var(--inp-ph);flex-shrink:0;}
+.cat-toast-lbl strong{color:var(--panel-title);font-weight:900;}
+.cat-toast-cats{display:flex;gap:5px;flex-wrap:wrap;margin-left:auto;}
+.cat-toast-btn{font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;border:1.5px solid var(--floor-border);background:var(--floor-bg);color:var(--inp-ph);cursor:pointer;transition:all .15s;}
+.cat-toast-btn:hover{background:var(--task-hover);color:var(--panel-title);}
+.cat-toast-btn:active{transform:scale(.9);}
+
+/* ── FILTER TOGGLE BTN ── */
+.filter-tog-btn{font-family:'Nunito',sans-serif;background:var(--floor-bg);border:1.5px solid var(--floor-border);border-radius:8px;padding:6px 9px;cursor:pointer;color:var(--inp-ph);display:flex;align-items:center;transition:all .2s;flex-shrink:0;}
+.filter-tog-btn.on{background:var(--btn-bg);color:var(--btn-text);border-color:var(--btn-border);}
+.filter-tog-btn:active{transform:scale(.9);}
+
+/* ── BRAIN DUMP ── */
+.brain-input-wrap{position:relative;margin-bottom:12px;}
+.brain-inp{width:100%;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;background:none;border:none;border-bottom:1.5px solid var(--inp-border);padding:8px 0;color:var(--inp-text);outline:none;-webkit-appearance:none;}
+.brain-inp::placeholder{color:var(--inp-ph);font-weight:600;}
+.brain-inp:focus{border-bottom-color:var(--inp-focus);}
+.brain-list{display:flex;flex-direction:column;gap:0;}
+.brain-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:0.5px solid var(--floor-border);position:relative;}
+.brain-item:last-child{border-bottom:none;}
+.brain-chk{width:17px;height:17px;border-radius:50%;border:1.5px solid var(--chk-border);flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.brain-chk.done{background:var(--chk-bg);border-color:var(--chk-border2);}
+.brain-chk.done::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--chk-text);}
+.brain-txt{flex:1;font-size:13px;font-weight:700;color:var(--panel-title);outline:none;background:none;border:none;font-family:'Nunito',sans-serif;cursor:text;padding:0;}
+.brain-item.done .brain-txt{text-decoration:line-through;color:var(--inp-ph);}
+.brain-del{background:none;border:none;cursor:pointer;color:var(--inp-ph);font-size:16px;padding:0 3px;opacity:0;transition:opacity .2s;line-height:1;}
+.brain-item:hover .brain-del{opacity:1;}
+.brain-move-btn{background:var(--btn-bg);color:var(--btn-text);border:none;border-radius:20px;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;padding:3px 10px;cursor:pointer;white-space:nowrap;opacity:0;transition:opacity .2s;}
+.brain-item:hover .brain-move-btn{opacity:1;}
+.brain-empty{text-align:center;padding:28px 0;color:var(--empty);font-size:13px;font-weight:700;}
+.brain-done-section{margin-top:10px;border-top:1px dashed var(--sec-dash);padding-top:10px;}
+.brain-done-label{font-size:10px;font-weight:900;color:var(--inp-ph);text-transform:uppercase;letter-spacing:.7px;margin-bottom:6px;}
+.brain-clear-btn{font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;color:var(--inp-ph);background:none;border:none;cursor:pointer;padding:2px 0;float:right;}
+.brain-clear-btn:active{opacity:.6;}
+
+/* ── ROUTINE VIEW ── */
+.routine-card{background:var(--panel-bg);border:1.5px solid var(--panel-border);border-radius:13px;padding:14px 16px;margin-bottom:10px;}
+.routine-ring-wrap{display:flex;align-items:center;gap:16px;margin-bottom:14px;}
+.routine-ring-side{flex:1;display:flex;flex-direction:column;gap:4px;}
+.rstep{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:9px;cursor:pointer;transition:background .15s;}
+.rstep:active{transform:scale(.97);}
+.rstep.done .rstep-name{text-decoration:line-through;color:var(--inp-ph);}
+.rstep.active-step{background:var(--floor-bg);}
+.rstep-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.rstep-info{flex:1;min-width:0;}
+.rstep-name{font-size:12px;font-weight:800;color:var(--panel-title);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rstep-time{font-size:10px;font-weight:700;color:var(--inp-ph);}
+.rstep-chk{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--chk-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
+.rstep-chk.done{background:var(--chk-bg);border-color:var(--chk-border2);}
+.rstep-chk.done::after{content:'';width:4px;height:4px;border-radius:50%;background:var(--chk-text);}
+.routine-ring-center{flex-shrink:0;width:130px;height:130px;position:relative;}
+.routine-ring-center canvas{display:block;}
+.routine-ring-lbl{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;}
+.rlbl-pct{font-size:22px;font-weight:900;color:var(--panel-title);line-height:1;}
+.rlbl-sub{font-size:10px;font-weight:800;color:var(--inp-ph);margin-top:2px;text-transform:uppercase;letter-spacing:.5px;}
+.rlbl-mins{font-size:10px;font-weight:700;color:var(--inp-ph);margin-top:1px;}
+.routine-actions{display:flex;gap:8px;padding-top:10px;border-top:1px dashed var(--sec-dash);}
+.r-start-btn{flex:1;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;padding:9px;background:var(--btn-bg);color:var(--btn-text);border:1.5px solid var(--btn-border);border-radius:9px;cursor:pointer;transition:all .2s;}
+.r-start-btn:active{transform:scale(.96);}
+.r-reset-btn{font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;padding:9px 14px;background:var(--floor-bg);color:var(--inp-ph);border:1.5px solid var(--floor-border);border-radius:9px;cursor:pointer;transition:all .2s;}
+.r-reset-btn:active{transform:scale(.96);}
+.r-timer-badge{font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;background:var(--floor-bg);color:var(--inp-ph);border:1.5px solid var(--floor-border);white-space:nowrap;}
+.r-timer-badge.running{background:var(--db);color:var(--da);border-color:var(--dbo);}
+.routine-section-title{font-size:11px;font-weight:900;color:var(--inp-ph);text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;}
+/* keep existing daily habit chips below */
+.routine-habits-section{margin-top:12px;padding-top:12px;border-top:1px dashed var(--sec-dash);}
+
+/* ── BUDGET REMAINING TOTAL ── */
+.budget-remaining-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:10px;background:var(--floor-bg);border:1.5px solid var(--floor-border);margin-bottom:10px;}
+.brem-label{font-size:11px;font-weight:800;color:var(--inp-ph);text-transform:uppercase;letter-spacing:.5px;}
+.brem-amount{font-size:18px;font-weight:900;color:var(--panel-title);transition:color .3s;}
+.brem-amount.over{color:#c03030;}
+.brem-amount.tight{color:#c07030;}
+.brem-amount.good{color:var(--prog-fill);}
+/* princess worry animation */
+@keyframes princessShake{0%,100%{transform:translateX(0)}15%{transform:translateX(-6px) rotate(-3deg)}30%{transform:translateX(6px) rotate(3deg)}45%{transform:translateX(-5px) rotate(-2deg)}60%{transform:translateX(5px) rotate(2deg)}75%{transform:translateX(-3px)}90%{transform:translateX(3px)}}
+@keyframes princessWorry{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+.princess-over #princessMascotWrap{animation:princessShake .6s ease;}
+.princess-over #princessMascotSVG{animation:princessWorry 1s ease-in-out infinite;}
+
+/* ── GHANA HOLIDAYS IN CALENDAR ── */
+.cal-day.holiday{background:var(--db);}
+.cal-day.holiday .cdn{color:var(--da);}
+.holiday-dot{width:5px;height:5px;border-radius:50%;background:var(--da);flex-shrink:0;}
+.holiday-name{font-size:9px;font-weight:800;color:var(--da);margin-top:3px;text-align:center;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;}
+.day-holiday-banner{background:var(--db);border:1px solid var(--dbo);border-radius:8px;padding:6px 10px;margin-bottom:8px;font-size:12px;font-weight:800;color:var(--da);display:flex;align-items:center;gap:6px;}
+
+/* ── MY DAY STRIP (compact habit bar at top of sections) ── */
+.myday-strip{background:var(--panel-bg);border-bottom:1px dashed var(--sec-dash);padding:8px 14px 10px;margin:-1px -1px 12px;display:flex;flex-direction:column;gap:6px;}
+.myday-hdr{display:flex;align-items:center;justify-content:space-between;}
+.myday-title{font-size:10px;font-weight:900;color:var(--inp-ph);text-transform:uppercase;letter-spacing:.8px;}
+.myday-meta{font-size:10px;font-weight:700;color:var(--inp-ph);}
+.myday-chips{display:flex;gap:5px;flex-wrap:wrap;}
+.myday-chip{display:flex;align-items:center;gap:4px;padding:3px 9px;border-radius:20px;border:1.5px solid var(--floor-border);background:var(--floor-bg);font-size:11px;font-weight:800;color:var(--inp-ph);cursor:pointer;transition:all .2s;}
+.myday-chip.done{background:var(--chk-bg);border-color:var(--chk-border2);color:var(--chk-text);text-decoration:line-through;opacity:.7;}
+.myday-chip:active{transform:scale(.9);}
+.myday-bar{height:3px;background:var(--floor-border);border-radius:2px;overflow:hidden;margin-top:2px;}
+.myday-fill{height:100%;background:var(--da);border-radius:2px;transition:width .4s;}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <!-- Firebase SDKs -->
@@ -819,8 +949,14 @@ onAuthStateChanged(auth, (user) => {
     </div>
     <div class="sb-nav">
       <div class="nav-sec">Sections</div>
-      <div class="nav-item active" data-view="tasks" onclick="switchView(this,event)">
-        <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="14" height="12" rx="2"/><line x1="5" y1="7" x2="13" y2="7"/><line x1="5" y1="10" x2="10" y2="10"/></svg>Tasks
+      <div class="nav-item active" data-view="brain" onclick="switchView(this,event)">
+        <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 3a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.5V14H7v-3.5A4 4 0 0 1 5 7a4 4 0 0 1 4-4z"/><line x1="7" y1="14" x2="11" y2="14"/><line x1="7" y1="16" x2="11" y2="16"/></svg>Brain dump
+      </div>
+      <div class="nav-item" data-view="routine" onclick="switchView(this,event)">
+        <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="9" r="7"/><polyline points="9,5 9,9 12,9"/></svg>Routine
+      </div>
+      <div class="nav-item" data-view="tasks" onclick="switchView(this,event)">
+        <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="14" height="12" rx="2"/><line x1="5" y1="7" x2="13" y2="7"/><line x1="5" y1="10" x2="10" y2="10"/></svg>My board
       </div>
       <div class="nav-item" data-view="docket" onclick="switchView(this,event)">
         <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="14" height="13" rx="2"/><line x1="6" y1="1" x2="6" y2="5"/><line x1="12" y1="1" x2="12" y2="5"/><line x1="2" y1="8" x2="16" y2="8"/></svg>Docket
@@ -883,15 +1019,20 @@ onAuthStateChanged(auth, (user) => {
         <div class="scard sc2" onclick="burst(event,'⭐')"><div class="sc-lbl">Done</div><div class="sc-val" id="sc2v">0</div><div class="sc-sub">keep going!</div></div>
         <div class="scard sc3" onclick="burst(event,'🛒')"><div class="sc-lbl">Market</div><div class="sc-val" id="sc3v">0</div><div class="sc-sub">to pick up</div></div>
       </div>
-      <div id="dailyDiv"></div>
       <div id="mainPanel"></div>
     </div>
   </div>
 
   <!-- MOBILE NAV -->
   <nav class="mob-nav">
-    <button class="mob-btn active" data-view="tasks" onclick="switchView(this,event)">
-      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="14" height="12" rx="2"/><line x1="5" y1="7" x2="13" y2="7"/><line x1="5" y1="10" x2="10" y2="10"/></svg>Tasks
+    <button class="mob-btn active" data-view="brain" onclick="switchView(this,event)">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 3a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.5V14H7v-3.5A4 4 0 0 1 5 7a4 4 0 0 1 4-4z"/><line x1="7" y1="14" x2="11" y2="14"/><line x1="7" y1="16" x2="11" y2="16"/></svg>Dump
+    </button>
+    <button class="mob-btn" data-view="routine" onclick="switchView(this,event)">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="9" r="7"/><polyline points="9,5 9,9 12,9"/></svg>Routine
+    </button>
+    <button class="mob-btn" data-view="tasks" onclick="switchView(this,event)">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="14" height="12" rx="2"/><line x1="5" y1="7" x2="13" y2="7"/><line x1="5" y1="10" x2="10" y2="10"/></svg>Board
     </button>
     <button class="mob-btn" data-view="docket" onclick="switchView(this,event)">
       <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="14" height="13" rx="2"/><line x1="6" y1="1" x2="6" y2="5"/><line x1="12" y1="1" x2="12" y2="5"/><line x1="2" y1="8" x2="16" y2="8"/></svg>Docket
@@ -921,15 +1062,38 @@ onAuthStateChanged(auth, (user) => {
 </div>
 
 <script>
+// ── AUTO-CATEGORISE KEYWORDS ──
+const CAT_KEYWORDS={
+  work:['meeting','report','email','present','project','client','deadline','boss','office','work','task','slide','proposal','review','invoice','budget','schedule','call','zoom','teams','thesis','study','assignment','submit','essay','draft','write','research','lecture','exam','test','chapter','read','course','class'],
+  personal:['mum','mom','dad','family','friend','call','text','birthday','wedding','gift','party','visit','phone','chat','catch up','sister','brother','aunt','uncle','grandma','grandpa'],
+  health:['gym','exercise','run','walk','jog','workout','doctor','hospital','clinic','medicine','pill','appointment','dentist','therapy','meditate','sleep','water','eat','diet','yoga','stretch','physio'],
+  home:['clean','wash','cook','laundry','dishes','grocery','shop','buy','fix','repair','pay','bill','rent','tidy','organise','organize','sweep','mop','iron','plant','garden','trash','bin'],
+  learning:['read','book','course','learn','practice','study','chapter','notes','podcast','video','tutorial','skill','language','vocab','flashcard','revision'],
+  other:[]
+};
+function guessCat(text){
+  const t=text.toLowerCase();
+  // check each category's keywords, score by matches
+  let best='other',bestScore=0;
+  Object.entries(CAT_KEYWORDS).forEach(([cat,words])=>{
+    const score=words.filter(w=>t.includes(w)).length;
+    if(score>bestScore){bestScore=score;best=cat;}
+  });
+  // if nothing matched, use last selected category
+  return bestScore>0?best:selCat;
+}
+
 const CATS=[{id:'work',label:'Work',cls:'cchip-work'},{id:'personal',label:'Personal',cls:'cchip-personal'},{id:'health',label:'Health',cls:'cchip-health'},{id:'learning',label:'Learning',cls:'cchip-learning'},{id:'home',label:'Home',cls:'cchip-home'},{id:'other',label:'Other',cls:'cchip-other'}];
 const GCATS={veg:'Veggies',fruit:'Fruit',dairy:'Dairy',meat:'Meat',dry:'Dry goods',other:'Other'};
 const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
 const DAYS_F=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const DAYS_S=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const DEFAULT_DAILY=['Bath','Brush teeth','Eat','Use washroom','Work','Write thesis'];
-const THEMES=[{id:'parchment',label:'Parchment',sw:'linear-gradient(135deg,#f5e8c8,#c8952a)'},{id:'pastel',label:'Pastel',sw:'linear-gradient(135deg,#e8d5f0,#d8f5ec)'},{id:'storybook',label:'Storybook',sw:'linear-gradient(135deg,#2a4a30,#7ac870)'},{id:'sunset',label:'Sunset',sw:'linear-gradient(135deg,#3a1a2a,#e8b898)'},{id:'black',label:'Minimal',sw:'#111'},{id:'red',label:'Red',sw:'linear-gradient(135deg,#1a0505,#e87070)'},{id:'ocean',label:'Ocean',sw:'linear-gradient(135deg,#0a1a2a,#60b0e8)'},{id:'sand',label:'Sand',sw:'linear-gradient(135deg,#2a200a,#d8c070)'},{id:'white',label:'White',sw:'linear-gradient(135deg,#f0f0f0,#e8e8e8)'},{id:'journal',label:'Journal',sw:'linear-gradient(135deg,#f5f0e8,#e8e0d0)'}];
+const THEMES=[{id:'parchment',label:'Parchment',sw:'linear-gradient(135deg,#f5e8c8,#c8952a)'},{id:'pink',label:'Pink',sw:'linear-gradient(135deg,#fde8f0,#d4537e)'},{id:'pastel',label:'Pastel',sw:'linear-gradient(135deg,#e8d5f0,#d8f5ec)'},{id:'storybook',label:'Storybook',sw:'linear-gradient(135deg,#2a4a30,#7ac870)'},{id:'sunset',label:'Sunset',sw:'linear-gradient(135deg,#3a1a2a,#e8b898)'},{id:'black',label:'Minimal',sw:'#111'},{id:'red',label:'Red',sw:'linear-gradient(135deg,#1a0505,#e87070)'},{id:'ocean',label:'Ocean',sw:'linear-gradient(135deg,#0a1a2a,#60b0e8)'},{id:'sand',label:'Sand',sw:'linear-gradient(135deg,#2a200a,#d8c070)'},{id:'white',label:'White',sw:'linear-gradient(135deg,#f0f0f0,#e8e8e8)'},{id:'journal',label:'Journal',sw:'linear-gradient(135deg,#f5f0e8,#e8e0d0)'}];
 
 let tasks=[],grocs=[],pomoLog=[],photos=[],dailyTasks=[],dailyState={},progressHistory={},stuffiesState={};
+let brainDump=[];
+try{brainDump=JSON.parse(localStorage.getItem('tw7_braindump')||'[]');}catch(e){brainDump=[];}
 let budget={amount:0,needs:[],wants:[],savings:[],saveType:'savings',history:[]};
 let customDishes=[];
 let notifyBeforeMins=15; // default: notify 15 mins before deadline
@@ -975,6 +1139,9 @@ function save(){
 }
 function saveBudget(){
   try{localStorage.setItem('tw7_budget',JSON.stringify(budget));}catch(e){}
+}
+function saveBrainDump(){
+  try{localStorage.setItem('tw7_braindump',JSON.stringify(brainDump));}catch(e){}
 }
 function saveCustomDishes(){
   try{localStorage.setItem('tw7_custom_dishes',JSON.stringify(customDishes));}catch(e){}
@@ -1061,7 +1228,7 @@ function setupSwipe(wrap,taskId){
 
 // ── SWIPE VIEWS ──
 let msX=0,msY=0;
-const VIEWS=['tasks','docket','progress','budget','pomo','market','settings'];
+const VIEWS=['brain','routine','tasks','docket','progress','budget','pomo','market','settings'];
 document.getElementById('mainBody').addEventListener('touchstart',e=>{msX=e.touches[0].clientX;msY=e.touches[0].clientY;},{passive:true});
 document.getElementById('mainBody').addEventListener('touchend',e=>{
   const dx=e.changedTouches[0].clientX-msX,dy=e.changedTouches[0].clientY-msY;
@@ -1075,8 +1242,8 @@ document.getElementById('mainBody').addEventListener('touchend',e=>{
 function switchViewById(id){
   document.querySelectorAll('[data-view]').forEach(n=>n.classList.toggle('active',n.dataset.view===id));
   curView=id;
-  const titles={tasks:'My tasks',docket:'My docket',progress:'Progress history',history:'History',budget:'Spending Plan',pomo:'Pomodoro',market:'Stuffies 🛒',settings:'Settings'};
-  const subs={tasks:'One beautiful day at a time',docket:'Plan your days ahead',progress:'How far you have come',history:'Your spending & task records',budget:'50 / 30 / 20 rule — in GH₵',pomo:'Focus deep, rest well',market:"What are we cooking today?",settings:'Customise your tower'};
+  const titles={brain:'Brain dump',routine:'Daily routine',tasks:'My board',docket:'My docket',progress:'Progress history',history:'History',budget:'Spending Plan',pomo:'Pomodoro',market:'Stuffies 🛒',settings:'Settings'};
+  const subs={brain:'Everything on your mind, right now',routine:'Your 1-hour morning flow',tasks:'Your organised quests',docket:'Plan your days ahead',progress:'How far you have come',history:'Your spending & task records',budget:'50 / 30 / 20 rule — in GH₵',pomo:'Focus deep, rest well',market:"What are we cooking today?",settings:'Customise your tower'};
   document.getElementById('vTitle').textContent=titles[id];
   document.getElementById('vSub').textContent=subs[id];
   renderMain();
@@ -1094,7 +1261,7 @@ function tickClock(){
   if(cp)cp.textContent=' '+period;
   if(cd)cd.textContent=MONTHS[now.getMonth()]+' '+now.getDate()+', '+now.getFullYear();
   if(cday)cday.textContent=DAYS_F[now.getDay()];
-  if(s===0&&m===0){checkDailyReset();renderDailyStrip();}
+  if(s===0&&m===0){checkDailyReset();if(curView==='routine')renderRoutineView();}
 }
 setInterval(tickClock,1000);
 
@@ -1123,8 +1290,30 @@ function toggleDaily(i,e){
   if(done===dailyTasks.length)setTimeout(confettiBurst,200);
   saveProgressSnapshot();
   renderDailyStrip();
+  // also refresh myday strips embedded in other views
+  refreshMyDayStrip();
+}
+function refreshMyDayStrip(){
+  // find any rendered myday strips and update chips + bar in place
+  const strips=document.querySelectorAll('.myday-strip');
+  strips.forEach(strip=>{
+    const done=dailyTasks.filter((_,i)=>dailyState['d'+i]).length;
+    const pct=dailyTasks.length?Math.round(done/dailyTasks.length*100):0;
+    // update meta
+    const meta=strip.querySelector('.myday-meta');
+    if(meta)meta.textContent=done+'/'+dailyTasks.length+' · '+pct+'%';
+    // update chips
+    const chips=strip.querySelectorAll('.myday-chip');
+    chips.forEach((chip,i)=>{
+      chip.classList.toggle('done',!!dailyState['d'+i]);
+    });
+    // update bar
+    const fill=strip.querySelector('.myday-fill');
+    if(fill)fill.style.width=pct+'%';
+  });
 }
 function renderDailyStrip(){
+  if(curView==='routine'){renderRoutineView();return;}
   const el=document.getElementById('dailyDiv');if(!el)return;
   const done=dailyTasks.filter((_,i)=>dailyState['d'+i]).length;
   const pct=dailyTasks.length?Math.round(done/dailyTasks.length*100):0;
@@ -1374,10 +1563,12 @@ function renderStats(){
   document.getElementById('sc1v').textContent=tot;document.getElementById('sc2v').textContent=dn;document.getElementById('sc3v').textContent=gr;
   document.getElementById('sbStats').innerHTML=`${dn}/${tot} tasks done<br>${gr} items to buy<br>${pomoLog.length} sessions`;
 }
-function renderMain(){renderStats();renderDailyStrip();tickClock();
+function renderMain(){renderStats();tickClock();
   if(curView==='tasks')renderTasksView();
   else if(curView==='docket')renderDocketView();
   else if(curView==='progress')renderProgressView();
+  else if(curView==='routine')renderRoutineView();
+  else if(curView==='brain')renderBrainView();
   else if(curView==='history')renderHistoryView();
   else if(curView==='budget')renderBudgetView();
   else if(curView==='pomo')renderPomoView();
@@ -1512,13 +1703,15 @@ function taskRowHTML(t,showSwipe=true){
 // ── TASKS VIEW ──
 function renderTasksView(){
   document.getElementById('mainPanel').innerHTML=`<div class="panel anim-up">
-    ${mascotTickingOff()}
-    <div class="ptitle" style="text-align:center;">Add a task</div>
-    <div class="add-row"><input type="text" id="taskInput" placeholder="What needs doing?" autocomplete="off"/><button class="addbtn" onclick="addTask(event)">+ Add</button></div>
-    <div class="chip-toggle">
-      <button class="chip-toggle-btn${chipMode==='cat'?' active':''}" onclick="setChipMode('cat',event)">Category</button>
-      <button class="chip-toggle-btn${chipMode==='filter'?' active':''}" onclick="setChipMode('filter',event)">Filter</button>
+    ${myDayStripHTML()}
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:2px;">
+      <div id="taskMascotWrap" style="flex-shrink:0;width:36px;height:36px;overflow:visible;" onclick="triggerMascotTick(false)">
+        ${mascotTickingOffMini()}
+      </div>
+      <div class="ptitle" style="margin:0;flex:1;">Add a task</div>
     </div>
+    <div class="add-row"><input type="text" id="taskInput" placeholder="What needs doing?" autocomplete="off"/><button class="addbtn" onclick="addTask(event)">+ Add</button><button class="filter-tog-btn" id="filterTogBtn" onclick="toggleFilterPanel()" title="Filter"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="1" y1="3" x2="13" y2="3"/><line x1="3" y1="7" x2="11" y2="7"/><line x1="5" y1="11" x2="9" y2="11"/></svg></button></div>
+    <div id="chipPanel" style="display:none;margin-top:4px;"></div>
     <div id="chipPanel" class="chip-panel"></div>
     <div style="height:6px"></div>
     <div id="board"></div>
@@ -1527,6 +1720,7 @@ function renderTasksView(){
   document.getElementById('taskInput').addEventListener('keydown',e=>{if(e.key==='Enter')addTask(e);});
   renderChipPanel();
   renderBoard();
+
 }
 
 function renderBoard(){
@@ -1552,6 +1746,48 @@ function renderBoard(){
 
 // ── DOCKET ──
 
+
+// ── GHANA PUBLIC HOLIDAYS ──
+const GHANA_HOLIDAYS={
+  '01-01':"New Year's Day",
+  '01-07':'Constitution Day',
+  '03-06':'Independence Day',
+  '03-08':"World Women's Day",
+  '05-01':"Workers' Day",
+  '07-01':'Republic Day',
+  '08-04':"Founders' Day",
+  '09-21':'Kwame Nkrumah Memorial Day',
+  '12-25':'Christmas Day',
+  '12-26':'Boxing Day',
+};
+// Variable holidays (approximate for 2025/2026 — Eid dates shift yearly)
+const GHANA_VARIABLE_2025={
+  '2025-03-29':'Good Friday',
+  '2025-03-31':'Easter Sunday',
+  '2025-04-01':'Easter Monday',
+  '2025-03-30':'Eid ul-Fitr',
+  '2025-05-11':"Mother's Day",
+  '2025-06-06':'Eid ul-Adha',
+  '2025-06-15':"Father's Day",
+};
+const GHANA_VARIABLE_2026={
+  '2026-04-03':'Good Friday',
+  '2026-04-05':'Easter Sunday',
+  '2026-04-06':'Easter Monday',
+  '2026-03-19':'Eid ul-Fitr',
+  '2026-05-10':"Mother's Day",
+  '2026-05-27':'Eid ul-Adha',
+  '2026-06-21':"Father's Day",
+};
+function getGhanaHoliday(key){
+  // key = YYYY-MM-DD
+  const [y,m,d]=key.split('-');
+  const mmdd=m+'-'+d;
+  if(GHANA_HOLIDAYS[mmdd])return GHANA_HOLIDAYS[mmdd];
+  const varMap=y==='2025'?GHANA_VARIABLE_2025:y==='2026'?GHANA_VARIABLE_2026:{};
+  return varMap[key]||null;
+}
+
 function renderDocketView(){
   const today=toKey(new Date()),fd=new Date(calYear,calMonth,1).getDay(),dim=new Date(calYear,calMonth+1,0).getDate(),dip=new Date(calYear,calMonth,0).getDate();
   const tbd={};tasks.forEach(t=>{if(t.date){if(!tbd[t.date])tbd[t.date]=[];tbd[t.date].push(t);}});
@@ -1563,12 +1799,15 @@ function renderDocketView(){
     else{day=i-fd+1;month=calMonth;year=calYear;}
     key=year+'-'+String(month+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');
     const iT=key===today,iS=key===selDate,iW=(new Date(year,month,day).getDay()===0||new Date(year,month,day).getDay()===6);
+    const holiday=!isO?getGhanaHoliday(key):null;
     const dots=(tbd[key]||[]).slice(0,4).map(()=>'<div class="cdot"></div>').join('');
-    cells+='<div class="cal-day'+(isO?' om':'')+(iW&&!isO?' wknd':'')+(iT?' today':'')+(iS?' sel':'')+'" onclick="selectDate(\''+key+'\',event)"><div class="cdn">'+day+'</div><div class="cdots">'+dots+'</div></div>';
+    const hDot=holiday&&!isO?'<div class="holiday-dot"></div>':'';
+    cells+='<div class="cal-day'+(isO?' om':'')+(iW&&!isO?' wknd':'')+(iT?' today':'')+(iS?' sel':'')+(holiday&&!isO?' holiday':'')+'" onclick="selectDate(\''+key+'\',event)"><div class="cdn">'+day+'</div><div class="cdots">'+dots+hDot+'</div>'+(holiday&&!isO?'<div class="holiday-name">'+holiday+'</div>':'')+'</div>';
   }
   const dayTasks=tasks.filter(t=>t.date===selDate);
+  const selHoliday=selDate?getGhanaHoliday(selDate):null;
   const dtHTML=dayTasks.length?dayTasks.map(t=>taskRowHTML(t,false)).join(''):'<div class="empty">No tasks — add below</div>';
-  document.getElementById('mainPanel').innerHTML='<div class="cal-wrap"><div class="cal-gp"><div class="cal-nav"><button class="cal-arr" onclick="calPrev(event)">&#8249;</button><span class="cal-month">'+MONTHS[calMonth]+' '+calYear+'</span><button class="cal-arr" onclick="calNext(event)">&#8250;</button></div><div class="cal-dow">'+DAYS_S.map(d=>'<div class="cal-dc">'+d+'</div>').join('')+'</div><div class="cal-days">'+cells+'</div></div><div class="day-p"><div class="day-pt">'+(fmtKey(selDate)||'Select a day')+'</div><div class="day-add-row"><input type="text" class="day-inp" id="dayInp" placeholder="Add task..." autocomplete="off"/><button class="addbtn" onclick="addDayTask(event)">+</button></div><div class="cat-row">'+CATS.map(c=>'<span class="cchip '+c.cls+(daySelCat===c.id?' on':'')+'" data-cat="'+c.id+'" onclick="pickDayCat(this,event)" style="font-size:11px;padding:4px 8px 4px 11px;">'+c.label+'</span>').join('')+'</div><div class="day-task-list">'+dtHTML+'</div></div></div>';
+  document.getElementById('mainPanel').innerHTML=myDayStripCompactHTML()+'<div class="cal-wrap"><div class="cal-gp"><div class="cal-nav"><button class="cal-arr" onclick="calPrev(event)">&#8249;</button><span class="cal-month">'+MONTHS[calMonth]+' '+calYear+'</span><button class="cal-arr" onclick="calNext(event)">&#8250;</button></div><div class="cal-dow">'+DAYS_S.map(d=>'<div class="cal-dc">'+d+'</div>').join('')+'</div><div class="cal-days">'+cells+'</div></div><div class="day-p"><div class="day-pt">'+(fmtKey(selDate)||'Select a day')+'</div><div class="day-add-row"><input type="text" class="day-inp" id="dayInp" placeholder="Add task..." autocomplete="off"/><button class="addbtn" onclick="addDayTask(event)">+</button></div><div class="cat-row">'+CATS.map(c=>'<span class="cchip '+c.cls+(daySelCat===c.id?' on':'')+'" data-cat="'+c.id+'" onclick="pickDayCat(this,event)" style="font-size:11px;padding:4px 8px 4px 11px;">'+c.label+'</span>').join('')+'</div><div class="day-task-list">'+dtHTML+'</div></div></div>';
   document.getElementById('dayInp').addEventListener('keydown',e=>{if(e.key==='Enter')addDayTask(e);});
 }
 function calPrev(e){if(e)makeRipple(e);calMonth--;if(calMonth<0){calMonth=11;calYear--;}renderDocketView();}
@@ -1578,7 +1817,7 @@ function pickDayCat(el,e){if(e)makeRipple(e);document.querySelectorAll('.day-p .
 function addDayTask(e){if(e)makeRipple(e);const inp=document.getElementById('dayInp');if(!inp)return;const txt=inp.value.trim();if(!txt||!selDate)return;tasks.push({id:Date.now(),text:txt,cat:daySelCat,done:false,date:selDate,deadline:'',attachments:[]});inp.value='';save();renderStats();renderDocketView();}
 function renderPomoView(){
   const timerDisplay=flipClockMode?flipClockHTML(pomoSecs):'<div class="pomo-ring"><svg viewBox="0 0 130 130"><circle id="pomoTr" cx="65" cy="65" r="55" fill="none" stroke-width="10"/><circle id="pomoArc" cx="65" cy="65" r="55" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="345" stroke-dashoffset="0" transform="rotate(-90 65 65)" style="transition:stroke-dashoffset .6s linear;"/></svg><div class="ptime"><div class="ptime-big" id="pomoD">'+fmtTime(pomoSecs)+'</div><div class="ptime-sub" id="pomoSub">'+pomoCurMode.replace('short','short break').replace('long','long break')+'</div></div></div>';
-  document.getElementById('mainPanel').innerHTML='<div class="two-col"><div class="panel">'+mascotDeepFocus()+'<div class="ptitle" style="text-align:center;">Pomodoro timer</div><div class="pomo-modes"><div class="pmode pmode-focus'+(pomoCurMode==='focus'?' on':'')+'" data-mode="focus" data-mins="'+pomoCustomMins.focus+'" onclick="setPomoMode(this,event)">Focus — '+pomoCustomMins.focus+' min</div><div class="pmode pmode-short'+(pomoCurMode==='short'?' on':'')+'" data-mode="short" data-mins="'+pomoCustomMins.short+'" onclick="setPomoMode(this,event)">Short break — '+pomoCustomMins.short+' min</div><div class="pmode pmode-long'+(pomoCurMode==='long'?' on':'')+'" data-mode="long" data-mins="'+pomoCustomMins.long+'" onclick="setPomoMode(this,event)">Long break — '+pomoCustomMins.long+' min</div></div><div style="margin-bottom:12px;"><div style="font-size:11px;font-weight:800;color:var(--psub);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Custom durations</div><div class="pomo-custom-row"><span class="pomo-custom-label">Focus</span><input type="number" class="pomo-custom-inp" id="pomoCustInp-focus" value="'+pomoCustomMins.focus+'" min="1" max="180" inputmode="numeric"/><span style="font-size:11px;color:var(--psub);">min</span><button class="pomo-set-btn" onclick="setPomoCustomDuration(\'focus\',event)">Set</button></div><div class="pomo-custom-row"><span class="pomo-custom-label">Short break</span><input type="number" class="pomo-custom-inp" id="pomoCustInp-short" value="'+pomoCustomMins.short+'" min="1" max="60" inputmode="numeric"/><span style="font-size:11px;color:var(--psub);">min</span><button class="pomo-set-btn" onclick="setPomoCustomDuration(\'short\',event)">Set</button></div><div class="pomo-custom-row"><span class="pomo-custom-label">Long break</span><input type="number" class="pomo-custom-inp" id="pomoCustInp-long" value="'+pomoCustomMins.long+'" min="1" max="120" inputmode="numeric"/><span style="font-size:11px;color:var(--psub);">min</span><button class="pomo-set-btn" onclick="setPomoCustomDuration(\'long\',event)">Set</button></div></div>'+timerDisplay+'<div class="pomo-btns"><button class="pbtn pbtn-s" id="pomoBtn" onclick="togglePomo(event)">'+(pomoRunning?'Pause':'Start')+'</button><button class="pbtn pbtn-r" onclick="resetPomo(event)">Reset</button></div><div style="border-top:1px dashed var(--sec-dash);padding-top:8px;"><div style="font-size:11px;font-weight:800;color:var(--psub);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Session log</div><div id="plog2"></div></div></div><div class="panel"><div class="ptitle">Pending tasks</div><div id="taskMini"></div></div></div>';
+  document.getElementById('mainPanel').innerHTML='<div class="two-col"><div class="panel">'+ myDayStripHTML() +mascotDeepFocus()+'<div class="ptitle" style="text-align:center;">Pomodoro timer</div><div class="pomo-modes"><div class="pmode pmode-focus'+(pomoCurMode==='focus'?' on':'')+'" data-mode="focus" data-mins="'+pomoCustomMins.focus+'" onclick="setPomoMode(this,event)">Focus — '+pomoCustomMins.focus+' min</div><div class="pmode pmode-short'+(pomoCurMode==='short'?' on':'')+'" data-mode="short" data-mins="'+pomoCustomMins.short+'" onclick="setPomoMode(this,event)">Short break — '+pomoCustomMins.short+' min</div><div class="pmode pmode-long'+(pomoCurMode==='long'?' on':'')+'" data-mode="long" data-mins="'+pomoCustomMins.long+'" onclick="setPomoMode(this,event)">Long break — '+pomoCustomMins.long+' min</div></div><div style="margin-bottom:12px;"><div style="font-size:11px;font-weight:800;color:var(--psub);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Custom durations</div><div class="pomo-custom-row"><span class="pomo-custom-label">Focus</span><input type="number" class="pomo-custom-inp" id="pomoCustInp-focus" value="'+pomoCustomMins.focus+'" min="1" max="180" inputmode="numeric"/><span style="font-size:11px;color:var(--psub);">min</span><button class="pomo-set-btn" onclick="setPomoCustomDuration(\'focus\',event)">Set</button></div><div class="pomo-custom-row"><span class="pomo-custom-label">Short break</span><input type="number" class="pomo-custom-inp" id="pomoCustInp-short" value="'+pomoCustomMins.short+'" min="1" max="60" inputmode="numeric"/><span style="font-size:11px;color:var(--psub);">min</span><button class="pomo-set-btn" onclick="setPomoCustomDuration(\'short\',event)">Set</button></div><div class="pomo-custom-row"><span class="pomo-custom-label">Long break</span><input type="number" class="pomo-custom-inp" id="pomoCustInp-long" value="'+pomoCustomMins.long+'" min="1" max="120" inputmode="numeric"/><span style="font-size:11px;color:var(--psub);">min</span><button class="pomo-set-btn" onclick="setPomoCustomDuration(\'long\',event)">Set</button></div></div>'+timerDisplay+'<div class="pomo-btns"><button class="pbtn pbtn-s" id="pomoBtn" onclick="togglePomo(event)">'+(pomoRunning?'Pause':'Start')+'</button><button class="pbtn pbtn-r" onclick="resetPomo(event)">Reset</button></div><div style="border-top:1px dashed var(--sec-dash);padding-top:8px;"><div style="font-size:11px;font-weight:800;color:var(--psub);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Session log</div><div id="plog2"></div></div></div><div class="panel"><div class="ptitle">Pending tasks</div><div id="taskMini"></div></div></div>';
   if(!flipClockMode)updateArc();else renderFlipClock(pomoSecs);
   renderPomoLogEl('plog2');renderTaskMini();
 }
@@ -1593,13 +1832,13 @@ function renderMarketView(){
     return'<div class="dish-card"><div class="dish-hdr" onclick="toggleDish(\''+dish.id+'\',event)"><div><div class="dish-name">'+dish.emoji+' '+esc(dish.name)+'</div><div class="dish-meta">'+gotCount+'/'+allCount+' ticked</div></div><div class="dish-arrow'+(isOpen?' open':'')+'">▼</div></div>'+(isOpen?'<div class="dish-body">'+ings+'<button class="gc-btn" style="margin-top:4px;" onclick="clearDish(\''+dish.id+'\',event)">Clear ticks</button></div>':'')+'</div>';
   }).join('');
   const grocHTML=renderGrocListHTML();
-  mp.innerHTML='<div class="two-col"><div class="panel anim-up"><div class="ptitle">Stuffies 🛒</div><div class="stuffies-tab-bar"><button class="stuffies-tab'+(stuffiesView==='list'?' on':'')+'" onclick="setStuffiesView(\'list\',event)">Grocery list</button><button class="stuffies-tab'+(stuffiesView==='stuffies'?' on':'')+'" onclick="setStuffiesView(\'stuffies\',event)">By dish</button></div>'+(stuffiesView==='stuffies'?'<div class="stuffies-wrap">'+dishCards+'</div>':grocHTML)+'</div><div class="panel" style="align-self:start;"><div class="ptitle">Pending tasks</div><div id="taskMini2"></div></div></div>';
+  mp.innerHTML='<div class="two-col"><div class="panel anim-up">'+ myDayStripHTML() +'<div class="ptitle">Stuffies 🛒</div><div class="stuffies-tab-bar"><button class="stuffies-tab'+(stuffiesView==='list'?' on':'')+'" onclick="setStuffiesView(\'list\',event)">Grocery list</button><button class="stuffies-tab'+(stuffiesView==='stuffies'?' on':'')+'" onclick="setStuffiesView(\'stuffies\',event)">By dish</button></div>'+(stuffiesView==='stuffies'?'<div class="stuffies-wrap">'+dishCards+'</div>':grocHTML)+'</div><div class="panel" style="align-self:start;"><div class="ptitle">Pending tasks</div><div id="taskMini2"></div></div></div>';
   if(stuffiesView==='list'){const gn=document.getElementById('gName'),gq=document.getElementById('gQty');if(gn)gn.addEventListener('keydown',e=>{if(e.key==='Enter')addGroc(e);});}
   renderTaskMini2();
 }
 function renderSettingsView(){
   const cur=localStorage.getItem('tw7_theme')||'pastel';
-  document.getElementById('mainPanel').innerHTML='<div class="sett-grid"><div class="panel" style="grid-column:1/-1;"><div class="sett-sec">Appearance — theme</div><div class="t-tiles">'+THEMES.map(t=>'<div class="t-tile'+(cur===t.id?' on':'')+'" onclick="setTheme(\''+t.id+'\')"><div class="t-swatch" style="background:'+t.sw+'"></div><div class="t-label">'+t.label+'</div></div>').join('')+'</div></div><div class="panel"><div class="sett-sec">Notifications</div><p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-bottom:12px;">Get notified when Pomodoro sessions finish and when tasks are due.</p><button class="notif-perm-btn" id="notifPermBtn" onclick="requestNotifPermission()">Enable notifications</button><div class="notif-status" id="notifStatus">Tap to allow reminders.</div><div style="margin-top:14px;"><p style="font-size:12px;font-weight:800;color:var(--panel-title);margin-bottom:3px;">Remind me before a deadline</p><p style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-bottom:0;">Currently: '+(notifyBeforeMins>=60?Math.round(notifyBeforeMins/60)+(notifyBeforeMins===60?' hour':' hours'):notifyBeforeMins+' minutes')+' before</p><div class="notif-lead-grid">'+[{m:5,l:'5 min'},{m:10,l:'10 min'},{m:15,l:'15 min'},{m:30,l:'30 min'},{m:60,l:'1 hour'},{m:120,l:'2 hours'},{m:1440,l:'1 day'}].map(o=>'<button class="notif-lead-btn'+(notifyBeforeMins===o.m?' on':'')+'" data-mins="'+o.m+'" onclick="setNotifyBefore('+o.m+',event)">'+o.l+'</button>').join('')+'</div></div></div><div class="panel"><div class="sett-sec">Pomodoro display</div><div class="flip-mode-toggle"><button class="flip-mode-btn'+(!flipClockMode?' on':'')+'" onclick="setFlipMode(false,event)">Ring timer</button><button class="flip-mode-btn'+(flipClockMode?' on':'')+'" onclick="setFlipMode(true,event)">Flip clock</button></div></div><div class="panel"><div class="sett-sec">Daily routine</div><p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-bottom:10px;">Resets every midnight.</p><div class="sett-inp-row"><input type="text" id="newDailyInp" placeholder="Add a daily task..." autocomplete="off"/><button class="addbtn" onclick="addDailyTask(event)">+ Add</button></div><div id="dlEditList"></div></div><div class="panel"><div class="sett-sec">Photo banner</div><p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-bottom:10px;">Swipe left/right on the banner to change photos.</p><label class="addbtn" for="photoUp2" style="display:inline-block;cursor:pointer;">+ Upload photos</label><input type="file" id="photoUp2" class="up-inp" accept="image/*" multiple onchange="handlePhotos(this)"/><p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-top:10px;">'+allPhotos.length+' photo'+(allPhotos.length!==1?'s':'')+' in rotation</p>'+(photos.length?'<button class="gc-btn" style="margin-top:6px;" onclick="clearPhotos(event)">Reset to defaults</button>':'')+'<div style="margin-top:12px;"><p style="font-size:12px;font-weight:800;color:var(--panel-title);margin-bottom:4px;">Auto-advance photos</p><p style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-bottom:0;">Currently: '+photoDurationLabel(photoDuration)+'</p><div class="pdur-grid">'+[{ms:5000,label:'5 sec'},{ms:30000,label:'30 sec'},{ms:60000,label:'1 min'},{ms:300000,label:'5 min'},{ms:1800000,label:'30 min'},{ms:3600000,label:'1 hour'},{ms:86400000,label:'1 day'}].map(o=>'<button class="pdur-btn'+(photoDuration===o.ms?' on':'')+'" data-dur="'+o.ms+'" onclick="setPhotoDuration('+o.ms+',event)">'+o.label+'</button>').join('')+'</div></div></div></div>';
+  document.getElementById('mainPanel').innerHTML='<div class="sett-grid"><div style="grid-column:1/-1">'+ myDayStripHTML() +'</div><div class="panel" style="grid-column:1/-1;"><div class="sett-sec">Appearance — theme</div><div class="t-tiles">'+THEMES.map(t=>'<div class="t-tile'+(cur===t.id?' on':'')+'" onclick="setTheme(\''+t.id+'\')"><div class="t-swatch" style="background:'+t.sw+'"></div><div class="t-label">'+t.label+'</div></div>').join('')+'</div></div><div class="panel"><div class="sett-sec">Notifications</div><p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-bottom:12px;">Get notified when Pomodoro sessions finish and when tasks are due.</p><button class="notif-perm-btn" id="notifPermBtn" onclick="requestNotifPermission()">Enable notifications</button><div class="notif-status" id="notifStatus">Tap to allow reminders.</div><div style="margin-top:14px;"><p style="font-size:12px;font-weight:800;color:var(--panel-title);margin-bottom:3px;">Remind me before a deadline</p><p style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-bottom:0;">Currently: '+(notifyBeforeMins>=60?Math.round(notifyBeforeMins/60)+(notifyBeforeMins===60?' hour':' hours'):notifyBeforeMins+' minutes')+' before</p><div class="notif-lead-grid">'+[{m:5,l:'5 min'},{m:10,l:'10 min'},{m:15,l:'15 min'},{m:30,l:'30 min'},{m:60,l:'1 hour'},{m:120,l:'2 hours'},{m:1440,l:'1 day'}].map(o=>'<button class="notif-lead-btn'+(notifyBeforeMins===o.m?' on':'')+'" data-mins="'+o.m+'" onclick="setNotifyBefore('+o.m+',event)">'+o.l+'</button>').join('')+'</div></div></div><div class="panel"><div class="sett-sec">Pomodoro display</div><div class="flip-mode-toggle"><button class="flip-mode-btn'+(!flipClockMode?' on':'')+'" onclick="setFlipMode(false,event)">Ring timer</button><button class="flip-mode-btn'+(flipClockMode?' on':'')+'" onclick="setFlipMode(true,event)">Flip clock</button></div></div><div class="panel"><div class="sett-sec">Daily routine</div><p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-bottom:10px;">Resets every midnight.</p><div class="sett-inp-row"><input type="text" id="newDailyInp" placeholder="Add a daily task..." autocomplete="off"/><button class="addbtn" onclick="addDailyTask(event)">+ Add</button></div><div id="dlEditList"></div></div><div class="panel"><div class="sett-sec">Photo banner</div><p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-bottom:10px;">Swipe left/right on the banner to change photos.</p><label class="addbtn" for="photoUp2" style="display:inline-block;cursor:pointer;">+ Upload photos</label><input type="file" id="photoUp2" class="up-inp" accept="image/*" multiple onchange="handlePhotos(this)"/><p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-top:10px;">'+allPhotos.length+' photo'+(allPhotos.length!==1?'s':'')+' in rotation</p>'+(photos.length?'<button class="gc-btn" style="margin-top:6px;" onclick="clearPhotos(event)">Reset to defaults</button>':'')+'<div style="margin-top:12px;"><p style="font-size:12px;font-weight:800;color:var(--panel-title);margin-bottom:4px;">Auto-advance photos</p><p style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-bottom:0;">Currently: '+photoDurationLabel(photoDuration)+'</p><div class="pdur-grid">'+[{ms:5000,label:'5 sec'},{ms:30000,label:'30 sec'},{ms:60000,label:'1 min'},{ms:300000,label:'5 min'},{ms:1800000,label:'30 min'},{ms:3600000,label:'1 hour'},{ms:86400000,label:'1 day'}].map(o=>'<button class="pdur-btn'+(photoDuration===o.ms?' on':'')+'" data-dur="'+o.ms+'" onclick="setPhotoDuration('+o.ms+',event)">'+o.label+'</button>').join('')+'</div></div></div></div>';
   document.getElementById('newDailyInp').addEventListener('keydown',e=>{if(e.key==='Enter')addDailyTask(e);});
   renderDLEditList();
   if(typeof Notification!=='undefined') setTimeout(updateNotifSettingsUI,50);
@@ -1661,7 +1900,49 @@ function renderPomoLogEl(id){const el=document.getElementById(id);if(!el)return;
 function pickCat(el,e){if(e)makeRipple(e);document.querySelectorAll('.cat-row .cchip').forEach(c=>c.classList.remove('on'));el.classList.add('on');selCat=el.dataset.cat;popEl(el);}
 function setFilter(el,e){if(e)makeRipple(e);filter=el.dataset.f;popEl(el);renderChipPanel();renderBoard();}
 function pickGCat(el,e){if(e)makeRipple(e);document.querySelectorAll('.gcchip').forEach(c=>c.classList.remove('on'));el.classList.add('on');selGCat=el.dataset.gc;popEl(el);}
-function addTask(e){if(e)makeRipple(e);const inp=document.getElementById('taskInput');if(!inp)return;const txt=inp.value.trim();if(!txt)return;tasks.push({id:Date.now(),text:txt,cat:selCat,done:false,date:'',deadline:'',attachments:[]});inp.value='';const btn=document.querySelector('.addbtn');if(btn)popEl(btn);save();renderBoard();renderStats();}
+function addTask(e){
+  if(e)makeRipple(e);
+  const inp=document.getElementById('taskInput');if(!inp)return;
+  const txt=inp.value.trim();if(!txt)return;
+  const guessed=guessCat(txt);
+  const newTask={id:Date.now(),text:txt,cat:guessed,done:false,date:'',deadline:'',attachments:[]};
+  tasks.push(newTask);
+  inp.value='';
+  const btn=document.querySelector('.addbtn');if(btn)popEl(btn);
+  save();renderBoard();renderStats();
+  // show a small toast so user knows what category was assigned
+  const catLabel=CATS.find(c=>c.id===guessed)?.label||guessed;
+  showCatToast(newTask.id, catLabel, guessed);
+}
+function showCatToast(taskId, catLabel, cat){
+  // remove any existing toast
+  const old=document.getElementById('catToast');if(old)old.remove();
+  const toast=document.createElement('div');
+  toast.id='catToast';
+  toast.className='cat-toast';
+  toast.innerHTML=`<span class="cat-toast-lbl">Added to <strong>${catLabel}</strong></span>`+
+    `<div class="cat-toast-cats">`+
+    CATS.filter(c=>c.id!==cat).map(c=>
+      `<button class="cat-toast-btn" onclick="reassignTask(${taskId},'${c.id}',this)">${c.label}</button>`
+    ).join('')+`</div>`;
+  // insert below the add-row
+  const panel=document.querySelector('.panel.anim-up');
+  if(panel){
+    const addRow=panel.querySelector('.add-row');
+    if(addRow)addRow.insertAdjacentElement('afterend',toast);
+    else panel.insertAdjacentElement('afterbegin',toast);
+  }
+  // auto-dismiss after 4s
+  setTimeout(()=>{
+    if(toast.parentNode){toast.style.opacity='0';toast.style.transform='translateY(-6px)';setTimeout(()=>toast.remove(),300);}
+  },4000);
+}
+function reassignTask(id,newCat,btn){
+  const t=tasks.find(t=>t.id===id);if(!t)return;
+  t.cat=newCat;save();renderBoard();renderStats();
+  const toast=document.getElementById('catToast');
+  if(toast){toast.style.opacity='0';setTimeout(()=>toast.remove(),300);}
+}
 function toggleTask(id,chkEl,e){if(e)makeRipple(e);const t=tasks.find(t=>t.id===id);if(t){t.done=!t.done;if(chkEl)animCheck(chkEl);if(curView==='tasks')triggerMascotTick(t.done);save();saveProgressSnapshot();renderStats();if(curView==='docket')renderDocketView();else renderBoard();}}
 function delTask(id){tasks=tasks.filter(t=>t.id!==id);save();renderBoard();renderStats();}
 function addGroc(e){if(e)makeRipple(e);const n=document.getElementById('gName'),q=document.getElementById('gQty');if(!n)return;const name=n.value.trim();if(!name)return;grocs.push({id:Date.now(),name,qty:q?q.value.trim():'',cat:selGCat,got:false});n.value='';if(q)q.value='';save();renderGrocList();renderStats();}
@@ -1677,7 +1958,7 @@ function resetPomo(e){if(e)makeRipple(e);clearInterval(pomoTimer);pomoRunning=fa
 function renderProgressView(){
   const mp=document.getElementById('mainPanel');
   mp.innerHTML=`<div class="prog-chart-wrap panel anim-up">
-    <div class="prog-chart-title">Progress history</div>
+    ${myDayStripHTML()}<div class="prog-chart-title">Progress history</div>
     <div class="prog-chart-sub">Last 14 days — tasks done &amp; daily routine %</div>
     <div class="chart-canvas-wrap"><canvas id="progChart"></canvas></div>
     <div class="chart-legend">
@@ -2067,193 +2348,345 @@ function cdtClear(taskId,e){
 // ── MASCOT SVG GENERATORS ──
 // ════════════════════════════════════════
 
-function mascotTickingOff(){
-  return `<div class="mascot-wrap" id="taskMascotWrap">
-    <svg id="taskMascotSVG" width="88" height="110" viewBox="0 0 88 110">
-      <style>#taskMascotSVG .mc-clip{fill:var(--db)}.mc-clip-stroke{stroke:var(--da)}.mc-clip-top{fill:var(--da)}.mc-clip-line{stroke:var(--dbo)}.mc-tick{fill:var(--da)}.mc-body{fill:var(--btn-bg)}.mc-limb{stroke:var(--panel-title)}.mc-pen{stroke:var(--inp-focus)}.mc-skin{fill:var(--mascot-skin)}.mc-eye{fill:var(--mascot-hair)}.mc-smile{stroke:var(--mascot-hair)}</style>
-      <!-- clipboard -->
-      <rect x="18" y="22" width="48" height="58" rx="4" class="mc-clip" stroke-width="1.5" fill="var(--db)" stroke="var(--da)"/>
-      <rect x="32" y="18" width="20" height="8" rx="4" fill="var(--da)"/>
-      <!-- task lines -->
-      <line x1="30" y1="42" x2="58" y2="42" stroke="var(--dbo)" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="30" y1="52" x2="54" y2="52" stroke="var(--dbo)" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="30" y1="62" x2="56" y2="62" stroke="var(--dbo)" stroke-width="1.5" stroke-linecap="round"/>
-      <!-- tick mark -->
-      <g id="mascotTickMark" style="transform-origin:24px 42px;">
-        <circle cx="24" cy="42" r="6" fill="var(--da)"/>
-        <polyline points="21,42 23,45.5 28,38.5" fill="none" stroke="var(--panel-bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+function mascotTickingOffMini(){
+  return `<svg width="36" height="36" viewBox="0 0 36 36" overflow="visible">
+    <g id="mascotBody">
+      <!-- mini skirt -->
+      <path d="M13 22 Q9 30 8 36 L28 36 Q27 30 23 22Z" fill="var(--btn-bg)"/>
+      <!-- mini apron -->
+      <path d="M15 22 Q14 30 14 36 L22 36 Q22 30 21 22Z" fill="#fff8e8" opacity=".7"/>
+      <!-- bodice -->
+      <rect x="12" y="15" width="12" height="8" rx="2" fill="var(--da)"/>
+      <!-- writing arm -->
+      <g id="mascotTickArm" style="transform-origin:12px 17px;">
+        <line x1="12" y1="17" x2="6" y2="22" stroke="var(--btn-bg)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="5" cy="23" r="2" fill="var(--mascot-skin)"/>
+        <line x1="5" y1="23" x2="7" y2="17" stroke="var(--da)" stroke-width="1.2" stroke-linecap="round"/>
+        <polygon points="7,17 5,13 10,18" fill="#e8d060" opacity=".9"/>
       </g>
-      <!-- person — idle -->
-      <g id="mascotBody">
-        <line x1="41" y1="98" x2="39" y2="110" stroke="var(--panel-title)" stroke-width="3" stroke-linecap="round"/>
-        <line x1="47" y1="98" x2="49" y2="110" stroke="var(--panel-title)" stroke-width="3" stroke-linecap="round"/>
-        <rect x="36" y="84" width="16" height="15" rx="4" fill="var(--btn-bg)"/>
-        <g id="mascotTickArm" style="transform-origin:36px 88px;">
-          <line x1="36" y1="88" x2="27" y2="82" stroke="var(--panel-title)" stroke-width="3" stroke-linecap="round"/>
-          <line x1="27" y1="82" x2="24" y2="76" stroke="var(--inp-focus)" stroke-width="2" stroke-linecap="round"/>
-        </g>
-        <line x1="52" y1="88" x2="57" y2="93" stroke="var(--panel-title)" stroke-width="3" stroke-linecap="round"/>
-        <!-- head -->
-        <!-- helmet with visor -->
-        <rect x="35" y="67" width="18" height="16" rx="4" fill="var(--panel-title)"/>
-        <rect x="37" y="75" width="14" height="5" rx="2" fill="var(--da)" opacity=".7"/>
-        <!-- plume -->
-        <path d="M44 67 Q41 57 39 51 Q43 55 44 61 Q45 55 49 51 Q47 57 44 67" fill="var(--btn-bg)"/>
-        <g id="mascotEyeL" style="transform-origin:41px 76px;animation:mBlink 4s ease-in-out infinite;">
-          <circle cx="41" cy="76" r="1.4" fill="var(--mascot-hair)"/>
-        </g>
-        <circle cx="47" cy="76" r="1.4" fill="var(--mascot-hair)"/>
-        <path d="M41 80 Q44 83 47 80" fill="none" stroke="var(--mascot-hair)" stroke-width="1.2" stroke-linecap="round"/>
+      <!-- other arm -->
+      <line x1="24" y1="17" x2="30" y2="22" stroke="var(--btn-bg)" stroke-width="3" stroke-linecap="round"/>
+      <!-- head + coif -->
+      <circle cx="18" cy="8" r="7" fill="var(--mascot-skin)"/>
+      <path d="M11 7 Q12 2 18 1 Q24 2 25 7 Q25 4 18 3.5 Q11 4 11 7Z" fill="#fff8e8" stroke="var(--dbo)" stroke-width=".8"/>
+      <!-- eyes -->
+      <g style="transform-origin:16px 7px;animation:mBlink 3.5s ease-in-out infinite;">
+        <ellipse cx="16" cy="7" rx="1.2" ry="1.2" fill="var(--mascot-hair)"/>
       </g>
-    </svg>
-  </div>`;
+      <ellipse cx="20" cy="7" rx="1.2" ry="1.2" fill="var(--mascot-hair)"/>
+      <!-- smile -->
+      <path d="M15 10 Q18 13 21 10" fill="none" stroke="var(--mascot-hair)" stroke-width="1" stroke-linecap="round"/>
+    </g>
+  </svg>`;
 }
 
-function mascotDeepFocus(){
-  return `<div class="mascot-wrap" id="pomoMascotWrap">
-    <svg id="pomoMascotSVG" width="96" height="108" viewBox="0 0 96 108">
-      <!-- desk -->
-      <rect x="8" y="82" width="80" height="6" rx="3" fill="var(--floor-border)"/>
-      <line x1="20" y1="88" x2="20" y2="104" stroke="var(--floor-border)" stroke-width="4" stroke-linecap="round"/>
-      <line x1="76" y1="88" x2="76" y2="104" stroke="var(--floor-border)" stroke-width="4" stroke-linecap="round"/>
-      <!-- laptop -->
-      <rect x="26" y="60" width="44" height="28" rx="3" fill="var(--panel-title)"/>
-      <rect x="28" y="62" width="40" height="24" rx="2" fill="var(--floor-bg)"/>
-      <text x="48" y="76" text-anchor="middle" fill="var(--da)" font-size="9" font-weight="600" font-family="monospace">25:00</text>
-      <!-- book lines on screen -->
-      <line x1="32" y1="69" x2="46" y2="69" stroke="var(--dbo)" stroke-width=".8" opacity=".5"/>
-      <line x1="32" y1="73" x2="45" y2="73" stroke="var(--dbo)" stroke-width=".8" opacity=".5"/>
-      <rect x="16" y="86" width="64" height="4" rx="2" fill="var(--sec-dash)"/>
-      <!-- tomato — idle -->
-      <g id="pomoTomato">
-        <circle cx="76" cy="50" r="9" fill="var(--btn-bg)"/>
-        <path d="M73 42 Q76 39 79 42" fill="none" stroke="var(--prog-fill)" stroke-width="2" stroke-linecap="round"/>
-        <line x1="76" y1="42" x2="76" y2="38" stroke="var(--prog-fill)" stroke-width="2" stroke-linecap="round"/>
+function mascotTickingOff(){
+  return `<div class="mascot-wrap" id="taskMascotWrap">
+    <svg id="taskMascotSVG" width="88" height="112" viewBox="0 0 88 112">
+      <style>
+        #taskMascotSVG .wn-scroll{fill:#fff8e8;stroke:var(--da);stroke-width:1.5}
+        #taskMascotSVG .wn-roll{fill:var(--dbo)}
+        #taskMascotSVG .wn-tick{fill:var(--da)}
+        #taskMascotSVG .wn-skirt{fill:var(--btn-bg)}
+        #taskMascotSVG .wn-skirt2{fill:var(--da);opacity:.35}
+        #taskMascotSVG .wn-bodice{fill:var(--da)}
+        #taskMascotSVG .wn-apron{fill:#fff8e8;opacity:.7}
+        #taskMascotSVG .wn-sleeve{stroke:var(--btn-bg);stroke-width:5;fill:none;stroke-linecap:round}
+        #taskMascotSVG .wn-arm{stroke:var(--da);stroke-width:3;fill:none;stroke-linecap:round}
+        #taskMascotSVG .wn-skin{fill:var(--mascot-skin)}
+        #taskMascotSVG .wn-hair{fill:var(--mascot-hair)}
+        #taskMascotSVG .wn-coif{fill:#fff8e8;stroke:var(--dbo);stroke-width:1}
+        #taskMascotSVG .wn-ribbon{fill:var(--btn-bg)}
+        #taskMascotSVG .wn-eye{fill:var(--mascot-hair)}
+        #taskMascotSVG .wn-lash{stroke:var(--mascot-hair);stroke-width:1;fill:none;stroke-linecap:round}
+        #taskMascotSVG .wn-smile{stroke:var(--mascot-hair);stroke-width:1.2;fill:none;stroke-linecap:round}
+        #taskMascotSVG .wn-cheek{fill:#e88898;opacity:.25}
+        #taskMascotSVG .wn-quill{stroke:var(--da);stroke-width:1.5;fill:none;stroke-linecap:round}
+        #taskMascotSVG .wn-quill-tip{fill:#e8d060;opacity:.9}
+        #taskMascotSVG .wn-boot{fill:var(--panel-title)}
+        #taskMascotSVG .wn-collar{fill:#fff8e8;opacity:.8}
+      </style>
+
+      <!-- scroll -->
+      <rect x="18" y="12" width="44" height="50" rx="4" class="wn-scroll"/>
+      <rect x="18" y="12" width="44" height="7" rx="4" class="wn-roll"/>
+      <rect x="18" y="55" width="44" height="7" rx="4" class="wn-roll"/>
+      <line x1="28" y1="27" x2="52" y2="27" stroke="var(--dbo)" stroke-width="1" opacity=".5" stroke-linecap="round"/>
+      <line x1="28" y1="35" x2="50" y2="35" stroke="var(--dbo)" stroke-width="1" opacity=".5" stroke-linecap="round"/>
+      <line x1="28" y1="43" x2="51" y2="43" stroke="var(--dbo)" stroke-width="1" opacity=".5" stroke-linecap="round"/>
+      <circle cx="23" cy="27" r="5" class="wn-tick"/>
+      <polyline points="20,27 22.5,30.5 28,24" fill="none" stroke="var(--panel-bg)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- figure -->
+      <g id="mascotBody">
+        <!-- boots peeking under skirt -->
+        <rect x="35" y="98" width="6" height="10" rx="2" class="wn-boot"/>
+        <rect x="45" y="98" width="6" height="10" rx="2" class="wn-boot"/>
+        <!-- full skirt — A-line -->
+        <path d="M34 76 Q24 92 22 112 L66 112 Q64 92 54 76 Z" class="wn-skirt"/>
+        <!-- skirt folds -->
+        <path d="M34 76 Q30 92 28 112 L35 112 Q35 96 36 80Z" class="wn-skirt2"/>
+        <path d="M54 76 Q58 92 60 112 L53 112 Q53 96 52 80Z" class="wn-skirt2"/>
+        <!-- apron over skirt -->
+        <path d="M38 78 Q36 92 36 112 L52 112 Q52 92 50 78Z" class="wn-apron"/>
+        <!-- bodice -->
+        <rect x="33" y="64" width="22" height="14" rx="3" class="wn-bodice"/>
+        <!-- collar lace -->
+        <path d="M33 66 Q44 70 55 66" class="wn-collar" stroke="var(--dbo)" stroke-width=".8" fill="none"/>
+        <!-- sleeve left — writing arm -->
+        <g id="mascotTickArm" style="transform-origin:33px 68px;">
+          <path d="M33 68 Q22 70 16 78" class="wn-sleeve"/>
+          <!-- hand + quill -->
+          <circle cx="15" cy="79" r="3.5" class="wn-skin"/>
+          <line x1="15" y1="79" x2="18" y2="68" class="wn-quill"/>
+          <polygon points="18,68 15,62 21,69" class="wn-quill-tip"/>
+        </g>
+        <!-- sleeve right -->
+        <path d="M55 68 Q64 71 68 78" class="wn-sleeve"/>
+        <circle cx="69" cy="79" r="3.5" class="wn-skin"/>
+        <!-- neck -->
+        <rect x="40" y="58" width="8" height="8" rx="3" class="wn-skin"/>
+        <!-- head -->
+        <circle cx="44" cy="52" r="12" class="wn-skin"/>
+        <!-- cheeks -->
+        <ellipse cx="38" cy="55" rx="3.5" ry="2.5" class="wn-cheek"/>
+        <ellipse cx="50" cy="55" rx="3.5" ry="2.5" class="wn-cheek"/>
+        <!-- hair behind head -->
+        <path d="M32 50 Q30 58 32 66" stroke-width="5" stroke="var(--mascot-hair)" fill="none" stroke-linecap="round"/>
+        <path d="M56 50 Q58 58 56 66" stroke-width="5" stroke="var(--mascot-hair)" fill="none" stroke-linecap="round"/>
+        <!-- medieval coif / head covering -->
+        <path d="M32 48 Q33 38 44 36 Q55 38 56 48 Q56 44 44 43 Q32 44 32 48Z" class="wn-coif"/>
+        <!-- hair showing at sides under coif -->
+        <path d="M32 48 Q30 52 32 56" stroke="var(--mascot-hair)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M56 48 Q58 52 56 56" stroke="var(--mascot-hair)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <!-- ribbon on coif -->
+        <path d="M32 48 Q44 52 56 48" class="wn-ribbon" fill="none" stroke="var(--btn-bg)" stroke-width="2" stroke-linecap="round"/>
+        <!-- face -->
+        <g style="transform-origin:41px 51px;animation:mBlink 3.5s ease-in-out infinite;">
+          <ellipse cx="41" cy="51" rx="1.5" ry="1.5" class="wn-eye"/>
+        </g>
+        <ellipse cx="47" cy="51" rx="1.5" ry="1.5" class="wn-eye"/>
+        <!-- lashes -->
+        <line x1="39.5" y1="49.5" x2="39" y2="47.5" class="wn-lash"/>
+        <line x1="41" y1="49" x2="41" y2="47" class="wn-lash"/>
+        <line x1="42.5" y1="49.5" x2="43" y2="47.5" class="wn-lash"/>
+        <line x1="45.5" y1="49.5" x2="45" y2="47.5" class="wn-lash"/>
+        <line x1="47" y1="49" x2="47" y2="47" class="wn-lash"/>
+        <line x1="48.5" y1="49.5" x2="49" y2="47.5" class="wn-lash"/>
+        <!-- warm smile -->
+        <path d="M40 55 Q44 59 48 55" class="wn-smile"/>
       </g>
-      <!-- chair back -->
-      <rect x="36" y="66" width="4" height="22" rx="2" fill="var(--floor-border)"/>
-      <!-- body -->
-      <rect x="34" y="75" width="16" height="12" rx="3" fill="var(--btn-bg)"/>
-      <!-- arms resting -->
-      <g id="pomoArmL">
-        <line x1="34" y1="78" x2="26" y2="84" stroke="var(--da)" stroke-width="3" stroke-linecap="round"/>
-      </g>
-      <g id="pomoArmR">
-        <line x1="50" y1="78" x2="58" y2="84" stroke="var(--da)" stroke-width="3" stroke-linecap="round"/>
-      </g>
-      <!-- legs -->
-      <line x1="38" y1="87" x2="35" y2="100" stroke="var(--panel-title)" stroke-width="3" stroke-linecap="round"/>
-      <line x1="46" y1="87" x2="49" y2="100" stroke="var(--panel-title)" stroke-width="3" stroke-linecap="round"/>
-      <!-- head -->
-      <!-- wizard hat -->
-      <polygon points="36,60 42,48 48,60" fill="var(--btn-bg)"/>
-      <rect x="35" y="58" width="14" height="4" rx="1" fill="var(--da)"/>
-      <circle cx="42" cy="55" r="2" fill="var(--da)" opacity=".6"/>
-      <!-- head -->
-      <circle cx="42" cy="68" r="9" fill="var(--mascot-skin)"/>
-      <g id="pomoEyeL" style="transform-origin:39px 67px;animation:mBlink 4s ease-in-out infinite;">
-        <circle cx="39" cy="67" r="1.3" fill="var(--mascot-hair)"/>
-      </g>
-      <circle cx="45" cy="67" r="1.3" fill="var(--mascot-hair)"/>
-      <path d="M39 71 Q42 73 45 71" fill="none" stroke="var(--mascot-hair)" stroke-width="1.1" stroke-linecap="round"/>
     </svg>
   </div>`;
 }
 
 function mascotPrincess(){
   return `<div class="mascot-wrap" id="princessMascotWrap">
-    <svg id="princessMascotSVG" width="84" height="118" viewBox="0 0 84 118">
+    <svg id="princessMascotSVG" width="84" height="148" viewBox="0 0 84 148">
       <style>
         #princessMascotSVG .p-dress{fill:var(--btn-bg)}
-        #princessMascotSVG .p-trim{fill:var(--da)}
+        #princessMascotSVG .p-skirt2{fill:var(--da)}
         #princessMascotSVG .p-bodice{fill:var(--da)}
+        #princessMascotSVG .p-sleeve{fill:var(--da)}
         #princessMascotSVG .p-skin{fill:var(--mascot-skin)}
-        #princessMascotSVG .p-hair{fill:var(--mascot-hair);stroke:var(--mascot-hair);stroke-linecap:round}
-        #princessMascotSVG .p-braid{fill:none;stroke:var(--mascot-hair);stroke-linecap:round;stroke-linejoin:round}
+        #princessMascotSVG .p-hair{fill:var(--mascot-hair)}
+        #princessMascotSVG .p-braid{stroke:var(--mascot-hair);fill:none;stroke-linecap:round}
+        #princessMascotSVG .p-bweave{stroke:var(--panel-title);fill:none;stroke-linecap:round;opacity:.45}
         #princessMascotSVG .p-eye{fill:var(--mascot-hair)}
-        #princessMascotSVG .p-crown{fill:var(--btn-bg);stroke:none}
+        #princessMascotSVG .p-crown{fill:var(--btn-bg)}
+        #princessMascotSVG .p-gold{fill:var(--da)}
         #princessMascotSVG .p-jewel-r{fill:#c04060}
-        #princessMascotSVG .p-jewel-b{fill:#3060a0}
         #princessMascotSVG .p-jewel-g{fill:#e8c060}
+        #princessMascotSVG .p-cheek{fill:#e88898;opacity:.25}
         #princessMascotSVG .p-smile{stroke:var(--mascot-hair);fill:none;stroke-linecap:round}
-        #princessMascotSVG .p-cheek{fill:#e88898;opacity:.28}
+        #princessMascotSVG .p-ribbon{fill:var(--btn-bg);opacity:.85}
         #princessMascotSVG .p-flower-r{fill:#d4537e}
         #princessMascotSVG .p-flower-y{fill:#e8c070}
-        #princessMascotSVG .p-sleeve{stroke:var(--btn-bg);stroke-linecap:round;fill:none}
-        #princessMascotSVG .p-ribbon{fill:var(--btn-bg)}
       </style>
-      <!-- dress — slimmer A-line -->
-      <g style="transform-origin:42px 96px;">
-        <path d="M34 89 Q26 104 24 118 L60 118 Q58 104 50 89 Z" class="p-dress"/>
-        <path d="M24 118 Q42 113 60 118" stroke="var(--da)" stroke-width="1.5" fill="none"/>
-        <line x1="31" y1="101" x2="29" y2="118" stroke="var(--da)" stroke-width=".7" opacity=".35"/>
-        <line x1="37" y1="96" x2="36" y2="118" stroke="var(--da)" stroke-width=".7" opacity=".35"/>
-        <line x1="42" y1="94" x2="42" y2="118" stroke="var(--da)" stroke-width=".7" opacity=".35"/>
-        <line x1="47" y1="96" x2="48" y2="118" stroke="var(--da)" stroke-width=".7" opacity=".35"/>
-        <line x1="53" y1="101" x2="55" y2="118" stroke="var(--da)" stroke-width=".7" opacity=".35"/>
-      </g>
-      <!-- bodice -->
-      <rect x="33" y="77" width="18" height="14" rx="4" class="p-bodice"/>
-      <!-- belt jewel -->
-      <rect x="32" y="87" width="20" height="4" rx="2" class="p-trim"/>
-      <circle cx="42" cy="89" r="2.5" class="p-jewel-g"/>
-      <!-- sleeves -->
-      <path d="M33 80 Q20 83 17 89" stroke-width="5" class="p-sleeve"/>
-      <circle cx="16" cy="90" r="3.5" class="p-skin"/>
-      <!-- flower in hand -->
-      <circle cx="11" cy="86" r="3" class="p-flower-r"/>
-      <circle cx="11" cy="86" r="1.5" class="p-flower-y"/>
-      <path d="M33 80 Q54 83 57 90" stroke-width="5" class="p-sleeve"/>
-      <circle cx="58" cy="91" r="3.5" class="p-skin"/>
-      <!-- neck -->
-      <rect x="38" y="71" width="6" height="8" rx="2" class="p-skin"/>
-      <!-- ── BRAIDS ── -->
-      <!-- left braid hangs from behind head down to waist -->
-      <!-- braid base shape (thick rope) -->
-      <path d="M30 65 Q26 75 27 88 Q28 95 30 102" stroke-width="5.5" class="p-braid"/>
-      <!-- braid weave segments left -->
-      <path d="M28 68 Q32 70 28 74" stroke-width="2.5" class="p-braid" opacity=".55"/>
-      <path d="M28 74 Q32 77 28 80" stroke-width="2.5" class="p-braid" opacity=".55"/>
-      <path d="M28 80 Q32 83 28 87" stroke-width="2.5" class="p-braid" opacity=".55"/>
-      <path d="M28 87 Q32 90 29 94" stroke-width="2.5" class="p-braid" opacity=".55"/>
-      <!-- braid tip left -->
-      <ellipse cx="30" cy="103" rx="3" ry="4" class="p-hair"/>
-      <!-- ribbon at braid tip left -->
-      <ellipse cx="30" cy="100" rx="4" ry="2.5" class="p-ribbon" opacity=".8"/>
+      <!-- left braid -->
+      <path d="M33 62 Q28 80 29 105 Q30 120 31 135" stroke-width="5.5" class="p-braid"/>
+      <path d="M30 68 Q35 71 30 76" stroke-width="2" class="p-bweave"/>
+      <path d="M30 76 Q35 80 30 85" stroke-width="2" class="p-bweave"/>
+      <path d="M30 85 Q35 89 30 94" stroke-width="2" class="p-bweave"/>
+      <path d="M30 94 Q35 98 30 103" stroke-width="2" class="p-bweave"/>
+      <path d="M30 103 Q35 107 30 112" stroke-width="2" class="p-bweave"/>
+      <path d="M30 112 Q35 116 31 121" stroke-width="2" class="p-bweave"/>
+      <path d="M31 121 Q35 125 32 130" stroke-width="2" class="p-bweave"/>
+      <ellipse cx="31" cy="136" rx="3.5" ry="4.5" class="p-hair"/>
+      <ellipse cx="31" cy="132" rx="5" ry="2.5" class="p-ribbon"/>
       <!-- right braid -->
-      <path d="M54 65 Q58 75 57 88 Q56 95 54 102" stroke-width="5.5" class="p-braid"/>
-      <!-- braid weave segments right -->
-      <path d="M56 68 Q52 70 56 74" stroke-width="2.5" class="p-braid" opacity=".55"/>
-      <path d="M56 74 Q52 77 56 80" stroke-width="2.5" class="p-braid" opacity=".55"/>
-      <path d="M56 80 Q52 83 56 87" stroke-width="2.5" class="p-braid" opacity=".55"/>
-      <path d="M56 87 Q52 90 55 94" stroke-width="2.5" class="p-braid" opacity=".55"/>
-      <!-- braid tip right -->
-      <ellipse cx="54" cy="103" rx="3" ry="4" class="p-hair"/>
-      <!-- ribbon at braid tip right -->
-      <ellipse cx="54" cy="100" rx="4" ry="2.5" class="p-ribbon" opacity=".8"/>
+      <path d="M51 62 Q56 80 55 105 Q54 120 53 135" stroke-width="5.5" class="p-braid"/>
+      <path d="M54 68 Q49 71 54 76" stroke-width="2" class="p-bweave"/>
+      <path d="M54 76 Q49 80 54 85" stroke-width="2" class="p-bweave"/>
+      <path d="M54 85 Q49 89 54 94" stroke-width="2" class="p-bweave"/>
+      <path d="M54 94 Q49 98 54 103" stroke-width="2" class="p-bweave"/>
+      <path d="M54 103 Q49 107 54 112" stroke-width="2" class="p-bweave"/>
+      <path d="M54 112 Q49 116 53 121" stroke-width="2" class="p-bweave"/>
+      <path d="M53 121 Q49 125 52 130" stroke-width="2" class="p-bweave"/>
+      <ellipse cx="53" cy="136" rx="3.5" ry="4.5" class="p-hair"/>
+      <ellipse cx="53" cy="132" rx="5" ry="2.5" class="p-ribbon"/>
+      <!-- dress A-line -->
+      <path d="M34 89 Q26 104 24 148 L60 148 Q58 104 50 89 Z" class="p-dress"/>
+      <path d="M24 148 Q42 143 60 148" stroke="var(--da)" stroke-width="1.5" fill="none"/>
+      <path d="M34 89 Q31 104 29 148 L38 148 Q37 120 38 92 Z" class="p-skirt2"/>
+      <path d="M50 89 Q53 104 55 148 L46 148 Q47 120 46 92 Z" class="p-skirt2"/>
+      <!-- sleeves draped -->
+      <path d="M36 72 Q30 78 26 90 Q22 102 23 114 Q24 120 27 122 Q30 118 31 110 Q32 98 36 86 Z" class="p-sleeve"/>
+      <path d="M48 72 Q54 78 58 90 Q62 102 61 114 Q60 120 57 122 Q54 118 53 110 Q52 98 48 86 Z" class="p-sleeve"/>
+      <!-- bodice -->
+      <rect x="34" y="70" width="16" height="20" rx="3" class="p-bodice"/>
+      <rect x="33" y="86" width="18" height="4" rx="2" class="p-gold"/>
+      <rect x="39" y="85" width="6" height="6" rx="1" class="p-jewel-g"/>
+      <!-- flower in hand -->
+      <circle cx="19" cy="112" r="4" class="p-flower-r"/>
+      <circle cx="19" cy="112" r="2" class="p-flower-y"/>
+      <!-- neck -->
+      <rect x="39" y="62" width="6" height="10" rx="2" class="p-skin"/>
       <!-- head -->
-      <circle cx="42" cy="63" r="12" class="p-skin"/>
-      <!-- hair on top of head (gathered before braids) -->
-      <path d="M30 60 Q32 51 42 49 Q52 51 54 60" class="p-hair"/>
-      <!-- small side hair pieces framing face -->
-      <path d="M30 62 Q28 65 30 69" stroke-width="3" class="p-braid" opacity=".7"/>
-      <path d="M54 62 Q56 65 54 69" stroke-width="3" class="p-braid" opacity=".7"/>
+      <circle cx="42" cy="54" r="12" class="p-skin"/>
+      <!-- hair top -->
+      <path d="M30 53 Q33 43 42 41 Q51 43 54 53" class="p-hair"/>
+      <path d="M30 53 Q29 57 30 63" stroke-width="3.5" class="p-braid" opacity=".8"/>
+      <path d="M54 53 Q55 57 54 63" stroke-width="3.5" class="p-braid" opacity=".8"/>
       <!-- crown -->
-      <rect x="31" y="49" width="22" height="5" rx="2" class="p-crown"/>
-      <polygon points="31,49 34,42 37,49" class="p-crown"/>
-      <polygon points="37,49 42,44 47,49" class="p-crown"/>
-      <polygon points="47,49 50,42 53,49" class="p-crown"/>
-      <circle cx="34" cy="48" r="2" class="p-jewel-g"/>
-      <circle cx="42" cy="46" r="2.5" class="p-jewel-r"/>
-      <circle cx="50" cy="48" r="2" class="p-jewel-g"/>
+      <rect x="31" y="41" width="22" height="5" rx="2" class="p-crown"/>
+      <polygon points="31,41 34,34 37,41" class="p-crown"/>
+      <polygon points="37,41 42,36 47,41" class="p-crown"/>
+      <polygon points="47,41 50,34 53,41" class="p-crown"/>
+      <circle cx="34" cy="40" r="1.8" class="p-jewel-g"/>
+      <circle cx="42" cy="38" r="2.2" class="p-jewel-r"/>
+      <circle cx="50" cy="40" r="1.8" class="p-jewel-g"/>
       <!-- face -->
-      <g style="transform-origin:38px 62px;animation:mBlink 3.5s ease-in-out infinite;">
-        <ellipse cx="38" cy="62" rx="1.5" ry="1.5" class="p-eye"/>
+      <g style="transform-origin:38px 53px;animation:mBlink 3.5s ease-in-out infinite;">
+        <ellipse cx="38" cy="53" rx="1.4" ry="1.4" class="p-eye"/>
       </g>
-      <ellipse cx="46" cy="62" rx="1.5" ry="1.5" class="p-eye"/>
-      <ellipse cx="35" cy="65" rx="3" ry="2" class="p-cheek"/>
-      <ellipse cx="49" cy="65" rx="3" ry="2" class="p-cheek"/>
-      <path d="M38 67 Q42 70 46 67" stroke-width="1.2" class="p-smile"/>
+      <ellipse cx="46" cy="53" rx="1.4" ry="1.4" class="p-eye"/>
+      <ellipse cx="36" cy="57" rx="3" ry="2" class="p-cheek"/>
+      <ellipse cx="48" cy="57" rx="3" ry="2" class="p-cheek"/>
+      <path d="M38 58 Q42 61 46 58" stroke-width="1.2" class="p-smile"/>
+    </svg>
+  </div>`;
+}
+
+function mascotDeepFocus(){
+  return `<div class="mascot-wrap" id="pomoMascotWrap">
+    <svg id="pomoMascotSVG" width="96" height="118" viewBox="0 0 96 118">
+      <style>
+        #pomoMascotSVG .w-book{fill:var(--panel-title)}
+        #pomoMascotSVG .w-page{fill:#fff8e8}
+        #pomoMascotSVG .w-line{stroke:var(--dbo);stroke-width:.7;fill:none;opacity:.5}
+        #pomoMascotSVG .w-dress{fill:var(--btn-bg)}
+        #pomoMascotSVG .w-dress-dark{fill:var(--btn-border);opacity:.4}
+        #pomoMascotSVG .w-arm{stroke:var(--btn-border);stroke-width:4;fill:none;stroke-linecap:round}
+        #pomoMascotSVG .w-hat{fill:var(--panel-title)}
+        #pomoMascotSVG .w-hat-band{fill:var(--da)}
+        #pomoMascotSVG .w-brim{fill:var(--panel-title)}
+        #pomoMascotSVG .w-staff{stroke:var(--da);stroke-width:2.5;fill:none;stroke-linecap:round}
+        #pomoMascotSVG .w-orb{fill:var(--da);opacity:.9}
+        #pomoMascotSVG .w-skin{fill:var(--mascot-skin)}
+        #pomoMascotSVG .w-hair{fill:var(--mascot-hair)}
+        #pomoMascotSVG .w-hair-s{stroke:var(--mascot-hair);stroke-width:4.5;fill:none;stroke-linecap:round}
+        #pomoMascotSVG .w-eye{fill:var(--mascot-hair)}
+        #pomoMascotSVG .w-lash{stroke:var(--mascot-hair);stroke-width:1;fill:none;stroke-linecap:round}
+        #pomoMascotSVG .w-smile{stroke:var(--mascot-hair);stroke-width:1.2;fill:none;stroke-linecap:round}
+        #pomoMascotSVG .w-nose{stroke:var(--mascot-hair);stroke-width:1.1;fill:none;stroke-linecap:round}
+        #pomoMascotSVG .w-cheek{fill:#e88898;opacity:.2}
+        #pomoMascotSVG .w-star{fill:var(--da)}
+        #pomoMascotSVG .w-cape{fill:var(--panel-title);opacity:.7}
+        #pomoMascotSVG .w-belt{fill:var(--da)}
+        #pomoMascotSVG .w-buckle{fill:var(--panel-bg)}
+      </style>
+
+      <!-- floating open spellbook -->
+      <g id="pomoTomato" style="transform-origin:48px 26px;">
+        <rect x="17" y="14" width="54" height="28" rx="3" class="w-book"/>
+        <rect x="19" y="16" width="25" height="24" rx="2" class="w-page"/>
+        <rect x="46" y="16" width="23" height="24" rx="2" class="w-page"/>
+        <line x1="44" y1="16" x2="44" y2="40" stroke="var(--da)" stroke-width="1.5"/>
+        <!-- arcane symbols left page -->
+        <circle cx="27" cy="24" r="4" fill="none" stroke="var(--da)" stroke-width=".8" opacity=".5"/>
+        <line x1="23" y1="24" x2="31" y2="24" class="w-line"/>
+        <line x1="27" y1="20" x2="27" y2="28" class="w-line"/>
+        <line x1="34" y1="22" x2="42" y2="22" class="w-line"/>
+        <line x1="34" y1="26" x2="42" y2="26" class="w-line"/>
+        <line x1="34" y1="30" x2="41" y2="30" class="w-line"/>
+        <line x1="21" y1="34" x2="42" y2="34" class="w-line"/>
+        <line x1="21" y1="37" x2="40" y2="37" class="w-line"/>
+        <!-- right page -->
+        <line x1="48" y1="20" x2="66" y2="20" class="w-line"/>
+        <line x1="48" y1="24" x2="66" y2="24" class="w-line"/>
+        <line x1="48" y1="28" x2="65" y2="28" class="w-line"/>
+        <line x1="48" y1="32" x2="66" y2="32" class="w-line"/>
+        <line x1="48" y1="36" x2="64" y2="36" class="w-line"/>
+      </g>
+
+      <!-- witch figure -->
+      <g style="transform-origin:44px 82px;">
+        <!-- cape flowing behind -->
+        <path d="M36 70 Q26 88 24 118 L44 118" class="w-cape"/>
+        <!-- long dress / skirt -->
+        <path d="M34 70 Q28 88 26 118 L62 118 Q60 88 54 70 Z" class="w-dress"/>
+        <path d="M34 70 Q32 88 30 118 L38 118 Q37 94 38 74Z" class="w-dress-dark"/>
+        <path d="M54 70 Q56 88 58 118 L50 118 Q51 94 50 74Z" class="w-dress-dark"/>
+        <!-- belt with buckle -->
+        <rect x="30" y="82" width="28" height="5" rx="2.5" class="w-belt"/>
+        <rect x="40" y="81" width="8" height="7" rx="1.5" class="w-belt"/>
+        <rect x="42" y="83" width="4" height="3" rx="1" class="w-buckle"/>
+        <!-- staff arm left -->
+        <g id="pomoArmL" style="transform-origin:34px 73px;">
+          <path d="M34 73 Q24 68 16 58" class="w-arm"/>
+          <line x1="16" y1="58" x2="8" y2="42" class="w-staff"/>
+          <!-- orb -->
+          <circle cx="6" cy="40" r="5.5" class="w-orb"/>
+          <g style="transform-origin:6px 40px;animation:mStarSpin 2.5s linear infinite;">
+            <path d="M6 36 L7 39 L10 39 L8 41 L9 44 L6 42 L3 44 L4 41 L2 39 L5 39 Z" fill="var(--panel-bg)" opacity=".85"/>
+          </g>
+        </g>
+        <!-- book arm right -->
+        <g id="pomoArmR" style="transform-origin:54px 73px;">
+          <path d="M54 73 Q64 66 72 56" class="w-arm"/>
+        </g>
+        <!-- long flowing hair behind -->
+        <path d="M33 60 Q28 72 30 86" class="w-hair-s"/>
+        <path d="M55 60 Q60 72 58 86" class="w-hair-s"/>
+        <!-- hair on top / sides -->
+        <path d="M33 58 Q30 50 34 46 Q38 42 44 42 Q50 42 54 46 Q58 50 55 58" class="w-hair"/>
+        <!-- pointed witch hat — wide brim -->
+        <ellipse cx="44" cy="53" rx="18" ry="5" class="w-brim"/>
+        <!-- hat cone -->
+        <path d="M34 53 Q38 40 44 28 Q50 40 54 53 Z" class="w-hat"/>
+        <!-- hat band with buckle -->
+        <rect x="34" y="51" width="20" height="4" rx="2" class="w-hat-band"/>
+        <rect x="41" y="50" width="6" height="6" rx="1" class="w-hat-band"/>
+        <rect x="43" y="52" width="2" height="2" rx=".5" class="w-buckle"/>
+        <!-- slight hat tilt -->
+        <path d="M44 28 Q46 22 48 18" stroke="var(--panel-title)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- star on hat tip -->
+        <g style="transform-origin:49px 17px;animation:mStarSpin 4s linear infinite reverse;">
+          <path d="M49 13 L50 16 L53 16 L51 18 L52 21 L49 19 L46 21 L47 18 L45 16 L48 16 Z" class="w-star"/>
+        </g>
+        <!-- face — slightly mischievous -->
+        <circle cx="44" cy="62" r="10" class="w-skin"/>
+        <!-- rosy cheeks -->
+        <ellipse cx="39" cy="65" rx="3" ry="2" class="w-cheek"/>
+        <ellipse cx="49" cy="65" rx="3" ry="2" class="w-cheek"/>
+        <!-- eyes with lashes -->
+        <g style="transform-origin:41px 61px;animation:mBlink 3.5s ease-in-out infinite;">
+          <ellipse cx="41" cy="61" rx="1.5" ry="1.5" class="w-eye"/>
+        </g>
+        <ellipse cx="47" cy="61" rx="1.5" ry="1.5" class="w-eye"/>
+        <!-- lashes -->
+        <line x1="39" y1="59" x2="38" y2="57" class="w-lash"/>
+        <line x1="41" y1="58.5" x2="41" y2="56.5" class="w-lash"/>
+        <line x1="43" y1="59" x2="43.5" y2="57" class="w-lash"/>
+        <line x1="45" y1="59" x2="44.5" y2="57" class="w-lash"/>
+        <line x1="47" y1="58.5" x2="47" y2="56.5" class="w-lash"/>
+        <line x1="49" y1="59" x2="50" y2="57" class="w-lash"/>
+        <!-- slightly pointed nose -->
+        <path d="M44 63 Q45 65 43 66" class="w-nose"/>
+        <!-- sly smile -->
+        <path d="M40 68 Q44 72 48 68" class="w-smile"/>
+      </g>
     </svg>
   </div>`;
 }
@@ -2403,6 +2836,16 @@ function scheduleNotifications(){clearInterval(_notifScheduleInterval);_checkSch
 function setNotifyBefore(mins,e){if(e)makeRipple(e);notifyBeforeMins=mins;try{localStorage.setItem('tw7_notifbefore',String(mins));}catch(ex){}_notifiedTasks.clear();document.querySelectorAll('.notif-lead-btn').forEach(b=>b.classList.toggle('on',parseInt(b.dataset.mins)===mins));const label=mins>=60?Math.round(mins/60)+(mins===60?' hour':' hours'):mins+' minutes';showNotif('🔔','Notification timing updated','Will notify you '+label+' before a deadline');}
 
 // ── CHIP MODE ──
+function toggleFilterPanel(){
+  const cp=document.getElementById('chipPanel');
+  const btn=document.getElementById('filterTogBtn');
+  if(!cp)return;
+  const isOpen=cp.style.display!=='none';
+  cp.style.display=isOpen?'none':'block';
+  if(btn)btn.classList.toggle('on',!isOpen);
+  if(!isOpen)renderChipPanel();
+}
+
 function setChipMode(mode,e){if(e)makeRipple(e);chipMode=mode;renderChipPanel();}
 function renderChipPanel(){
   const el=document.getElementById('chipPanel');if(!el)return;
@@ -2420,6 +2863,329 @@ function photoDurationLabel(ms){const map={5000:'Every 5 seconds',30000:'Every 3
 
 // ── BUDGET ──
 function fmt(n){return 'GH₵'+Number(n||0).toLocaleString('en-GH',{minimumFractionDigits:2,maximumFractionDigits:2});}
+
+
+
+// ════════════════════════════════════════
+// ── ROUTINE VIEW ──
+// ════════════════════════════════════════
+const ROUTINE_STEPS=[
+  {name:'Make the bed',mins:5,color:'#EF9F27'},
+  {name:'Stretch',mins:5,color:'#BA7517'},
+  {name:'Drink water',mins:5,color:'#5DCAA5'},
+  {name:'Write to-do list',mins:5,color:'#1D9E75'},
+  {name:'Eat breakfast',mins:25,color:'#0F6E56'},
+  {name:'Cold shower',mins:15,color:'#85B7EB'},
+];
+const ROUTINE_TOTAL=60;
+let routineDone=new Set();
+let routineTimer=null;
+let routineActive=null;
+let routineSecsLeft=0;
+let routineRunning=false;
+
+function routineMinsDone(){return ROUTINE_STEPS.filter((_,i)=>routineDone.has(i)).reduce((s,st)=>s+st.mins,0);}
+function routineFmt(s){return Math.floor(s/60)+':'+(s%60<10?'0':'')+s%60;}
+
+function drawRoutineRing(){
+  const canvas=document.getElementById('routineRingCanvas');if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const cx=65,cy=65,r=55,lw=13;
+  ctx.clearRect(0,0,130,130);
+  // track
+  ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
+  ctx.strokeStyle='rgba(128,128,128,.12)';ctx.lineWidth=lw;ctx.stroke();
+  // completed segments
+  let angle=-Math.PI/2;
+  ROUTINE_STEPS.forEach((st,i)=>{
+    const sweep=(st.mins/ROUTINE_TOTAL)*Math.PI*2;
+    if(routineDone.has(i)){
+      ctx.beginPath();ctx.arc(cx,cy,r,angle,angle+sweep);
+      ctx.strokeStyle=st.color;ctx.lineWidth=lw;ctx.lineCap='butt';ctx.stroke();
+    }
+    angle+=sweep;
+  });
+  // in-progress arc
+  if(routineActive!==null&&routineRunning){
+    const st=ROUTINE_STEPS[routineActive];
+    let s=-Math.PI/2;
+    for(let i=0;i<routineActive;i++)s+=(ROUTINE_STEPS[i].mins/ROUTINE_TOTAL)*Math.PI*2;
+    const totalSecs=st.mins*60;
+    const elapsed=totalSecs-routineSecsLeft;
+    const sweep=(elapsed/totalSecs)*(st.mins/ROUTINE_TOTAL)*Math.PI*2;
+    ctx.beginPath();ctx.arc(cx,cy,r,s,s+sweep);
+    ctx.strokeStyle=st.color;ctx.lineWidth=lw;ctx.lineCap='butt';ctx.stroke();
+  }
+}
+
+function renderRoutineView(){
+  const mp=document.getElementById('mainPanel');
+  const mid=Math.ceil(ROUTINE_STEPS.length/2);
+  const pct=Math.round((routineMinsDone()/ROUTINE_TOTAL)*100);
+
+  function stepHTML(st,i){
+    const isDone=routineDone.has(i);
+    const isActive=routineActive===i&&routineRunning;
+    return`<div class="rstep${isDone?' done':''}${isActive?' active-step':''}" onclick="toggleRoutineStep(${i})">
+      <div class="rstep-dot" style="background:${st.color}"></div>
+      <div class="rstep-info">
+        <div class="rstep-name">${st.name}</div>
+        <div class="rstep-time">${isActive?routineFmt(routineSecsLeft):st.mins+' min'}</div>
+      </div>
+      <div class="rstep-chk${isDone?' done':''}"></div>
+    </div>`;
+  }
+
+  const leftHTML=ROUTINE_STEPS.slice(0,mid).map((st,i)=>stepHTML(st,i)).join('');
+  const rightHTML=ROUTINE_STEPS.slice(mid).map((st,i)=>stepHTML(st,i+mid)).join('');
+  const btnLabel=routineRunning?'Pause':(routineActive!==null&&routineSecsLeft>0?'Resume':'Start routine');
+
+  // daily habits section
+  const dailyDone=dailyTasks.filter((_,i)=>dailyState['d'+i]).length;
+  const dailyPct=dailyTasks.length?Math.round(dailyDone/dailyTasks.length*100):0;
+  const habitsHTML=dailyTasks.length?dailyTasks.map((t,i)=>{
+    const d=!!dailyState['d'+i];
+    const name=getDailyName(t);
+    const timeBadge=dailyTimeBadge(t);
+    return`<div class="dtask${d?' done':''}" onclick="toggleDaily(${i},event)"><div class="dtask-chk">${d?'✓':''}</div><span class="dtask-lbl">${esc(name)}</span>${timeBadge}</div>`;
+  }).join(''):`<div class="empty">Add habits in Settings</div>`;
+
+  mp.innerHTML=`<div class="panel anim-up">
+    <div class="routine-card">
+      <div class="routine-section-title">
+        <span>1-hour morning routine</span>
+        <span class="r-timer-badge${routineRunning?' running':''}" id="rTimerBadge">${routineRunning?routineFmt(routineSecsLeft)+' left':routineMinsDone()+' / '+ROUTINE_TOTAL+' min'}</span>
+      </div>
+      <div class="routine-ring-wrap">
+        <div class="routine-ring-side">${leftHTML}</div>
+        <div class="routine-ring-center">
+          <canvas id="routineRingCanvas" width="130" height="130"></canvas>
+          <div class="routine-ring-lbl">
+            <div class="rlbl-pct" id="rPct">${pct}%</div>
+            <div class="rlbl-sub" id="rSub">${routineDone.size===ROUTINE_STEPS.length?'done!':'done'}</div>
+            <div class="rlbl-mins" id="rMins">${routineMinsDone()} / ${ROUTINE_TOTAL} min</div>
+          </div>
+        </div>
+        <div class="routine-ring-side">${rightHTML}</div>
+      </div>
+      <div class="routine-actions">
+        <button class="r-start-btn" id="rStartBtn" onclick="toggleRoutineTimer()">${btnLabel}</button>
+        <button class="r-reset-btn" onclick="resetRoutine()">Reset</button>
+      </div>
+    </div>
+    <div class="routine-habits-section">
+      <div class="routine-section-title">
+        <span>My day</span>
+        <span style="font-size:11px;font-weight:700;color:var(--inp-ph);">${dailyDone}/${dailyTasks.length} · ${dailyPct}%</span>
+      </div>
+      <div class="daily-tasks">${habitsHTML}</div>
+      <div class="dpb" style="margin-top:8px;"><div class="dpbf" style="width:${dailyPct}%"></div></div>
+      ${pct===100?`<div class="king-toggle${_kingVisible?'':' hidden'}" id="kingWrap" onclick="toggleKing(event)">${mascotCelebrating()}</div><div class="king-hint" onclick="toggleKing(event)">${_kingVisible?'tap to dismiss':'👑 tap to summon'}</div>`:''}
+    </div>
+  </div>`;
+
+  drawRoutineRing();
+}
+
+function toggleRoutineStep(i){
+  if(routineDone.has(i))routineDone.delete(i);else routineDone.add(i);
+  renderRoutineView();
+}
+
+function toggleRoutineTimer(){
+  if(routineRunning){
+    clearInterval(routineTimer);routineRunning=false;
+    renderRoutineView();return;
+  }
+  // find first undone
+  const next=ROUTINE_STEPS.findIndex((_,i)=>!routineDone.has(i));
+  if(next===-1)return;
+  if(routineActive!==next||routineSecsLeft===0){routineActive=next;routineSecsLeft=ROUTINE_STEPS[next].mins*60;}
+  routineRunning=true;
+  function routineTickFn(){
+    routineSecsLeft--;
+    const badge=document.getElementById('rTimerBadge');
+    if(badge)badge.textContent=routineFmt(routineSecsLeft)+' left';
+    const steps=document.querySelectorAll('.rstep.active-step .rstep-time');
+    steps.forEach(el=>el.textContent=routineFmt(routineSecsLeft));
+    drawRoutineRing();
+    if(routineSecsLeft<=0){
+      routineDone.add(routineActive);
+      clearInterval(routineTimer);routineRunning=false;
+      const nx=ROUTINE_STEPS.findIndex((_,i)=>!routineDone.has(i));
+      if(nx===-1){
+        routineActive=null;
+        playNotifSound();
+        showNotif('🌅','Routine complete!','All 60 minutes done. Great start!');
+        sendPushNotif('🌅 Routine complete!','All 60 minutes done. Great start!');
+      } else {
+        const nextStep=ROUTINE_STEPS[nx];
+        routineActive=nx;routineSecsLeft=nextStep.mins*60;
+        // ping between steps
+        playNotifSound();
+        showNotif('⏰',ROUTINE_STEPS[routineActive-1]?.name+' done!','Up next: '+nextStep.name+' · '+nextStep.mins+' min',5000);
+        sendPushNotif('⏰ Up next: '+nextStep.name,nextStep.mins+' minutes — tap to open My Tower');
+        // auto-start next step after a 2-second breath
+        setTimeout(()=>{
+          if(!routineRunning){
+            routineRunning=true;
+            routineTimer=setInterval(routineTickFn,1000);
+          }
+        },2000);
+      }
+      renderRoutineView();
+    }
+  }
+  routineTimer=setInterval(routineTickFn,1000);
+  renderRoutineView();
+}
+
+function resetRoutine(){
+  clearInterval(routineTimer);routineRunning=false;
+  routineActive=null;routineSecsLeft=0;routineDone.clear();
+  renderRoutineView();
+}
+
+
+// ── MY DAY STRIP ──
+function myDayStripCompactHTML(){
+  if(!dailyTasks.length) return '';
+  const done=dailyTasks.filter((_,i)=>dailyState['d'+i]).length;
+  const pct=Math.round(done/dailyTasks.length*100);
+  // dots only — much smaller than chips
+  const dots=dailyTasks.map((t,i)=>{
+    const d=!!dailyState['d'+i];
+    const name=getDailyName(t);
+    return`<span title="${esc(name)}" onclick="toggleDaily(${i},event)" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${d?'var(--da)':'var(--floor-border)'};cursor:pointer;flex-shrink:0;transition:background .2s;"></span>`;
+  }).join('');
+  return`<div style="display:flex;align-items:center;gap:6px;padding:4px 12px;background:var(--floor-bg);border-bottom:1px solid var(--floor-border);">
+    <span style="font-size:9px;font-weight:900;color:var(--inp-ph);text-transform:uppercase;letter-spacing:.6px;white-space:nowrap;">My day</span>
+    <div style="display:flex;gap:4px;align-items:center;flex:1;">${dots}</div>
+    <span style="font-size:9px;font-weight:800;color:var(--da);white-space:nowrap;">${done}/${dailyTasks.length}</span>
+  </div>`;
+}
+
+function myDayStripHTML(){
+  if(!dailyTasks.length) return '';
+  const done=dailyTasks.filter((_,i)=>dailyState['d'+i]).length;
+  const pct=Math.round(done/dailyTasks.length*100);
+  const chips=dailyTasks.map((t,i)=>{
+    const d=!!dailyState['d'+i];
+    const name=getDailyName(t);
+    return`<div class="myday-chip${d?' done':''}" onclick="toggleDaily(${i},event)">${esc(name)}</div>`;
+  }).join('');
+  return`<div class="myday-strip">
+    <div class="myday-hdr">
+      <span class="myday-title">My day</span>
+      <span class="myday-meta">${done}/${dailyTasks.length} · ${pct}%</span>
+    </div>
+    <div class="myday-chips">${chips}</div>
+    <div class="myday-bar"><div class="myday-fill" style="width:${pct}%"></div></div>
+  </div>`;
+}
+
+// ════════════════════════════════════════
+// ── BRAIN DUMP ──
+// ════════════════════════════════════════
+function renderBrainView(){
+  const mp=document.getElementById('mainPanel');
+  const todo=brainDump.filter(i=>!i.done);
+  const done=brainDump.filter(i=>i.done);
+  const todoHTML=todo.length
+    ?todo.map(item=>`<div class="brain-item" id="bi-${item.id}">
+        <div class="brain-chk" onclick="toggleBrain(${item.id})"></div>
+        <span class="brain-txt" contenteditable="true" spellcheck="false"
+          onblur="renameBrain(${item.id},this.textContent)"
+          onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur();document.getElementById('brainInp').focus();}"
+        >${esc(item.text)}</span>
+        <button class="brain-move-btn" onclick="sendToBoard(${item.id},event)" title="Send to My board">→ Board</button>
+        <button class="brain-del" onclick="delBrain(${item.id})">×</button>
+      </div>`).join('')
+    :'';
+  const doneHTML=done.length?`<div class="brain-done-section">
+    <div class="brain-done-label">Done <button class="brain-clear-btn" onclick="clearDoneBrain(event)">Clear all</button></div>
+    ${done.map(item=>`<div class="brain-item done" id="bi-${item.id}">
+      <div class="brain-chk done" onclick="toggleBrain(${item.id})"></div>
+      <span class="brain-txt">${esc(item.text)}</span>
+      <button class="brain-del" onclick="delBrain(${item.id})">×</button>
+    </div>`).join('')}
+  </div>`:'';
+
+  mp.innerHTML=`<div class="panel anim-up">
+    ${myDayStripHTML()}
+    <div class="brain-input-wrap">
+      <input class="brain-inp" id="brainInp" type="text" placeholder="What's on your mind…" autocomplete="off"/>
+    </div>
+    <div class="brain-list" id="brainList">
+      ${todo.length||done.length?todoHTML+doneHTML:'<div class="brain-empty">Nothing here yet — just start typing</div>'}
+    </div>
+  </div>`;
+  const inp=document.getElementById('brainInp');
+  if(inp){
+    inp.addEventListener('keydown',e=>{if(e.key==='Enter')addBrainItem(e);});
+    inp.focus();
+  }
+}
+
+function addBrainItem(e){
+  if(e)e.preventDefault();
+  const inp=document.getElementById('brainInp');
+  if(!inp)return;
+  const txt=inp.value.trim();
+  if(!txt)return;
+  brainDump.unshift({id:Date.now(),text:txt,done:false});
+  inp.value='';
+  saveBrainDump();
+  if(window.saveToFirestore)window.saveToFirestore();
+  renderBrainView();
+}
+
+function toggleBrain(id){
+  const item=brainDump.find(i=>i.id===id);
+  if(!item)return;
+  item.done=!item.done;
+  saveBrainDump();
+  if(window.saveToFirestore)window.saveToFirestore();
+  renderBrainView();
+}
+
+function delBrain(id){
+  brainDump=brainDump.filter(i=>i.id!==id);
+  saveBrainDump();
+  if(window.saveToFirestore)window.saveToFirestore();
+  renderBrainView();
+}
+
+function renameBrain(id,text){
+  const item=brainDump.find(i=>i.id===id);
+  if(!item||!text.trim())return;
+  item.text=text.trim();
+  saveBrainDump();
+  if(window.saveToFirestore)window.saveToFirestore();
+}
+
+function clearDoneBrain(e){
+  if(e)makeRipple(e);
+  brainDump=brainDump.filter(i=>!i.done);
+  saveBrainDump();
+  if(window.saveToFirestore)window.saveToFirestore();
+  renderBrainView();
+}
+
+function sendToBoard(id,e){
+  if(e)makeRipple(e);
+  const item=brainDump.find(i=>i.id===id);
+  if(!item)return;
+  // auto-categorise then add to tasks board
+  const cat=guessCat(item.text);
+  tasks.push({id:Date.now(),text:item.text,cat,done:false,date:'',deadline:'',attachments:[]});
+  brainDump=brainDump.filter(i=>i.id!==id);
+  save();saveBrainDump();
+  if(window.saveToFirestore)window.saveToFirestore();
+  const catLabel=CATS.find(c=>c.id===cat)?.label||cat;
+  showNotif('📋','Moved to My board',`Added to ${catLabel}`);
+  renderBrainView();
+}
 
 // ════════════════════════════════════════
 // ── HISTORY PAGE ──
@@ -2458,6 +3224,7 @@ function renderHistoryView(){
           </div>
         </div>`;}).join('');
   mp.innerHTML=`<div class="panel anim-up">
+    ${myDayStripHTML()}
     <div class="hist-section"><div class="hist-section-title">💰 Spending plan history</div>${spendHTML}</div>
     <div class="hist-section"><div class="hist-section-title">📈 Task &amp; routine history</div>${progHTML}</div>
   </div>`;
@@ -2512,9 +3279,63 @@ const SAVE_SUGGESTIONS=['Emergency fund','Investment','Church offering','Debt re
 function budgetAlloc(){const a=budget.amount||0;return{needs:a*0.5,wants:a*0.3,savings:a*0.2};}
 function catTotal(arr){return(arr||[]).reduce((s,i)=>s+(parseFloat(i.amount)||0),0);}
 function setBudgetTab(tab,e){if(e)makeRipple(e);budgetTab=tab;renderBudgetView();}
-function updateBudgetAmount(e){const val=parseFloat(document.getElementById('budgetAmtInp').value)||0;budget.amount=val;saveBudget();renderBudgetSplitCards();renderBudgetCategories();}
-function renderBudgetSplitCards(){const alloc=budgetAlloc();const n=document.getElementById('bscNeeds'),w=document.getElementById('bscWants'),s=document.getElementById('bscSave');if(n)n.textContent=fmt(alloc.needs);if(w)w.textContent=fmt(alloc.wants);if(s)s.textContent=fmt(alloc.savings);}
-function renderBudgetCategories(){['needs','wants','savings'].forEach(cat=>renderBudgetCat(cat));}
+function updateBudgetAmount(e){const val=parseFloat(document.getElementById('budgetAmtInp').value)||0;budget.amount=val;saveBudget();renderBudgetSplitCards();renderBudgetCategories();updateBudgetRemaining();}
+function renderBudgetSplitCards(){
+  const alloc=budgetAlloc();
+  const n=document.getElementById('bscNeeds'),w=document.getElementById('bscWants'),s=document.getElementById('bscSave');
+  if(n)n.textContent=fmt(alloc.needs);if(w)w.textContent=fmt(alloc.wants);if(s)s.textContent=fmt(alloc.savings);
+  updateBudgetRemaining();
+}
+function updateBudgetRemaining(){
+  const alloc=budgetAlloc();
+  const totalUsed=catTotal(budget.needs||[])+catTotal(budget.wants||[])+catTotal(budget.savings||[]);
+  const totalBudget=budget.amount||0;
+  const rem=totalBudget-totalUsed;
+  const isOver=rem<0;
+  const isTight=rem>=0&&rem<totalBudget*0.1;
+  // update remaining bar
+  const el=document.getElementById('bRemAmount');
+  if(el){
+    el.textContent=isOver?'Over by '+fmt(Math.abs(rem)):fmt(rem)+' left';
+    el.className='brem-amount'+(isOver?' over':isTight?' tight':totalUsed>0?' good':'');
+  }
+  // update princess mood
+  const hero=document.querySelector('.budget-hero');
+  if(hero){
+    if(isOver){
+      if(!hero.classList.contains('princess-over')){
+        hero.classList.add('princess-over');
+        // trigger shake then keep worry
+        setTimeout(()=>{
+          const wrap=document.getElementById('princessMascotWrap');
+          if(wrap)wrap.style.animation='none';
+          setTimeout(()=>{
+            if(wrap)wrap.style.animation='';
+          },50);
+        },700);
+      }
+      // swap smile to worried mouth on princess SVG
+      const smile=document.querySelector('#princessMascotSVG .p-smile');
+      if(smile)smile.setAttribute('d','M38 68 Q42 65 46 68');
+      // add worry eyebrows
+      const svg=document.getElementById('princessMascotSVG');
+      if(svg&&!svg.querySelector('.p-worry-brow')){
+        const ns='http://www.w3.org/2000/svg';
+        const b1=document.createElementNS(ns,'path');b1.setAttribute('d','M36 59 Q38 57 40 59');b1.setAttribute('stroke','var(--mascot-hair)');b1.setAttribute('stroke-width','1.2');b1.setAttribute('fill','none');b1.setAttribute('class','p-worry-brow');
+        const b2=document.createElementNS(ns,'path');b2.setAttribute('d','M44 59 Q46 57 48 59');b2.setAttribute('stroke','var(--mascot-hair)');b2.setAttribute('stroke-width','1.2');b2.setAttribute('fill','none');b2.setAttribute('class','p-worry-brow');
+        svg.appendChild(b1);svg.appendChild(b2);
+      }
+    } else {
+      hero.classList.remove('princess-over');
+      // restore smile
+      const smile=document.querySelector('#princessMascotSVG .p-smile');
+      if(smile)smile.setAttribute('d','M38 67 Q42 70 46 67');
+      // remove worry brows
+      document.querySelectorAll('.p-worry-brow').forEach(el=>el.remove());
+    }
+  }
+}
+function renderBudgetCategories(){['needs','wants','savings'].forEach(cat=>renderBudgetCat(cat));updateBudgetRemaining();}
 function renderBudgetCat(cat){
   const el=document.getElementById('bcat-'+cat);if(!el)return;
   const alloc=budgetAlloc();const limit=alloc[cat==='savings'?'savings':cat];
@@ -2533,9 +3354,9 @@ function renderBudgetCat(cat){
   ['bi-name-'+cat,'bi-amt-'+cat].forEach(id=>{const inp=document.getElementById(id);if(inp)inp.addEventListener('keydown',e=>{if(e.key==='Enter')addBudgetItem(cat,e);});});
 }
 function quickAddBudget(cat,name,e){if(e)makeRipple(e);const inp=document.getElementById('bi-name-'+cat);if(inp){inp.value=name;inp.focus();}}
-function addBudgetItem(cat,e){if(e)makeRipple(e);const ni=document.getElementById('bi-name-'+cat),ai=document.getElementById('bi-amt-'+cat);if(!ni||!ai)return;const name=ni.value.trim();const amount=parseFloat(ai.value)||0;if(!name)return;if(!budget[cat])budget[cat]=[];budget[cat].push({name,amount,paid:false});ni.value='';ai.value='';saveBudget();renderBudgetCat(cat);}
-function delBudgetItem(cat,idx,e){if(e){e.stopPropagation();makeRipple(e);}budget[cat].splice(idx,1);saveBudget();renderBudgetCat(cat);}
-function toggleBudgetItem(cat,idx,e){if(e)makeRipple(e);budget[cat][idx].paid=!budget[cat][idx].paid;saveBudget();renderBudgetCat(cat);}
+function addBudgetItem(cat,e){if(e)makeRipple(e);const ni=document.getElementById('bi-name-'+cat),ai=document.getElementById('bi-amt-'+cat);if(!ni||!ai)return;const name=ni.value.trim();const amount=parseFloat(ai.value)||0;if(!name)return;if(!budget[cat])budget[cat]=[];budget[cat].push({name,amount,paid:false});ni.value='';ai.value='';saveBudget();renderBudgetCat(cat);updateBudgetRemaining();}
+function delBudgetItem(cat,idx,e){if(e){e.stopPropagation();makeRipple(e);}budget[cat].splice(idx,1);saveBudget();renderBudgetCat(cat);updateBudgetRemaining();}
+function toggleBudgetItem(cat,idx,e){if(e)makeRipple(e);budget[cat][idx].paid=!budget[cat][idx].paid;saveBudget();renderBudgetCat(cat);updateBudgetRemaining();}
 function saveBudgetToHistory(e){if(e)makeRipple(e);if(!budget.amount){showNotif('⚠️','No amount set','Please enter your budget amount first.');return;}const now=new Date();const monthKey=MONTHS[now.getMonth()]+' '+now.getFullYear();const alloc=budgetAlloc();const snap={month:monthKey,amount:budget.amount,needsAlloc:alloc.needs,needsUsed:catTotal(budget.needs),wantsAlloc:alloc.wants,wantsUsed:catTotal(budget.wants),saveAlloc:alloc.savings,saveUsed:catTotal(budget.savings),savedAt:new Date().toISOString()};if(!budget.history)budget.history=[];const existIdx=budget.history.findIndex(h=>h.month===monthKey);if(existIdx>=0)budget.history[existIdx]=snap;else budget.history.unshift(snap);if(budget.history.length>24)budget.history=budget.history.slice(0,24);saveBudget();showNotif('📊','Budget saved to history',monthKey+' recorded.');renderBudgetView();}
 function clearBudget(e){if(e)makeRipple(e);if(!confirm('Clear all current budget items? History will be kept.'))return;budget.needs=[];budget.wants=[];budget.savings=[];saveBudget();renderBudgetView();}
 function setSaveType(type,e){if(e)makeRipple(e);budget.saveType=type;saveBudget();document.querySelectorAll('.save-type-btn').forEach(b=>b.classList.toggle('on',b.dataset.type===type));}
@@ -2543,7 +3364,15 @@ function renderBudgetView(){
   const mp=document.getElementById('mainPanel');
   const alloc=budgetAlloc();const amt=budget.amount||0;
   const histHTML=(budget.history||[]).length===0?'<div class="empty">No history yet — save a month to start tracking</div>':(budget.history||[]).map(h=>{const nP=h.needsAlloc>0?Math.min((h.needsUsed/h.needsAlloc)*100,100):0;const wP=h.wantsAlloc>0?Math.min((h.wantsUsed/h.wantsAlloc)*100,100):0;const sP=h.saveAlloc>0?Math.min((h.saveUsed/h.saveAlloc)*100,100):0;return`<div class="budget-hist-item"><div class="budget-hist-hdr"><span class="budget-hist-month">${h.month}</span><span class="budget-hist-total">${fmt(h.amount)}</span></div><div style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-top:4px;display:flex;gap:12px;"><span>Needs: ${fmt(h.needsUsed)}/${fmt(h.needsAlloc)}</span><span>Wants: ${fmt(h.wantsUsed)}/${fmt(h.wantsAlloc)}</span><span>Saves: ${fmt(h.saveUsed)}/${fmt(h.saveAlloc)}</span></div><div class="budget-hist-bars" style="margin-top:6px;"><div class="budget-hist-bar bhb-needs" style="flex:${nP||1}"></div><div class="budget-hist-bar bhb-wants" style="flex:${wP||1}"></div><div class="budget-hist-bar bhb-save" style="flex:${sP||1}"></div></div></div>`;}).join('');
-  mp.innerHTML=`<div class="budget-hero anim-up">${mascotPrincess()}<div class="budget-hero-label" style="text-align:center;">My spending plan</div><div class="budget-input-row"><span class="budget-currency">GH₵</span><input type="number" class="budget-amount-inp" id="budgetAmtInp" placeholder="0.00" value="${amt>0?amt:''}" inputmode="decimal" onchange="updateBudgetAmount(event)" oninput="updateBudgetAmount(event)"/></div><div class="budget-split-row"><div class="budget-split-card bsc-needs"><div class="bsc-label">Needs</div><div class="bsc-pct">50%</div><div class="bsc-amt" id="bscNeeds">${fmt(alloc.needs)}</div><div class="bsc-sub">essentials</div></div><div class="budget-split-card bsc-wants"><div class="bsc-label">Wants</div><div class="bsc-pct">30%</div><div class="bsc-amt" id="bscWants">${fmt(alloc.wants)}</div><div class="bsc-sub">lifestyle</div></div><div class="budget-split-card bsc-save"><div class="bsc-label">Save / Pay</div><div class="bsc-pct">20%</div><div class="bsc-amt" id="bscSave">${fmt(alloc.savings)}</div><div class="bsc-sub">future</div></div></div></div>
+  // compute totals for remaining bar
+  const totalUsed=catTotal(budget.needs||[])+catTotal(budget.wants||[])+catTotal(budget.savings||[]);
+  const totalRem=(budget.amount||0)-totalUsed;
+  const isOverAll=totalRem<0;
+  const isTightAll=totalRem>=0&&totalRem<(budget.amount||0)*0.1;
+  const remClass=isOverAll?'over':isTightAll?'tight':totalUsed>0?'good':'';
+  const remText=isOverAll?'Over by '+fmt(Math.abs(totalRem)):fmt(totalRem)+' left';
+
+  mp.innerHTML=`<div class="budget-hero anim-up${isOverAll?' princess-over':''}">${myDayStripHTML()}${mascotPrincess()}<div class="budget-hero-label" style="text-align:center;">My spending plan</div><div class="budget-input-row"><span class="budget-currency">GH₵</span><input type="number" class="budget-amount-inp" id="budgetAmtInp" placeholder="0.00" value="${amt>0?amt:''}" inputmode="decimal" onchange="updateBudgetAmount(event)" oninput="updateBudgetAmount(event)"/></div><div class="budget-split-row"><div class="budget-split-card bsc-needs"><div class="bsc-label">Needs</div><div class="bsc-pct">50%</div><div class="bsc-amt" id="bscNeeds">${fmt(alloc.needs)}</div><div class="bsc-sub">essentials</div></div><div class="budget-split-card bsc-wants"><div class="bsc-label">Wants</div><div class="bsc-pct">30%</div><div class="bsc-amt" id="bscWants">${fmt(alloc.wants)}</div><div class="bsc-sub">lifestyle</div></div><div class="budget-split-card bsc-save"><div class="bsc-label">Save / Pay</div><div class="bsc-pct">20%</div><div class="bsc-amt" id="bscSave">${fmt(alloc.savings)}</div><div class="bsc-sub">future</div></div></div></div>
     <div class="budget-tabs"><button class="budget-tab${budgetTab==='planner'?' on':''}" onclick="setBudgetTab('planner',event)">Planner</button><button class="budget-tab${budgetTab==='history'?' on':''}" onclick="setBudgetTab('history',event)">History</button></div>
     ${budgetTab==='history'?`<div class="panel anim-up"><div class="ptitle">Past spending plans</div>${histHTML}</div>`:`<div class="budget-col-grid"><div class="budget-cat-panel"><div class="budget-cat-title">🏠 Needs <span style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-left:auto;">${fmt(alloc.needs)}</span></div><div class="budget-cat-subtitle">Rent, food, transport, bills</div><div id="bcat-needs"></div></div><div class="budget-cat-panel"><div class="budget-cat-title">✨ Wants <span style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-left:auto;">${fmt(alloc.wants)}</span></div><div class="budget-cat-subtitle">Eating out, clothing, fun</div><div id="bcat-wants"></div></div></div><div class="budget-cat-panel" style="margin-top:13px;"><div class="budget-cat-title">💰 Savings / Loan payments <span style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-left:auto;">${fmt(alloc.savings)}</span></div><div class="save-type-row"><button class="save-type-btn${(budget.saveType||'savings')==='savings'?' on':''}" data-type="savings" onclick="setSaveType('savings',event)">Savings</button><button class="save-type-btn${(budget.saveType||'savings')==='loan'?' on':''}" data-type="loan" onclick="setSaveType('loan',event)">Loan payment</button><button class="save-type-btn${(budget.saveType||'savings')==='both'?' on':''}" data-type="both" onclick="setSaveType('both',event)">Both</button></div><div id="bcat-savings"></div></div><div style="display:flex;gap:8px;margin-top:13px;flex-wrap:wrap;"><button class="addbtn" onclick="saveBudgetToHistory(event)">📊 Save to history</button><button class="gc-btn" onclick="clearBudget(event)">Clear items</button></div>`}`;
   if(budgetTab==='planner'){renderBudgetCat('needs');renderBudgetCat('wants');renderBudgetCat('savings');}
@@ -2558,15 +3387,29 @@ function setSyncStatus(state){const dot=document.getElementById('syncDot');const
 function updateSbUserArea(user){const area=document.getElementById('sbUserArea');if(!area)return;if(user){const initials=(user.displayName||'U').split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();area.innerHTML=`<div class="sb-user">${user.photoURL?`<img class="sb-user-avatar" src="${user.photoURL}" alt=""/>`:`<div class="sb-user-avatar-placeholder">${initials}</div>`}<div style="min-width:0;flex:1;"><div class="sb-user-name">${user.displayName||user.email||'You'}</div><div class="sb-user-status">Signed in</div></div></div><div class="sync-row"><div class="sync-dot" id="syncDot"></div><span class="sync-lbl" id="syncLbl">Synced</span></div>`;const sl=document.getElementById('signOutLabel');if(sl)sl.textContent='Sign out';}else{area.innerHTML=`<div class="sb-top"><div class="sb-logo"><div class="sb-dot" onclick="wiggleLogo(this)">T</div><div><div class="sb-name">My Tower</div><div class="sb-sub">not signed in</div></div></div></div>`;const sl=document.getElementById('signOutLabel');if(sl)sl.textContent='Sign in';}}
 
 async function loadFromFirestore(uid){if(!window._fbDb)return;setSyncStatus('syncing');try{const snap=await window._fbGetDoc(window._fbDoc(window._fbDb,'users',uid));if(snap.exists()){const d=snap.data();if(d.tasks){const lam={};tasks.forEach(t=>{if(t.attachments&&t.attachments.length)lam[t.id]=t.attachments;});tasks=d.tasks.map(t=>({...t,attachments:lam[t.id]||t.attachments||[]}));}if(d.grocs)grocs=d.grocs;if(d.pomoLog)pomoLog=d.pomoLog;if(d.dailyTasks)dailyTasks=d.dailyTasks;if(d.dailyState)dailyState=d.dailyState;if(d.progressHistory)progressHistory=d.progressHistory;if(d.stuffiesState)stuffiesState=d.stuffiesState;if(d.budget)budget=d.budget;
-      if(d.customDishes)customDishes=d.customDishes;if(d.lastDay)localStorage.setItem('tw7_dlast',d.lastDay);tasks.forEach(t=>{if(!t.attachments)t.attachments=[];if(!('deadline' in t))t.deadline='';});}setSyncStatus('synced');renderMain();}catch(e){console.warn('Firestore load error',e);setSyncStatus('offline');renderMain();}}
+      if(d.customDishes)customDishes=d.customDishes;
+      if(d.brainDump)brainDump=d.brainDump;
+      // ── daily reset: check AFTER loading Firestore state ──
+      // load lastDay from Firestore only if it's not already today locally
+      const localLast=localStorage.getItem('tw7_dlast')||'';
+      const todayNow=todayStr();
+      if(d.lastDay)localStorage.setItem('tw7_dlast',d.lastDay);
+      // if Firestore's lastDay is yesterday (or earlier), reset the state we just loaded
+      const fsLast=d.lastDay||'';
+      if(fsLast!==todayNow&&localLast!==todayNow){
+        dailyState={};
+        localStorage.setItem('tw7_dstate','{}');
+        localStorage.setItem('tw7_dlast',todayNow);
+      }tasks.forEach(t=>{if(!t.attachments)t.attachments=[];if(!('deadline' in t))t.deadline='';});}setSyncStatus('synced');renderMain();}catch(e){console.warn('Firestore load error',e);setSyncStatus('offline');renderMain();}}
 
-window.saveToFirestore=function(){if(!window._currentUser||!window._fbDb)return;setSyncStatus('syncing');clearTimeout(_syncTimeout);_syncTimeout=setTimeout(async()=>{try{const ts=new Date().toISOString();_lastRemoteUpdate=ts;const tl=tasks.map(t=>({...t,attachments:(t.attachments||[]).map(a=>({name:a.name,type:a.type,size:a.size||0}))}));await window._fbSetDoc(window._fbDoc(window._fbDb,'users',window._currentUser.uid),{tasks:tl,grocs,pomoLog,dailyTasks,dailyState,progressHistory,stuffiesState,budget,customDishes,lastDay:localStorage.getItem('tw7_dlast')||'',updatedAt:ts},{merge:true});setSyncStatus('synced');_syncTimeout=null;}catch(e){console.warn('Firestore save error',e);setSyncStatus('offline');_syncTimeout=null;}},1200);};
+window.saveToFirestore=function(){if(!window._currentUser||!window._fbDb)return;setSyncStatus('syncing');clearTimeout(_syncTimeout);_syncTimeout=setTimeout(async()=>{try{const ts=new Date().toISOString();_lastRemoteUpdate=ts;const tl=tasks.map(t=>({...t,attachments:(t.attachments||[]).map(a=>({name:a.name,type:a.type,size:a.size||0}))}));await window._fbSetDoc(window._fbDoc(window._fbDb,'users',window._currentUser.uid),{tasks:tl,grocs,pomoLog,dailyTasks,dailyState,progressHistory,stuffiesState,budget,customDishes,brainDump,lastDay:localStorage.getItem('tw7_dlast')||'',updatedAt:ts},{merge:true});setSyncStatus('synced');_syncTimeout=null;}catch(e){console.warn('Firestore save error',e);setSyncStatus('offline');_syncTimeout=null;}},1200);};
 
 const _localSave=save;
 window.save=function(){_localSave();if(typeof window.saveToFirestore==='function')window.saveToFirestore();};
 
 function startRealtimeSync(uid){if(_realtimeUnsub){_realtimeUnsub();_realtimeUnsub=null;}if(!window._fbDb||!window._fbDoc||!window._fbOnSnapshot)return;_realtimeUnsub=window._fbOnSnapshot(window._fbDoc(window._fbDb,'users',uid),(snap)=>{if(!snap.exists())return;const d=snap.data();if(d.updatedAt&&d.updatedAt===_lastRemoteUpdate)return;if(d.updatedAt)_lastRemoteUpdate=d.updatedAt;if(_syncTimeout)return;let changed=false;if(d.tasks){const lam={};tasks.forEach(t=>{if(t.attachments&&t.attachments.length)lam[t.id]=t.attachments;});tasks=d.tasks.map(t=>({...t,attachments:lam[t.id]||t.attachments||[]}));changed=true;}if(d.grocs){grocs=d.grocs;changed=true;}if(d.pomoLog)pomoLog=d.pomoLog;if(d.dailyTasks){dailyTasks=d.dailyTasks;changed=true;}if(d.dailyState){dailyState=d.dailyState;changed=true;}if(d.progressHistory)progressHistory=d.progressHistory;if(d.stuffiesState){stuffiesState=d.stuffiesState;changed=true;}if(d.budget)budget=d.budget;
-      if(d.customDishes)customDishes=d.customDishes;if(changed){const dot=document.getElementById('syncDot');if(dot){dot.classList.add('pulse');setTimeout(()=>dot.classList.remove('pulse'),500);}setSyncStatus('synced');renderMain();showNotif('🔄','Synced from another device','Your data was updated.');}},err=>{console.warn('Realtime sync error',err);setSyncStatus('offline');});}
+      if(d.customDishes)customDishes=d.customDishes;
+      if(d.brainDump)brainDump=d.brainDump;if(changed){const dot=document.getElementById('syncDot');if(dot){dot.classList.add('pulse');setTimeout(()=>dot.classList.remove('pulse'),500);}setSyncStatus('synced');renderMain();showNotif('🔄','Synced from another device','Your data was updated.');}},err=>{console.warn('Realtime sync error',err);setSyncStatus('offline');});}
 function stopRealtimeSync(){if(_realtimeUnsub){_realtimeUnsub();_realtimeUnsub=null;}}
 
 async function signInGoogle(){if(!window._fbAuth)return;try{makeRipple({clientX:window.innerWidth/2,clientY:window.innerHeight/2});await window._fbSignInWithPopup(window._fbAuth,window._fbGoogleProvider);}catch(e){alert('Sign-in failed: '+e.message);}}
