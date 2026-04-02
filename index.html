@@ -13,129 +13,416 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 body{font-family:'Nunito',sans-serif;overflow-x:hidden;overscroll-behavior:none;}
 
-/* ── THEMES ── */
-.theme-pastel{--sb:#e8d5f0;--sb-text:#7a5090;--sb-active:rgba(180,140,220,.45);--sb-active-text:#4a2060;--sb-section:#b090cc;--sb-border:#d4b8e8;--sb-logo:#c9a8e0;--sb-logo-text:#6b3f8c;--sb-stat1:#ede0f8;--sb-stat1t:#5a2080;--sb-stat2:#d8f5ec;--sb-stat2t:#0d5a40;--sb-stat3:#fde8d8;--sb-stat3t:#7a3010;--bg:#fdf8ff;--panel-bg:#fff8ff;--panel-border:#ead5f8;--inp-bg:#f5eeff;--inp-border:#d8baf0;--inp-focus:#b090d8;--inp-text:#3a1060;--inp-ph:#c0a0d8;--btn-bg:#c9a8e0;--btn-text:#4a1070;--btn-border:#b090cc;--chip-on:#7a40a0;--fall-bg:#ead5f8;--fall-text:#5a2080;--fall-border:#c0a0dc;--floor-bg:#fdf5ff;--floor-border:rgba(210,180,240,.4);--floor-dash:#e0c8f0;--task-bg:rgba(255,255,255,.8);--task-border:rgba(210,180,240,.3);--task-hover:#f8f0ff;--chk-border:#c8a8e0;--chk-bg:#c9a8e0;--chk-border2:#9060c0;--chk-text:#4a1070;--prog-track:#ead5f8;--prog-fill:#c0a0e0;--prog-border:#d0b0e8;--prog-text:#7a40a0;--panel-title:#5a2080;--sec-dash:#e0c8f0;--empty:#c0a0d8;--stat-op:.75;--hero-ov:linear-gradient(to bottom,rgba(255,255,255,0) 30%,rgba(253,248,255,.88) 100%);--hero-title:#4a2060;--hero-sub:#7a5090;--dot:rgba(255,255,255,.5);--dot-on:#c9a8e0;--up-bg:rgba(255,255,255,.85);--up-text:#7a5090;--up-border:#d4b8e8;--pt:#e8a0c0;--ps:#90d8b8;--pl:#a0c0e8;--pmf-bg:#fde8f0;--pmf-t:#7a2040;--pms-bg:#d8f5ec;--pms-t:#0d5a40;--pml-bg:#dceeff;--pml-t:#083060;--pb-bg:#c9a8e0;--pb-t:#4a1070;--pb-b:#b090cc;--pr-bg:#f5eeff;--pr-t:#7a40a0;--pr-b:#d0b0e8;--ptime:#3a1060;--psub:#a080bc;--plog:#9070b0;--plogd:rgba(200,160,240,.3);--gc-bg:#fde8f0;--gc-t:#7a2060;--gc-b:#e8c0d0;--logout:#c090a0;--ch:#5a2080;--ct-bg:#c9a8e0;--ct-t:#fff;--cdot:#b090d0;--csel:#e0c8f8;--chov:#f5eeff;--cwknd:#f0e8ff;--clk-bg:#f5eeff;--clk-b:#d8baf0;--clk-t:#3a1060;--clk-s:#a080bc;--clk-d:#7a40a0;--sw:#c9a8e0;--sp:#90d8b8;--sh:#80b8e8;--sl:#d8a8e8;--shm:#f0c890;--so:#f0a8b8;--db:#f0e8ff;--dbo:#d8baf0;--da:#c9a8e0;--att-bg:#f0e8ff;--att-border:#d8baf0;--att-text:#5a2080;--del-bg:#e8a0b8;--del-icon:#7a1040;--mascot-skin:#F0997B;--mascot-hair:#712B13;}
-.theme-storybook{--sb:#2a4a30;--sb-text:#c8e8c0;--sb-active:rgba(122,200,112,.25);--sb-active-text:#a8e890;--sb-section:#5a8a60;--sb-border:rgba(255,255,255,.15);--sb-logo:#7ac870;--sb-logo-text:#1a3a20;--sb-stat1:#d0f0c0;--sb-stat1t:#1a5a10;--sb-stat2:#fde8b0;--sb-stat2t:#6a3a00;--sb-stat3:#fdd8c8;--sb-stat3t:#7a2010;--bg:linear-gradient(160deg,#c8e8d8 0%,#d8f0e4 40%,#e8f4ec 100%);--panel-bg:rgba(255,252,240,.93);--panel-border:#c0b070;--inp-bg:rgba(230,220,190,.6);--inp-border:#c0a870;--inp-focus:#6aa840;--inp-text:#3a2a10;--inp-ph:#b09860;--btn-bg:#4a7a38;--btn-text:#fff;--btn-border:#2a5a18;--chip-on:#2a3a10;--fall-bg:#c8e0b8;--fall-text:#1a4010;--fall-border:#88b870;--floor-bg:rgba(240,232,210,.5);--floor-border:rgba(190,170,110,.3);--floor-dash:#d0b870;--task-bg:rgba(255,250,235,.65);--task-border:rgba(190,165,100,.25);--task-hover:rgba(235,248,222,.8);--chk-border:#a09060;--chk-bg:#4a8a30;--chk-border2:#2a6a10;--chk-text:#fff;--prog-track:#c8e4b0;--prog-fill:#5aaa38;--prog-border:#a0c480;--prog-text:#3a7020;--panel-title:#2a4a28;--sec-dash:#c8b060;--empty:#8a9a70;--stat-op:.75;--hero-ov:linear-gradient(to bottom,rgba(255,255,255,0) 30%,rgba(245,242,225,.85) 100%);--hero-title:#2a4a28;--hero-sub:#5a7a48;--dot:rgba(200,180,120,.5);--dot-on:#b0a060;--up-bg:rgba(255,255,255,.85);--up-text:#5a7a48;--up-border:#b0c890;--pt:#c07040;--ps:#408060;--pl:#407090;--pmf-bg:#fddcc0;--pmf-t:#6a2a00;--pms-bg:#c8f0d0;--pms-t:#0a4a18;--pml-bg:#c8d8f8;--pml-t:#083060;--pb-bg:#4a7a38;--pb-t:#fff;--pb-b:#2a5a18;--pr-bg:rgba(235,225,200,.8);--pr-t:#5a4a20;--pr-b:#b0a060;--ptime:#2a2010;--psub:#8a7050;--plog:#6a5a30;--plogd:rgba(190,165,100,.25);--gc-bg:rgba(230,205,195,.7);--gc-t:#7a3a20;--gc-b:#c09080;--logout:#c08070;--ch:#2a4a28;--ct-bg:#5a8a40;--ct-t:#fff;--cdot:#5a8a40;--csel:#b0d890;--chov:#e8f5e0;--cwknd:#c8e8b8;--clk-bg:rgba(255,252,240,.93);--clk-b:#c0b070;--clk-t:#2a4a28;--clk-s:#8a7050;--clk-d:#5a7a48;--sw:#c07040;--sp:#5a9a40;--sh:#4080a0;--sl:#8060b0;--shm:#b09030;--so:#b04060;--db:rgba(240,252,230,.8);--dbo:#b0c870;--da:#5a8a40;--att-bg:rgba(240,248,228,.8);--att-border:#b8c880;--att-text:#2a4a28;--del-bg:#b04060;--del-icon:#fff;--mascot-skin:#F0997B;--mascot-hair:#712B13;}
-.theme-sunset{--sb:#3a1a2a;--sb-text:#e0a8b8;--sb-active:rgba(220,120,100,.25);--sb-active-text:#f8d0c0;--sb-section:#906070;--sb-border:rgba(255,200,180,.12);--sb-logo:#c07060;--sb-logo-text:#3a1a20;--sb-stat1:#fde8d0;--sb-stat1t:#7a2a10;--sb-stat2:#fdf0d8;--sb-stat2t:#7a4a00;--sb-stat3:#f8dce0;--sb-stat3t:#7a1030;--bg:linear-gradient(160deg,#ffe8d8 0%,#fdf0e8 40%,#fff4f0 100%);--panel-bg:rgba(255,248,244,.95);--panel-border:#e8c0a8;--inp-bg:rgba(255,238,225,.7);--inp-border:#e0b898;--inp-focus:#c07050;--inp-text:#3a1a10;--inp-ph:#c09878;--btn-bg:#d07050;--btn-text:#fff;--btn-border:#b05030;--chip-on:#7a2a10;--fall-bg:#fde0c8;--fall-text:#7a2a10;--fall-border:#e0a888;--floor-bg:rgba(255,238,225,.6);--floor-border:rgba(220,180,150,.3);--floor-dash:#e8c8a0;--task-bg:rgba(255,248,240,.8);--task-border:rgba(220,180,150,.25);--task-hover:rgba(255,240,230,.9);--chk-border:#d0a888;--chk-bg:#d07050;--chk-border2:#b05030;--chk-text:#fff;--prog-track:#fde0c8;--prog-fill:#d08060;--prog-border:#e0b898;--prog-text:#904030;--panel-title:#5a2010;--sec-dash:#e8c8a0;--empty:#c0988a;--stat-op:.75;--hero-ov:linear-gradient(to bottom,rgba(255,255,255,0) 30%,rgba(255,244,238,.85) 100%);--hero-title:#5a2010;--hero-sub:#9a5040;--dot:rgba(255,220,200,.5);--dot-on:#d09080;--up-bg:rgba(255,248,244,.9);--up-text:#9a5040;--up-border:#e0c0a8;--pt:#d07050;--ps:#c09850;--pl:#9878b0;--pmf-bg:#fde8d8;--pmf-t:#7a2a10;--pms-bg:#fdf0d8;--pms-t:#7a4a00;--pml-bg:#f0e8f8;--pml-t:#502870;--pb-bg:#d07050;--pb-t:#fff;--pb-b:#b05030;--pr-bg:rgba(255,238,225,.8);--pr-t:#7a4a30;--pr-b:#e0b898;--ptime:#3a1a10;--psub:#b07858;--plog:#9a6858;--plogd:rgba(220,180,150,.25);--gc-bg:rgba(255,225,210,.7);--gc-t:#7a2a10;--gc-b:#e0b090;--logout:#c07878;--ch:#5a2010;--ct-bg:#d07050;--ct-t:#fff;--cdot:#d09060;--csel:#fde0c8;--chov:#fff0e8;--cwknd:#fde8d8;--clk-bg:rgba(255,248,244,.95);--clk-b:#e8c0a8;--clk-t:#5a2010;--clk-s:#b07858;--clk-d:#9a5040;--sw:#d07050;--sp:#c09850;--sh:#9878b0;--sl:#607ab0;--shm:#c07850;--so:#a06080;--db:rgba(255,238,220,.8);--dbo:#e0b898;--da:#d07050;--att-bg:rgba(255,240,228,.8);--att-border:#e0b898;--att-text:#5a2010;--del-bg:#c06050;--del-icon:#fff;--mascot-skin:#F0997B;--mascot-hair:#712B13;}
-.theme-black{--sb:#0a0a0a;--sb-text:#666;--sb-active:rgba(255,255,255,.07);--sb-active-text:#ccc;--sb-section:#3a3a3a;--sb-border:rgba(255,255,255,.07);--sb-logo:#1c1c1c;--sb-logo-text:#888;--sb-stat1:#111;--sb-stat1t:#888;--sb-stat2:#111;--sb-stat2t:#888;--sb-stat3:#111;--sb-stat3t:#888;--bg:#0f0f0f;--panel-bg:#111;--panel-border:#1e1e1e;--inp-bg:#161616;--inp-border:#252525;--inp-focus:#444;--inp-text:#bbb;--inp-ph:#3a3a3a;--btn-bg:#1e1e1e;--btn-text:#aaa;--btn-border:#2a2a2a;--chip-on:#666;--fall-bg:#181818;--fall-text:#888;--fall-border:#2a2a2a;--floor-bg:#131313;--floor-border:rgba(255,255,255,.04);--floor-dash:#1e1e1e;--task-bg:#151515;--task-border:rgba(255,255,255,.04);--task-hover:#1a1a1a;--chk-border:#2a2a2a;--chk-bg:#2e2e2e;--chk-border2:#444;--chk-text:#bbb;--prog-track:#181818;--prog-fill:#3a3a3a;--prog-border:#2a2a2a;--prog-text:#555;--panel-title:#aaa;--sec-dash:#1e1e1e;--empty:#3a3a3a;--stat-op:.45;--hero-ov:linear-gradient(to bottom,rgba(0,0,0,0) 30%,rgba(10,10,10,.92) 100%);--hero-title:#ccc;--hero-sub:#555;--dot:rgba(255,255,255,.12);--dot-on:#555;--up-bg:rgba(18,18,18,.95);--up-text:#666;--up-border:#222;--pt:#444;--ps:#383838;--pl:#303030;--pmf-bg:#131313;--pmf-t:#777;--pms-bg:#131313;--pms-t:#777;--pml-bg:#131313;--pml-t:#777;--pb-bg:#1e1e1e;--pb-t:#aaa;--pb-b:#2a2a2a;--pr-bg:#141414;--pr-t:#666;--pr-b:#1e1e1e;--ptime:#bbb;--psub:#444;--plog:#444;--plogd:rgba(255,255,255,.04);--gc-bg:#131313;--gc-t:#555;--gc-b:#1e1e1e;--logout:#444;--ch:#888;--ct-bg:#2a2a2a;--ct-t:#ccc;--cdot:#3a3a3a;--csel:#1a1a1a;--chov:#161616;--cwknd:#141414;--clk-bg:#111;--clk-b:#1e1e1e;--clk-t:#ccc;--clk-s:#444;--clk-d:#666;--sw:#444;--sp:#3a3a3a;--sh:#333;--sl:#3e3e3e;--shm:#404040;--so:#383838;--db:#141414;--dbo:#222;--da:#333;--att-bg:#161616;--att-border:#2a2a2a;--att-text:#888;--del-bg:#2a1a1a;--del-icon:#c07070;--mascot-skin:#F0997B;--mascot-hair:#712B13;}
-.theme-red{--sb:#1a0505;--sb-text:#e8b0b0;--sb-active:rgba(200,60,60,.25);--sb-active-text:#fdd0c0;--sb-section:#904040;--sb-border:rgba(255,180,160,.1);--sb-logo:#c03030;--sb-logo-text:#ffeaea;--sb-stat1:#fde8e8;--sb-stat1t:#7a1010;--sb-stat2:#fff0e8;--sb-stat2t:#7a3010;--sb-stat3:#fde8f0;--sb-stat3t:#7a1040;--bg:linear-gradient(160deg,#fff0f0 0%,#fff5f5 50%,#fff8f8 100%);--panel-bg:rgba(255,252,252,.96);--panel-border:#f0c0c0;--inp-bg:rgba(255,240,240,.8);--inp-border:#e8b0b0;--inp-focus:#c03030;--inp-text:#3a0808;--inp-ph:#c08080;--btn-bg:#c03030;--btn-text:#fff;--btn-border:#901010;--chip-on:#901010;--fall-bg:#fde8e8;--fall-text:#7a1010;--fall-border:#e8a0a0;--floor-bg:rgba(255,240,240,.7);--floor-border:rgba(220,150,150,.3);--floor-dash:#f0c0b0;--task-bg:rgba(255,250,250,.8);--task-border:rgba(220,150,150,.2);--task-hover:rgba(255,240,240,.95);--chk-border:#e0a0a0;--chk-bg:#c03030;--chk-border2:#901010;--chk-text:#fff;--prog-track:#fde0e0;--prog-fill:#c03030;--prog-border:#e8b0b0;--prog-text:#901010;--panel-title:#7a0808;--sec-dash:#f0c0b0;--empty:#c09090;--stat-op:.75;--hero-ov:linear-gradient(to bottom,rgba(255,255,255,0) 30%,rgba(255,248,248,.88) 100%);--hero-title:#7a0808;--hero-sub:#b04040;--dot:rgba(255,200,200,.5);--dot-on:#e07070;--up-bg:rgba(255,252,252,.9);--up-text:#b04040;--up-border:#f0c0c0;--pt:#c03030;--ps:#c05030;--pl:#904060;--pmf-bg:#fde8e8;--pmf-t:#7a1010;--pms-bg:#fff0e8;--pms-t:#7a3010;--pml-bg:#fde8f0;--pml-t:#7a1040;--pb-bg:#c03030;--pb-t:#fff;--pb-b:#901010;--pr-bg:rgba(255,240,240,.8);--pr-t:#7a2020;--pr-b:#e8b0b0;--ptime:#3a0808;--psub:#b06060;--plog:#a05050;--plogd:rgba(220,150,150,.25);--gc-bg:rgba(255,232,230,.7);--gc-t:#7a1010;--gc-b:#e8b0a8;--logout:#c07070;--ch:#7a0808;--ct-bg:#c03030;--ct-t:#fff;--cdot:#c04040;--csel:#fde0e0;--chov:#fff5f5;--cwknd:#fde8e8;--clk-bg:rgba(255,252,252,.96);--clk-b:#f0c0c0;--clk-t:#7a0808;--clk-s:#b06060;--clk-d:#a04040;--sw:#c03030;--sp:#b07030;--sh:#905090;--sl:#607ab0;--shm:#c06030;--so:#b03060;--db:rgba(255,238,238,.8);--dbo:#f0b0b0;--da:#c03030;--att-bg:rgba(255,238,238,.8);--att-border:#f0b0b0;--att-text:#7a0808;--del-bg:#901010;--del-icon:#fff;--mascot-skin:#F0997B;--mascot-hair:#712B13;}
-.theme-ocean{--sb:#0a1a2a;--sb-text:#a0c8e8;--sb-active:rgba(40,120,180,.3);--sb-active-text:#c8e8ff;--sb-section:#406880;--sb-border:rgba(100,180,220,.12);--sb-logo:#2878b0;--sb-logo-text:#e0f0ff;--sb-stat1:#daeeff;--sb-stat1t:#08406a;--sb-stat2:#d8f0f8;--sb-stat2t:#0a4858;--sb-stat3:#e0eeff;--sb-stat3t:#1a3878;--bg:linear-gradient(160deg,#e8f4ff 0%,#f0f8ff 50%,#f5fbff 100%);--panel-bg:rgba(248,252,255,.96);--panel-border:#b8d8f0;--inp-bg:rgba(230,244,255,.7);--inp-border:#a8ccec;--inp-focus:#2878b0;--inp-text:#0a1a38;--inp-ph:#7098b8;--btn-bg:#2878b0;--btn-text:#fff;--btn-border:#0a5888;--chip-on:#0a4878;--fall-bg:#daeeff;--fall-text:#08406a;--fall-border:#88b8d8;--floor-bg:rgba(225,242,255,.7);--floor-border:rgba(140,190,220,.3);--floor-dash:#a8c8e8;--task-bg:rgba(248,252,255,.8);--task-border:rgba(140,190,220,.2);--task-hover:rgba(230,245,255,.95);--chk-border:#90b8d8;--chk-bg:#2878b0;--chk-border2:#0a5888;--chk-text:#fff;--prog-track:#daeeff;--prog-fill:#2878b0;--prog-border:#a8ccec;--prog-text:#0a5888;--panel-title:#08386a;--sec-dash:#a8c8e8;--empty:#7098b8;--stat-op:.75;--hero-ov:linear-gradient(to bottom,rgba(255,255,255,0) 30%,rgba(245,251,255,.88) 100%);--hero-title:#08386a;--hero-sub:#2868a0;--dot:rgba(180,220,255,.5);--dot-on:#60a8d8;--up-bg:rgba(248,252,255,.9);--up-text:#2868a0;--up-border:#b8d8f0;--pt:#2878b0;--ps:#28a080;--pl:#5860c0;--pmf-bg:#daeeff;--pmf-t:#08406a;--pms-bg:#d8f0f8;--pms-t:#0a4858;--pml-bg:#e8e8ff;--pml-t:#282870;--pb-bg:#2878b0;--pb-t:#fff;--pb-b:#0a5888;--pr-bg:rgba(230,244,255,.8);--pr-t:#2868a0;--pr-b:#a8ccec;--ptime:#08204a;--psub:#4080a8;--plog:#406888;--plogd:rgba(140,190,220,.25);--gc-bg:rgba(220,238,255,.7);--gc-t:#0a3860;--gc-b:#a8c8e8;--logout:#507898;--ch:#08386a;--ct-bg:#2878b0;--ct-t:#fff;--cdot:#2878b0;--csel:#daeeff;--chov:#eef6ff;--cwknd:#daeeff;--clk-bg:rgba(248,252,255,.96);--clk-b:#b8d8f0;--clk-t:#08386a;--clk-s:#4080a8;--clk-d:#2868a0;--sw:#2878b0;--sp:#28a080;--sh:#5860c0;--sl:#8040a0;--shm:#2090a0;--so:#6060c0;--db:rgba(220,240,255,.8);--dbo:#a8ccec;--da:#2878b0;--att-bg:rgba(220,240,255,.8);--att-border:#a8ccec;--att-text:#08386a;--del-bg:#1a5888;--del-icon:#e0f0ff;--mascot-skin:#F0997B;--mascot-hair:#712B13;}
-
-.theme-white{--sb:#f8f8f8;--sb-text:#666;--sb-active:rgba(0,0,0,.07);--sb-active-text:#222;--sb-section:#aaa;--sb-border:rgba(0,0,0,.08);--sb-logo:#e0e0e0;--sb-logo-text:#555;--sb-stat1:#f0f0f0;--sb-stat1t:#333;--sb-stat2:#f0f0f0;--sb-stat2t:#333;--sb-stat3:#f0f0f0;--sb-stat3t:#333;--bg:#ffffff;--panel-bg:#fafafa;--panel-border:#e8e8e8;--inp-bg:#f4f4f4;--inp-border:#ddd;--inp-focus:#aaa;--inp-text:#222;--inp-ph:#bbb;--btn-bg:#333;--btn-text:#fff;--btn-border:#222;--chip-on:#222;--fall-bg:#efefef;--fall-text:#333;--fall-border:#ccc;--floor-bg:#f5f5f5;--floor-border:rgba(0,0,0,.07);--floor-dash:#e0e0e0;--task-bg:#fff;--task-border:rgba(0,0,0,.07);--task-hover:#f5f5f5;--chk-border:#ccc;--chk-bg:#333;--chk-border2:#111;--chk-text:#fff;--prog-track:#ececec;--prog-fill:#555;--prog-border:#ddd;--prog-text:#666;--panel-title:#222;--sec-dash:#e8e8e8;--empty:#ccc;--stat-op:.6;--hero-ov:linear-gradient(to bottom,rgba(255,255,255,0) 30%,rgba(255,255,255,.88) 100%);--hero-title:#222;--hero-sub:#666;--dot:rgba(0,0,0,.18);--dot-on:#555;--up-bg:rgba(255,255,255,.9);--up-text:#555;--up-border:#ddd;--pt:#888;--ps:#999;--pl:#777;--pmf-bg:#f0f0f0;--pmf-t:#444;--pms-bg:#f0f0f0;--pms-t:#444;--pml-bg:#f0f0f0;--pml-t:#444;--pb-bg:#333;--pb-t:#fff;--pb-b:#111;--pr-bg:#f0f0f0;--pr-t:#555;--pr-b:#ddd;--ptime:#222;--psub:#999;--plog:#888;--plogd:rgba(0,0,0,.08);--gc-bg:#f0f0f0;--gc-t:#444;--gc-b:#ddd;--logout:#bbb;--ch:#333;--ct-bg:#333;--ct-t:#fff;--cdot:#888;--csel:#ececec;--chov:#f5f5f5;--cwknd:#f5f5f5;--clk-bg:#f4f4f4;--clk-b:#e0e0e0;--clk-t:#222;--clk-s:#999;--clk-d:#666;--sw:#888;--sp:#999;--sh:#777;--sl:#aaa;--shm:#bbb;--so:#ccc;--db:#f5f5f5;--dbo:#e0e0e0;--da:#888;--att-bg:#f0f0f0;--att-border:#ddd;--att-text:#555;--del-bg:#f0d8d8;--del-icon:#a03030;--mascot-skin:#F0997B;--mascot-hair:#712B13;}
-
-
-.theme-parchment{
-  --sb:#f5e8c8;--sb-text:#7a5a1a;--sb-active:rgba(200,149,42,.15);--sb-active-text:#5a3d0a;--sb-section:#c8a86a;--sb-border:rgba(200,168,106,.25);--sb-logo:#ede0b0;--sb-logo-text:#8b6914;
-  --sb-stat1:#ede0b0;--sb-stat1t:#5a3d0a;--sb-stat2:#ede0b0;--sb-stat2t:#5a3d0a;--sb-stat3:#ede0b0;--sb-stat3t:#5a3d0a;
-  --bg:#f5e8c8;
-  --panel-bg:#fff8e8;--panel-border:rgba(200,168,106,.3);
-  --inp-bg:#ede0b0;--inp-border:rgba(200,149,42,.35);--inp-focus:#c8952a;--inp-text:#3d2a0a;--inp-ph:#b09060;
-  --btn-bg:#c8952a;--btn-text:#fff8e8;--btn-border:#8b6914;
-  --chip-on:#8b6914;--fall-bg:#ede0b0;--fall-text:#5a3d0a;--fall-border:#d4b87a;
-  --floor-bg:#f5e8c8;--floor-border:rgba(200,168,106,.25);--floor-dash:rgba(200,168,106,.3);
-  --task-bg:#fff8e8;--task-border:rgba(200,168,106,.2);--task-hover:#ede0b0;
-  --chk-border:#d4b87a;--chk-bg:#c8952a;--chk-border2:#8b6914;--chk-text:#fff8e8;
-  --prog-track:#ede0b0;--prog-fill:#c8952a;--prog-border:#d4b87a;--prog-text:#8b6914;
-  --panel-title:#3d2a0a;--sec-dash:rgba(200,168,106,.25);--empty:#b09060;--stat-op:.7;
-  --hero-ov:linear-gradient(to bottom,rgba(245,232,200,0) 30%,rgba(245,232,200,.9) 100%);
-  --hero-title:#3d2a0a;--hero-sub:#8b6914;--dot:rgba(200,149,42,.3);--dot-on:#c8952a;
-  --up-bg:rgba(255,248,232,.95);--up-text:#8b6914;--up-border:rgba(200,168,106,.3);
-  --pt:#c8952a;--ps:#6b8b3a;--pl:#3a5a8b;
-  --pmf-bg:#ede0b0;--pmf-t:#5a3d0a;--pms-bg:#e8f0d8;--pms-t:#3a5020;--pml-bg:#d8e8f5;--pml-t:#1a3a5a;
-  --pb-bg:#c8952a;--pb-t:#fff8e8;--pb-b:#8b6914;--pr-bg:#ede0b0;--pr-t:#5a3d0a;--pr-b:#d4b87a;
-  --ptime:#3d2a0a;--psub:#b09060;--plog:#8b6914;--plog-dash:rgba(200,168,106,.25);
-  --gc-bg:#ede0b0;--gc-t:#5a3d0a;--gc-b:#d4b87a;--logout:#b09060;
-  --ch:#3d2a0a;--ct-bg:#c8952a;--ct-t:#fff8e8;--cdot:#c8952a;--csel:#ede0b0;--chov:#f5e8c8;--cwknd:#f0e0b0;
-  --clk-bg:#fff8e8;--clk-b:rgba(200,168,106,.25);--clk-t:#3d2a0a;--clk-s:#b09060;--clk-d:#c8952a;
-  --sw:#c8952a;--sp:#6b8b3a;--sh:#3a5a8b;--sl:#8b3a6b;--shm:#c8952a;--so:#8b6914;
-  --db:#ede0b0;--dbo:rgba(200,168,106,.25);--da:#c8952a;
-  --att-bg:#ede0b0;--att-border:rgba(200,168,106,.3);--att-text:#5a3d0a;
-  --inp-focus:#c8952a;
-  --del-bg:#d4b87a;--del-icon:#5a3d0a;--mascot-skin:#e8b888;--mascot-hair:#5a3820;
-  --groc-clear-bg:#f0e0b0;--groc-clear-t:#8b3010;--groc-clear-b:#d4a870;
+/* ═══════════════════════════════════
+   NATURAL EARTH THEME
+   Milky Coffee · Roasted Peach · Whole Wheat · Eucalyptus · Cream
+═══════════════════════════════════ */
+.theme-milky{
+  --sb:#e8ddd4;--sb-text:#3d2a1a;--sb-active:rgba(155,125,97,.18);--sb-active-text:#2a1a0a;--sb-section:#9B7D61;--sb-border:rgba(155,125,97,.22);--sb-logo:#c8b09a;--sb-logo-text:#3d2a1a;
+  --sb-stat1:#c8b09a;--sb-stat1t:#2a1a0a;--sb-stat2:#c8b09a;--sb-stat2t:#2a1a0a;--sb-stat3:#c8b09a;--sb-stat3t:#2a1a0a;
+  --bg:#e8ddd4;--panel-bg:#f5ede4;--panel-border:rgba(155,125,97,.2);
+  --inp-bg:#e0d4c8;--inp-border:rgba(155,125,97,.32);--inp-focus:#9B7D61;--inp-text:#2a1a0a;--inp-ph:#9B7D61;
+  --btn-bg:#9B7D61;--btn-text:#f5ede4;--btn-border:#6a4d38;
+  --chip-on:#6a4d38;--fall-bg:#e0d4c8;--fall-text:#2a1a0a;--fall-border:#c8b09a;
+  --floor-bg:#e8ddd4;--floor-border:rgba(155,125,97,.2);--floor-dash:rgba(155,125,97,.26);
+  --task-bg:#f5ede4;--task-border:rgba(155,125,97,.16);--task-hover:#e0d4c8;
+  --chk-border:#c8b09a;--chk-bg:#9B7D61;--chk-border2:#6a4d38;--chk-text:#f5ede4;
+  --prog-track:#c8b09a;--prog-fill:#9B7D61;--prog-border:#c8b09a;--prog-text:#6a4d38;
+  --panel-title:#2a1a0a;--sec-dash:rgba(155,125,97,.2);--empty:#9B7D61;--stat-op:.7;
+  --hero-ov:linear-gradient(to bottom,rgba(232,221,212,0) 30%,rgba(232,221,212,.9) 100%);
+  --hero-title:#2a1a0a;--hero-sub:#9B7D61;--dot:rgba(155,125,97,.3);--dot-on:#9B7D61;
+  --up-bg:rgba(245,237,228,.95);--up-text:#9B7D61;--up-border:rgba(155,125,97,.26);
+  --pt:#9B7D61;--ps:#92ADA4;--pl:#7a8a88;
+  --pmf-bg:#e0d4c8;--pmf-t:#2a1a0a;--pms-bg:#d8e8e4;--pms-t:#2a4a44;--pml-bg:#ede0d8;--pml-t:#2a1a0a;
+  --pb-bg:#9B7D61;--pb-t:#f5ede4;--pb-b:#6a4d38;--pr-bg:#e0d4c8;--pr-t:#2a1a0a;--pr-b:#c8b09a;
+  --ptime:#2a1a0a;--psub:#9B7D61;--plog:#9B7D61;--plog-dash:rgba(155,125,97,.2);
+  --gc-bg:#e0d4c8;--gc-t:#2a1a0a;--gc-b:#c8b09a;--logout:#9B7D61;
+  --ch:#2a1a0a;--ct-bg:#9B7D61;--ct-t:#f5ede4;--cdot:#9B7D61;--csel:#e0d4c8;--chov:#e8ddd4;--cwknd:#c8b09a;
+  --clk-bg:#f5ede4;--clk-b:rgba(155,125,97,.2);--clk-t:#2a1a0a;--clk-s:#9B7D61;--clk-d:#9B7D61;
+  --sw:#9B7D61;--sp:#92ADA4;--sh:#7a8a88;--sl:#b08878;--shm:#9B7D61;--so:#9B7D61;
+  --db:#e0d4c8;--dbo:rgba(155,125,97,.2);--da:#9B7D61;
+  --att-bg:#e0d4c8;--att-border:rgba(155,125,97,.22);--att-text:#2a1a0a;
+  --del-bg:#c8b09a;--del-icon:#2a1a0a;--mascot-skin:#e8b888;--mascot-hair:#3d2a1a;
+  --groc-clear-bg:#e0d4c8;--groc-clear-t:#3d2a1a;--groc-clear-b:#c8b09a;
 }
 
-.theme-pink{
-  --sb:#fdf0f5;--sb-text:#a03060;--sb-active:rgba(220,80,130,.12);--sb-active-text:#7a1a40;--sb-section:#d47090;--sb-border:rgba(200,80,120,.18);--sb-logo:#f8d0e0;--sb-logo-text:#c04070;
-  --sb-stat1:#fde8f0;--sb-stat1t:#8a2050;--sb-stat2:#fde8f0;--sb-stat2t:#8a2050;--sb-stat3:#fde8f0;--sb-stat3t:#8a2050;
-  --bg:#fdf0f5;
-  --panel-bg:#fff8fb;--panel-border:rgba(220,100,140,.2);
-  --inp-bg:#fde8f0;--inp-border:rgba(220,80,120,.3);--inp-focus:#d4537e;--inp-text:#4a1030;--inp-ph:#c080a0;
-  --btn-bg:#d4537e;--btn-text:#fff0f5;--btn-border:#993556;
-  --chip-on:#993556;--fall-bg:#fde8f0;--fall-text:#7a1a40;--fall-border:#f0b0c8;
-  --floor-bg:#fdf0f5;--floor-border:rgba(220,100,140,.2);--floor-dash:rgba(220,100,140,.25);
-  --task-bg:#fff8fb;--task-border:rgba(220,100,140,.15);--task-hover:#fde8f0;
-  --chk-border:#f0b0c8;--chk-bg:#d4537e;--chk-border2:#993556;--chk-text:#fff0f5;
-  --prog-track:#fde8f0;--prog-fill:#d4537e;--prog-border:#f0b0c8;--prog-text:#993556;
-  --panel-title:#3a0820;--sec-dash:rgba(220,100,140,.2);--empty:#c080a0;--stat-op:.7;
-  --hero-ov:linear-gradient(to bottom,rgba(253,240,245,0) 30%,rgba(253,240,245,.9) 100%);
-  --hero-title:#3a0820;--hero-sub:#c04070;--dot:rgba(212,83,126,.3);--dot-on:#d4537e;
-  --up-bg:rgba(255,248,251,.95);--up-text:#c04070;--up-border:rgba(220,100,140,.3);
-  --pt:#d4537e;--ps:#7a9070;--pl:#6080b0;
-  --pmf-bg:#fde8f0;--pmf-t:#7a1a40;--pms-bg:#e8f0e0;--pms-t:#3a5020;--pml-bg:#e0e8f5;--pml-t:#203060;
-  --pb-bg:#d4537e;--pb-t:#fff0f5;--pb-b:#993556;--pr-bg:#fde8f0;--pr-t:#7a1a40;--pr-b:#f0b0c8;
-  --ptime:#3a0820;--psub:#c080a0;--plog:#c04070;--plog-dash:rgba(220,100,140,.2);
-  --gc-bg:#fde8f0;--gc-t:#7a1a40;--gc-b:#f0b0c8;--logout:#c080a0;
-  --ch:#3a0820;--ct-bg:#d4537e;--ct-t:#fff0f5;--cdot:#d4537e;--csel:#fde8f0;--chov:#fdf0f5;--cwknd:#fde0ec;
-  --clk-bg:#fff8fb;--clk-b:rgba(220,100,140,.2);--clk-t:#3a0820;--clk-s:#c080a0;--clk-d:#d4537e;
-  --sw:#d4537e;--sp:#7a9070;--sh:#6080b0;--sl:#9060a0;--shm:#c07050;--so:#c04070;
-  --db:#fde8f0;--dbo:rgba(220,100,140,.2);--da:#d4537e;
-  --att-bg:#fde8f0;--att-border:rgba(220,100,140,.25);--att-text:#7a1a40;
-  --del-bg:#f0b0c8;--del-icon:#7a1a40;--mascot-skin:#F0997B;--mascot-hair:#712B13;
-  --groc-clear-bg:#fde8f0;--groc-clear-t:#8b1a40;--groc-clear-b:#f0b0c8;
-}
-.theme-journal{
-  --sb:#f5f0e8;--sb-text:#6b5e4e;--sb-active:rgba(107,94,78,.12);--sb-active-text:#3d3028;--sb-section:#b0a090;--sb-border:rgba(107,94,78,.15);--sb-logo:#e8e0d0;--sb-logo-text:#6b5e4e;
-  --sb-stat1:#f0ebe0;--sb-stat1t:#5a4a38;--sb-stat2:#f0ebe0;--sb-stat2t:#5a4a38;--sb-stat3:#f0ebe0;--sb-stat3t:#5a4a38;
-  --bg:#faf7f2;
-  --panel-bg:#fefcf8;--panel-border:rgba(160,140,110,.2);
-  --inp-bg:#f7f4ee;--inp-border:rgba(160,140,110,.3);--inp-focus:#a09070;--inp-text:#3d3028;--inp-ph:#c0b09a;
-  --btn-bg:#3d3028;--btn-text:#faf7f2;--btn-border:#2a2018;
-  --chip-on:#3d3028;--fall-bg:#f0ebe0;--fall-text:#5a4a38;--fall-border:#c8b89a;
-  --floor-bg:#f5f0e8;--floor-border:rgba(160,140,110,.18);--floor-dash:rgba(160,140,110,.25);
-  --task-bg:#fefcf8;--task-border:rgba(160,140,110,.15);--task-hover:#f5f0e8;
-  --chk-border:#c0b09a;--chk-bg:#3d3028;--chk-border2:#2a2018;--chk-text:#faf7f2;
-  --prog-track:#ede8de;--prog-fill:#6b5e4e;--prog-border:#d8d0c0;--prog-text:#6b5e4e;
-  --panel-title:#3d3028;--sec-dash:rgba(160,140,110,.2);--empty:#c0b09a;--stat-op:.65;
-  --hero-ov:linear-gradient(to bottom,rgba(250,247,242,0) 30%,rgba(250,247,242,.9) 100%);
-  --hero-title:#3d3028;--hero-sub:#8a7a68;--dot:rgba(107,94,78,.25);--dot-on:#6b5e4e;
-  --up-bg:rgba(254,252,248,.92);--up-text:#6b5e4e;--up-border:rgba(160,140,110,.3);
-  --pt:#6b5e4e;--ps:#8a9a70;--pl:#7a90a0;
-  --pmf-bg:#f0ebe0;--pmf-t:#5a4a38;--pms-bg:#eaf0e8;--pms-t:#3a5030;--pml-bg:#e8f0f5;--pml-t:#2a4050;
-  --pb-bg:#3d3028;--pb-t:#faf7f2;--pb-b:#2a2018;--pr-bg:#f0ebe0;--pr-t:#6b5e4e;--pr-b:#c8b89a;
-  --ptime:#3d3028;--psub:#a09070;--plog:#8a7a68;--plog-dash:rgba(160,140,110,.2);
-  --gc-bg:#f0ebe0;--gc-t:#5a4a38;--gc-b:#c8b89a;--logout:#b0a090;
-  --ch:#3d3028;--ct-bg:#3d3028;--ct-t:#faf7f2;--cdot:#6b5e4e;--csel:#ede8de;--chov:#f5f0e8;--cwknd:#f0ebe0;
-  --clk-bg:#fefcf8;--clk-b:rgba(160,140,110,.2);--clk-t:#3d3028;--clk-s:#a09070;--clk-d:#6b5e4e;
-  --sw:#8a7a68;--sp:#7a9070;--sh:#7a8a98;--sl:#9a8898;--shm:#b09068;--so:#a08878;
-  --db:#f5f0e8;--dbo:rgba(160,140,110,.2);--da:#6b5e4e;
-  --att-bg:#f0ebe0;--att-border:rgba(160,140,110,.25);--att-text:#5a4a38;
---del-bg:#d8c8b0;--del-icon:#6b3a28;--mascot-skin:#F0997B;--mascot-hair:#712B13;}
-/* journal dotted background pattern */
-.theme-journal .main{
-  background-image:radial-gradient(circle,#c8b89a 1px,transparent 1px);
-  background-size:22px 22px;
-  background-color:#faf7f2;
-}
-.theme-journal .main-body{background:transparent;}
-.theme-journal .panel,.theme-journal .budget-cat-panel,.theme-journal .budget-hero,
-.theme-journal .prog-chart-wrap,.theme-journal .cal-gp,.theme-journal .day-p,
-.theme-journal .daily-strip{
-  background:#fefcf8;
-  border-color:rgba(160,140,110,.2);
-}
-.theme-journal .sidebar{
-  background:#f5f0e8;
-  border-right:1px solid rgba(160,140,110,.2);
-}
-/* handwriting-feel font for journal theme headings */
-.theme-journal .hero-title,.theme-journal .ptitle,.theme-journal .panel-title,
-.theme-journal .budget-cat-title,.theme-journal .cal-month{
-  font-style:italic;
-  letter-spacing:.3px;
+.theme-peach{
+  --sb:#f0e0d4;--sb-text:#5a2a18;--sb-active:rgba(218,163,143,.22);--sb-active-text:#3a1808;--sb-section:#c07860;--sb-border:rgba(218,163,143,.25);--sb-logo:#DAA38F;--sb-logo-text:#5a2a18;
+  --sb-stat1:#DAA38F;--sb-stat1t:#3a1808;--sb-stat2:#DAA38F;--sb-stat2t:#3a1808;--sb-stat3:#DAA38F;--sb-stat3t:#3a1808;
+  --bg:#f5e8e0;--panel-bg:#fff0e8;--panel-border:rgba(218,163,143,.22);
+  --inp-bg:#f0e0d4;--inp-border:rgba(218,163,143,.35);--inp-focus:#c07860;--inp-text:#3a1808;--inp-ph:#c07860;
+  --btn-bg:#DAA38F;--btn-text:#fff0e8;--btn-border:#a07060;
+  --chip-on:#a07060;--fall-bg:#f0e0d4;--fall-text:#3a1808;--fall-border:#DAA38F;
+  --floor-bg:#f5e8e0;--floor-border:rgba(218,163,143,.2);--floor-dash:rgba(218,163,143,.26);
+  --task-bg:#fff0e8;--task-border:rgba(218,163,143,.15);--task-hover:#f0e0d4;
+  --chk-border:#DAA38F;--chk-bg:#c07860;--chk-border2:#a07060;--chk-text:#fff0e8;
+  --prog-track:#f0e0d4;--prog-fill:#DAA38F;--prog-border:#DAA38F;--prog-text:#a07060;
+  --panel-title:#3a1808;--sec-dash:rgba(218,163,143,.22);--empty:#c07860;--stat-op:.7;
+  --hero-ov:linear-gradient(to bottom,rgba(245,232,224,0) 30%,rgba(245,232,224,.9) 100%);
+  --hero-title:#3a1808;--hero-sub:#c07860;--dot:rgba(218,163,143,.32);--dot-on:#DAA38F;
+  --up-bg:rgba(255,240,232,.95);--up-text:#c07860;--up-border:rgba(218,163,143,.28);
+  --pt:#DAA38F;--ps:#92ADA4;--pl:#8a7870;
+  --pmf-bg:#f0e0d4;--pmf-t:#3a1808;--pms-bg:#d8e8e4;--pms-t:#2a4444;--pml-bg:#ede8e4;--pml-t:#3a1808;
+  --pb-bg:#DAA38F;--pb-t:#fff0e8;--pb-b:#a07060;--pr-bg:#f0e0d4;--pr-t:#3a1808;--pr-b:#DAA38F;
+  --ptime:#3a1808;--psub:#c07860;--plog:#c07860;--plog-dash:rgba(218,163,143,.22);
+  --gc-bg:#f0e0d4;--gc-t:#3a1808;--gc-b:#DAA38F;--logout:#c07860;
+  --ch:#3a1808;--ct-bg:#DAA38F;--ct-t:#fff0e8;--cdot:#DAA38F;--csel:#f0e0d4;--chov:#f5e8e0;--cwknd:#f0d8cc;
+  --clk-bg:#fff0e8;--clk-b:rgba(218,163,143,.22);--clk-t:#3a1808;--clk-s:#c07860;--clk-d:#DAA38F;
+  --sw:#DAA38F;--sp:#92ADA4;--sh:#8a7870;--sl:#c07860;--shm:#DAA38F;--so:#c07860;
+  --db:#f0e0d4;--dbo:rgba(218,163,143,.22);--da:#DAA38F;
+  --att-bg:#f0e0d4;--att-border:rgba(218,163,143,.25);--att-text:#3a1808;
+  --del-bg:#DAA38F;--del-icon:#3a1808;--mascot-skin:#e8b888;--mascot-hair:#3a1808;
+  --groc-clear-bg:#f0e0d4;--groc-clear-t:#5a2a18;--groc-clear-b:#DAA38F;
 }
 
-.theme-sand{--sb:#2a200a;--sb-text:#d8c898;--sb-active:rgba(180,150,80,.25);--sb-active-text:#f0dfa8;--sb-section:#806840;--sb-border:rgba(220,190,120,.12);--sb-logo:#b09040;--sb-logo-text:#2a200a;--sb-stat1:#f8f0d8;--sb-stat1t:#5a4010;--sb-stat2:#f0eed0;--sb-stat2t:#484010;--sb-stat3:#f8e8d0;--sb-stat3t:#583010;--bg:linear-gradient(160deg,#faf5e8 0%,#f8f0d8 50%,#fdf8ee 100%);--panel-bg:rgba(255,252,240,.96);--panel-border:#dfd0a0;--inp-bg:rgba(250,242,215,.7);--inp-border:#d8c888;--inp-focus:#a08828;--inp-text:#2a1808;--inp-ph:#a09060;--btn-bg:#a08828;--btn-text:#fff;--btn-border:#806010;--chip-on:#604808;--fall-bg:#f0e8c0;--fall-text:#5a4010;--fall-border:#c8b870;--floor-bg:rgba(248,242,215,.7);--floor-border:rgba(200,175,110,.3);--floor-dash:#d8c880;--task-bg:rgba(255,252,240,.8);--task-border:rgba(200,175,110,.2);--task-hover:rgba(248,244,228,.95);--chk-border:#c8b060;--chk-bg:#a08828;--chk-border2:#806010;--chk-text:#fff;--prog-track:#f0e8c0;--prog-fill:#a08828;--prog-border:#d8c880;--prog-text:#806010;--panel-title:#4a3008;--sec-dash:#d8c880;--empty:#b09858;--stat-op:.75;--hero-ov:linear-gradient(to bottom,rgba(255,255,255,0) 30%,rgba(253,250,238,.88) 100%);--hero-title:#4a3008;--hero-sub:#806030;--dot:rgba(220,190,120,.5);--dot-on:#c0a050;--up-bg:rgba(255,252,240,.9);--up-text:#806030;--up-border:#d8c880;--pt:#c08828;--ps:#808828;--pl:#887040;--pmf-bg:#f8f0d8;--pmf-t:#5a4010;--pms-bg:#f0eed0;--pms-t:#484010;--pml-bg:#f8e8d0;--pml-t:#583010;--pb-bg:#a08828;--pb-t:#fff;--pb-b:#806010;--pr-bg:rgba(250,242,215,.8);--pr-t:#604808;--pr-b:#d8c888;--ptime:#2a1808;--psub:#a08040;--plog:#906838;--plogd:rgba(200,175,110,.25);--gc-bg:rgba(248,235,205,.7);--gc-t:#5a3808;--gc-b:#d8b880;--logout:#907848;--ch:#4a3008;--ct-bg:#a08828;--ct-t:#fff;--cdot:#c0a040;--csel:#f0e8c0;--chov:#fdf8e8;--cwknd:#f8f0d8;--clk-bg:rgba(255,252,240,.96);--clk-b:#dfd0a0;--clk-t:#4a3008;--clk-s:#a08040;--clk-d:#806030;--sw:#c08828;--sp:#808828;--sh:#607848;--sl:#887040;--shm:#a07030;--so:#906848;--db:rgba(248,240,210,.8);--dbo:#d8c880;--da:#a08828;--att-bg:rgba(248,242,215,.8);--att-border:#d8c888;--att-text:#4a3008;--del-bg:#806010;--del-icon:#fff8e0;--mascot-skin:#F0997B;--mascot-hair:#712B13;}
+.theme-wheat{
+  --sb:#E9D7C0;--sb-text:#4a3420;--sb-active:rgba(180,150,110,.16);--sb-active-text:#2a1a08;--sb-section:#a08060;--sb-border:rgba(180,150,110,.2);--sb-logo:#d4c0a0;--sb-logo-text:#4a3420;
+  --sb-stat1:#d4c0a0;--sb-stat1t:#2a1a08;--sb-stat2:#d4c0a0;--sb-stat2t:#2a1a08;--sb-stat3:#d4c0a0;--sb-stat3t:#2a1a08;
+  --bg:#E9D7C0;--panel-bg:#f5ead8;--panel-border:rgba(180,150,110,.18);
+  --inp-bg:#E9D7C0;--inp-border:rgba(180,150,110,.28);--inp-focus:#a08060;--inp-text:#2a1a08;--inp-ph:#a08060;
+  --btn-bg:#a08060;--btn-text:#f5ead8;--btn-border:#705040;
+  --chip-on:#705040;--fall-bg:#E9D7C0;--fall-text:#2a1a08;--fall-border:#d4c0a0;
+  --floor-bg:#E9D7C0;--floor-border:rgba(180,150,110,.18);--floor-dash:rgba(180,150,110,.24);
+  --task-bg:#f5ead8;--task-border:rgba(180,150,110,.14);--task-hover:#E9D7C0;
+  --chk-border:#d4c0a0;--chk-bg:#a08060;--chk-border2:#705040;--chk-text:#f5ead8;
+  --prog-track:#d4c0a0;--prog-fill:#a08060;--prog-border:#d4c0a0;--prog-text:#705040;
+  --panel-title:#2a1a08;--sec-dash:rgba(180,150,110,.2);--empty:#a08060;--stat-op:.7;
+  --hero-ov:linear-gradient(to bottom,rgba(233,215,192,0) 30%,rgba(233,215,192,.9) 100%);
+  --hero-title:#2a1a08;--hero-sub:#a08060;--dot:rgba(180,150,110,.3);--dot-on:#a08060;
+  --up-bg:rgba(245,234,216,.95);--up-text:#a08060;--up-border:rgba(180,150,110,.24);
+  --pt:#a08060;--ps:#92ADA4;--pl:#7a8a88;
+  --pmf-bg:#E9D7C0;--pmf-t:#2a1a08;--pms-bg:#d8e8e4;--pms-t:#2a4444;--pml-bg:#ede0d0;--pml-t:#2a1a08;
+  --pb-bg:#a08060;--pb-t:#f5ead8;--pb-b:#705040;--pr-bg:#E9D7C0;--pr-t:#2a1a08;--pr-b:#d4c0a0;
+  --ptime:#2a1a08;--psub:#a08060;--plog:#a08060;--plog-dash:rgba(180,150,110,.2);
+  --gc-bg:#E9D7C0;--gc-t:#2a1a08;--gc-b:#d4c0a0;--logout:#a08060;
+  --ch:#2a1a08;--ct-bg:#a08060;--ct-t:#f5ead8;--cdot:#a08060;--csel:#E9D7C0;--chov:#E9D7C0;--cwknd:#d4c0a0;
+  --clk-bg:#f5ead8;--clk-b:rgba(180,150,110,.18);--clk-t:#2a1a08;--clk-s:#a08060;--clk-d:#a08060;
+  --sw:#a08060;--sp:#92ADA4;--sh:#7a8a88;--sl:#c09878;--shm:#a08060;--so:#a08060;
+  --db:#E9D7C0;--dbo:rgba(180,150,110,.18);--da:#a08060;
+  --att-bg:#E9D7C0;--att-border:rgba(180,150,110,.2);--att-text:#2a1a08;
+  --del-bg:#d4c0a0;--del-icon:#2a1a08;--mascot-skin:#e8b888;--mascot-hair:#4a3420;
+  --groc-clear-bg:#E9D7C0;--groc-clear-t:#4a3420;--groc-clear-b:#d4c0a0;
+}
+
+.theme-eucalyptus{
+  --sb:#d4e4e0;--sb-text:#1e3830;--sb-active:rgba(146,173,164,.22);--sb-active-text:#0e2820;--sb-section:#92ADA4;--sb-border:rgba(146,173,164,.24);--sb-logo:#92ADA4;--sb-logo-text:#1e3830;
+  --sb-stat1:#b8d4ce;--sb-stat1t:#0e2820;--sb-stat2:#b8d4ce;--sb-stat2t:#0e2820;--sb-stat3:#b8d4ce;--sb-stat3t:#0e2820;
+  --bg:#e4efec;--panel-bg:#f0f8f5;--panel-border:rgba(146,173,164,.22);
+  --inp-bg:#d4e4e0;--inp-border:rgba(146,173,164,.32);--inp-focus:#92ADA4;--inp-text:#0e2820;--inp-ph:#92ADA4;
+  --btn-bg:#92ADA4;--btn-text:#f0f8f5;--btn-border:#5a8078;
+  --chip-on:#5a8078;--fall-bg:#d4e4e0;--fall-text:#0e2820;--fall-border:#b8d4ce;
+  --floor-bg:#e4efec;--floor-border:rgba(146,173,164,.2);--floor-dash:rgba(146,173,164,.26);
+  --task-bg:#f0f8f5;--task-border:rgba(146,173,164,.15);--task-hover:#d4e4e0;
+  --chk-border:#92ADA4;--chk-bg:#5a8078;--chk-border2:#3a6058;--chk-text:#f0f8f5;
+  --prog-track:#b8d4ce;--prog-fill:#92ADA4;--prog-border:#92ADA4;--prog-text:#5a8078;
+  --panel-title:#0e2820;--sec-dash:rgba(146,173,164,.22);--empty:#92ADA4;--stat-op:.7;
+  --hero-ov:linear-gradient(to bottom,rgba(228,239,236,0) 30%,rgba(228,239,236,.9) 100%);
+  --hero-title:#0e2820;--hero-sub:#5a8078;--dot:rgba(146,173,164,.32);--dot-on:#92ADA4;
+  --up-bg:rgba(240,248,245,.95);--up-text:#5a8078;--up-border:rgba(146,173,164,.28);
+  --pt:#92ADA4;--ps:#DAA38F;--pl:#9B7D61;
+  --pmf-bg:#d4e4e0;--pmf-t:#0e2820;--pms-bg:#e8f0d8;--pms-t:#283818;--pml-bg:#dce8e4;--pml-t:#0e2820;
+  --pb-bg:#92ADA4;--pb-t:#f0f8f5;--pb-b:#5a8078;--pr-bg:#d4e4e0;--pr-t:#0e2820;--pr-b:#92ADA4;
+  --ptime:#0e2820;--psub:#92ADA4;--plog:#5a8078;--plog-dash:rgba(146,173,164,.22);
+  --gc-bg:#d4e4e0;--gc-t:#0e2820;--gc-b:#92ADA4;--logout:#92ADA4;
+  --ch:#0e2820;--ct-bg:#92ADA4;--ct-t:#f0f8f5;--cdot:#92ADA4;--csel:#d4e4e0;--chov:#e4efec;--cwknd:#b8d4ce;
+  --clk-bg:#f0f8f5;--clk-b:rgba(146,173,164,.2);--clk-t:#0e2820;--clk-s:#92ADA4;--clk-d:#5a8078;
+  --sw:#92ADA4;--sp:#DAA38F;--sh:#5a8078;--sl:#92ADA4;--shm:#9B7D61;--so:#5a8078;
+  --db:#d4e4e0;--dbo:rgba(146,173,164,.2);--da:#5a8078;
+  --att-bg:#d4e4e0;--att-border:rgba(146,173,164,.22);--att-text:#0e2820;
+  --del-bg:#92ADA4;--del-icon:#0e2820;--mascot-skin:#e8b888;--mascot-hair:#1e3830;
+  --groc-clear-bg:#d4e4e0;--groc-clear-t:#0e2820;--groc-clear-b:#92ADA4;
+}
+
+.theme-cream{
+  --sb:#FED8A6;--sb-text:#5a3810;--sb-active:rgba(254,186,100,.2);--sb-active-text:#3a2008;--sb-section:#c89040;--sb-border:rgba(220,170,100,.22);--sb-logo:#f5c880;--sb-logo-text:#5a3810;
+  --sb-stat1:#f5c880;--sb-stat1t:#3a2008;--sb-stat2:#f5c880;--sb-stat2t:#3a2008;--sb-stat3:#f5c880;--sb-stat3t:#3a2008;
+  --bg:#FED8A6;--panel-bg:#fff0cc;--panel-border:rgba(220,170,100,.2);
+  --inp-bg:#FED8A6;--inp-border:rgba(220,170,100,.32);--inp-focus:#c89040;--inp-text:#3a2008;--inp-ph:#c89040;
+  --btn-bg:#c89040;--btn-text:#fff0cc;--btn-border:#8a6020;
+  --chip-on:#8a6020;--fall-bg:#FED8A6;--fall-text:#3a2008;--fall-border:#f5c880;
+  --floor-bg:#FED8A6;--floor-border:rgba(220,170,100,.2);--floor-dash:rgba(220,170,100,.26);
+  --task-bg:#fff0cc;--task-border:rgba(220,170,100,.15);--task-hover:#FED8A6;
+  --chk-border:#f5c880;--chk-bg:#c89040;--chk-border2:#8a6020;--chk-text:#fff0cc;
+  --prog-track:#f5c880;--prog-fill:#c89040;--prog-border:#f5c880;--prog-text:#8a6020;
+  --panel-title:#3a2008;--sec-dash:rgba(220,170,100,.22);--empty:#c89040;--stat-op:.7;
+  --hero-ov:linear-gradient(to bottom,rgba(254,216,166,0) 30%,rgba(254,216,166,.9) 100%);
+  --hero-title:#3a2008;--hero-sub:#c89040;--dot:rgba(220,170,100,.32);--dot-on:#c89040;
+  --up-bg:rgba(255,240,204,.95);--up-text:#c89040;--up-border:rgba(220,170,100,.26);
+  --pt:#c89040;--ps:#92ADA4;--pl:#9B7D61;
+  --pmf-bg:#FED8A6;--pmf-t:#3a2008;--pms-bg:#d8e8e4;--pms-t:#2a4444;--pml-bg:#f5e4c0;--pml-t:#3a2008;
+  --pb-bg:#c89040;--pb-t:#fff0cc;--pb-b:#8a6020;--pr-bg:#FED8A6;--pr-t:#3a2008;--pr-b:#f5c880;
+  --ptime:#3a2008;--psub:#c89040;--plog:#c89040;--plog-dash:rgba(220,170,100,.22);
+  --gc-bg:#FED8A6;--gc-t:#3a2008;--gc-b:#f5c880;--logout:#c89040;
+  --ch:#3a2008;--ct-bg:#c89040;--ct-t:#fff0cc;--cdot:#c89040;--csel:#FED8A6;--chov:#FED8A6;--cwknd:#f5c880;
+  --clk-bg:#fff0cc;--clk-b:rgba(220,170,100,.2);--clk-t:#3a2008;--clk-s:#c89040;--clk-d:#c89040;
+  --sw:#c89040;--sp:#92ADA4;--sh:#9B7D61;--sl:#DAA38F;--shm:#c89040;--so:#c89040;
+  --db:#FED8A6;--dbo:rgba(220,170,100,.2);--da:#c89040;
+  --att-bg:#FED8A6;--att-border:rgba(220,170,100,.22);--att-text:#3a2008;
+  --del-bg:#f5c880;--del-icon:#3a2008;--mascot-skin:#e8b888;--mascot-hair:#3a2008;
+  --groc-clear-bg:#FED8A6;--groc-clear-t:#3a2008;--groc-clear-b:#f5c880;
+}
+
+.theme-lemonade{
+  --sb:#fde8f0;--sb-text:#8a2050;--sb-active:rgba(240,100,160,.14);--sb-active-text:#6a1038;--sb-section:#e86898;--sb-border:rgba(240,100,160,.2);--sb-logo:#f8c0d8;--sb-logo-text:#6a1038;
+  --sb-stat1:#f8c0d8;--sb-stat1t:#6a1038;--sb-stat2:#f8c0d8;--sb-stat2t:#6a1038;--sb-stat3:#f8c0d8;--sb-stat3t:#6a1038;
+  --bg:#fff0f6;--panel-bg:#fff8fb;--panel-border:rgba(240,100,160,.18);
+  --inp-bg:#fde8f0;--inp-border:rgba(240,100,160,.28);--inp-focus:#e86898;--inp-text:#3a0820;--inp-ph:#e086a8;
+  --btn-bg:#e86898;--btn-text:#fff0f6;--btn-border:#c04878;
+  --chip-on:#c04878;--fall-bg:#fde8f0;--fall-text:#3a0820;--fall-border:#f8c0d8;
+  --floor-bg:#fff0f6;--floor-border:rgba(240,100,160,.16);--floor-dash:rgba(240,100,160,.22);
+  --task-bg:#fff8fb;--task-border:rgba(240,100,160,.13);--task-hover:#fde8f0;
+  --chk-border:#f8c0d8;--chk-bg:#e86898;--chk-border2:#c04878;--chk-text:#fff0f6;
+  --prog-track:#fde8f0;--prog-fill:#e86898;--prog-border:#f8c0d8;--prog-text:#c04878;
+  --panel-title:#3a0820;--sec-dash:rgba(240,100,160,.18);--empty:#e086a8;--stat-op:.7;
+  --hero-ov:linear-gradient(to bottom,rgba(255,240,246,0) 30%,rgba(255,240,246,.9) 100%);
+  --hero-title:#3a0820;--hero-sub:#e86898;--dot:rgba(240,100,160,.28);--dot-on:#e86898;
+  --up-bg:rgba(255,248,251,.95);--up-text:#e86898;--up-border:rgba(240,100,160,.22);
+  --pt:#e86898;--ps:#92ADA4;--pl:#a070b0;
+  --pmf-bg:#fde8f0;--pmf-t:#3a0820;--pms-bg:#d8e8e4;--pms-t:#2a4444;--pml-bg:#ede0f0;--pml-t:#3a0820;
+  --pb-bg:#e86898;--pb-t:#fff0f6;--pb-b:#c04878;--pr-bg:#fde8f0;--pr-t:#3a0820;--pr-b:#f8c0d8;
+  --ptime:#3a0820;--psub:#e086a8;--plog:#e86898;--plog-dash:rgba(240,100,160,.18);
+  --gc-bg:#fde8f0;--gc-t:#3a0820;--gc-b:#f8c0d8;--logout:#e086a8;
+  --ch:#3a0820;--ct-bg:#e86898;--ct-t:#fff0f6;--cdot:#e86898;--csel:#fde8f0;--chov:#fff0f6;--cwknd:#f8c0d8;
+  --clk-bg:#fff8fb;--clk-b:rgba(240,100,160,.18);--clk-t:#3a0820;--clk-s:#e086a8;--clk-d:#e86898;
+  --sw:#e86898;--sp:#92ADA4;--sh:#a070b0;--sl:#e86898;--shm:#e86898;--so:#c04878;
+  --db:#fde8f0;--dbo:rgba(240,100,160,.18);--da:#e86898;
+  --att-bg:#fde8f0;--att-border:rgba(240,100,160,.2);--att-text:#3a0820;
+  --del-bg:#f8c0d8;--del-icon:#3a0820;--mascot-skin:#F0997B;--mascot-hair:#3a0820;
+  --groc-clear-bg:#fde8f0;--groc-clear-t:#3a0820;--groc-clear-b:#f8c0d8;
+}
+
+.theme-cherry{
+  --sb:#3a0810;--sb-text:#f0c0c8;--sb-active:rgba(200,30,50,.25);--sb-active-text:#fde8ec;--sb-section:#c83848;--sb-border:rgba(200,80,90,.25);--sb-logo:#8a1828;--sb-logo-text:#f0c0c8;
+  --sb-stat1:#8a1828;--sb-stat1t:#f0c0c8;--sb-stat2:#8a1828;--sb-stat2t:#f0c0c8;--sb-stat3:#8a1828;--sb-stat3t:#f0c0c8;
+  --bg:#2a0808;--panel-bg:#3d1018;--panel-border:rgba(200,50,60,.28);
+  --inp-bg:#3a0810;--inp-border:rgba(200,80,90,.35);--inp-focus:#e84858;--inp-text:#fde8ec;--inp-ph:#c87880;
+  --btn-bg:#c83848;--btn-text:#fde8ec;--btn-border:#982838;
+  --chip-on:#982838;--fall-bg:#3a0810;--fall-text:#fde8ec;--fall-border:#8a1828;
+  --floor-bg:#2a0808;--floor-border:rgba(200,50,60,.22);--floor-dash:rgba(200,50,60,.28);
+  --task-bg:#3d1018;--task-border:rgba(200,50,60,.18);--task-hover:#4a1820;
+  --chk-border:#c83848;--chk-bg:#e84858;--chk-border2:#982838;--chk-text:#fde8ec;
+  --prog-track:#5a2028;--prog-fill:#e84858;--prog-border:#c83848;--prog-text:#f0c0c8;
+  --panel-title:#fde8ec;--sec-dash:rgba(200,80,90,.25);--empty:#c87880;--stat-op:.8;
+  --hero-ov:linear-gradient(to bottom,rgba(42,8,8,0) 30%,rgba(42,8,8,.92) 100%);
+  --hero-title:#fde8ec;--hero-sub:#e84858;--dot:rgba(232,72,88,.3);--dot-on:#e84858;
+  --up-bg:rgba(61,16,24,.96);--up-text:#f0c0c8;--up-border:rgba(200,56,72,.3);
+  --pt:#e84858;--ps:#c87080;--pl:#a05060;
+  --pmf-bg:#3a0810;--pmf-t:#fde8ec;--pms-bg:#2a1820;--pms-t:#f0c0c8;--pml-bg:#381018;--pml-t:#fde8ec;
+  --pb-bg:#c83848;--pb-t:#fde8ec;--pb-b:#982838;--pr-bg:#3a0810;--pr-t:#fde8ec;--pr-b:#8a1828;
+  --ptime:#fde8ec;--psub:#c87880;--plog:#e84858;--plog-dash:rgba(200,80,90,.25);
+  --gc-bg:#3a0810;--gc-t:#fde8ec;--gc-b:#8a1828;--logout:#c87880;
+  --ch:#fde8ec;--ct-bg:#c83848;--ct-t:#fde8ec;--cdot:#e84858;--csel:#4a1820;--chov:#4a1820;--cwknd:#5a2028;
+  --clk-bg:#3d1018;--clk-b:rgba(200,80,90,.25);--clk-t:#fde8ec;--clk-s:#c87880;--clk-d:#e84858;
+  --sw:#e84858;--sp:#c87080;--sh:#a05060;--sl:#e84858;--shm:#c83848;--so:#982838;
+  --db:#3a0810;--dbo:rgba(200,80,90,.22);--da:#e84858;
+  --att-bg:#3a0810;--att-border:rgba(200,80,90,.25);--att-text:#fde8ec;
+  --del-bg:#8a1828;--del-icon:#f0c0c8;--mascot-skin:#e8a888;--mascot-hair:#fde8ec;
+  --groc-clear-bg:#3a0810;--groc-clear-t:#fde8ec;--groc-clear-b:#8a1828;
+}
+
+.theme-terra{
+  --sb:#EAC891;--sb-text:#5a2010;--sb-active:rgba(208,98,36,.16);--sb-active-text:#3a1008;--sb-section:#AE431E;--sb-border:rgba(208,98,36,.22);--sb-logo:#D06224;--sb-logo-text:#EAC891;
+  --sb-stat1:#D06224;--sb-stat1t:#EAC891;--sb-stat2:#D06224;--sb-stat2t:#EAC891;--sb-stat3:#D06224;--sb-stat3t:#EAC891;
+  --bg:#EAC891;--panel-bg:#f5ddb8;--panel-border:rgba(208,98,36,.2);
+  --inp-bg:#EAC891;--inp-border:rgba(208,98,36,.32);--inp-focus:#D06224;--inp-text:#3a1008;--inp-ph:#AE431E;
+  --btn-bg:#D06224;--btn-text:#EAC891;--btn-border:#AE431E;
+  --chip-on:#AE431E;--fall-bg:#EAC891;--fall-text:#3a1008;--fall-border:#D06224;
+  --floor-bg:#EAC891;--floor-border:rgba(208,98,36,.2);--floor-dash:rgba(208,98,36,.26);
+  --task-bg:#f5ddb8;--task-border:rgba(208,98,36,.15);--task-hover:#EAC891;
+  --chk-border:#D06224;--chk-bg:#AE431E;--chk-border2:#8a2810;--chk-text:#EAC891;
+  --prog-track:#D06224;--prog-fill:#8A8835;--prog-border:#AE431E;--prog-text:#AE431E;
+  --panel-title:#3a1008;--sec-dash:rgba(208,98,36,.22);--empty:#AE431E;--stat-op:.7;
+  --hero-ov:linear-gradient(to bottom,rgba(234,200,145,0) 30%,rgba(234,200,145,.88) 100%);
+  --hero-title:#3a1008;--hero-sub:#AE431E;--dot:rgba(208,98,36,.3);--dot-on:#D06224;
+  --up-bg:rgba(245,221,184,.95);--up-text:#AE431E;--up-border:rgba(208,98,36,.28);
+  --pt:#D06224;--ps:#8A8835;--pl:#AE431E;
+  --pmf-bg:#EAC891;--pmf-t:#3a1008;--pms-bg:#e0e4c0;--pms-t:#3a3808;--pml-bg:#eeddb8;--pml-t:#3a1008;
+  --pb-bg:#D06224;--pb-t:#EAC891;--pb-b:#AE431E;--pr-bg:#EAC891;--pr-t:#3a1008;--pr-b:#D06224;
+  --ptime:#3a1008;--psub:#AE431E;--plog:#D06224;--plog-dash:rgba(208,98,36,.22);
+  --gc-bg:#EAC891;--gc-t:#3a1008;--gc-b:#D06224;--logout:#AE431E;
+  --ch:#3a1008;--ct-bg:#D06224;--ct-t:#EAC891;--cdot:#D06224;--csel:#EAC891;--chov:#EAC891;--cwknd:#D06224;
+  --clk-bg:#f5ddb8;--clk-b:rgba(208,98,36,.2);--clk-t:#3a1008;--clk-s:#AE431E;--clk-d:#D06224;
+  --sw:#D06224;--sp:#8A8835;--sh:#AE431E;--sl:#D06224;--shm:#AE431E;--so:#8A8835;
+  --db:#EAC891;--dbo:rgba(208,98,36,.2);--da:#D06224;
+  --att-bg:#EAC891;--att-border:rgba(208,98,36,.22);--att-text:#3a1008;
+  --del-bg:#D06224;--del-icon:#EAC891;--mascot-skin:#F0997B;--mascot-hair:#3a1008;
+  --groc-clear-bg:#EAC891;--groc-clear-t:#3a1008;--groc-clear-b:#D06224;
+}
+
+.theme-earth{
+  --sb:#E9D7C0;--sb-text:#3d2a1a;--sb-active:rgba(155,125,97,.18);--sb-active-text:#2a1a0a;--sb-section:#9B7D61;--sb-border:rgba(155,125,97,.22);--sb-logo:#DAA38F;--sb-logo-text:#3d2a1a;
+  --sb-stat1:#DAA38F;--sb-stat1t:#2a1a0a;--sb-stat2:#DAA38F;--sb-stat2t:#2a1a0a;--sb-stat3:#DAA38F;--sb-stat3t:#2a1a0a;
+  --bg:#E9D7C0;--panel-bg:#FED8A6;--panel-border:rgba(155,125,97,.22);
+  --inp-bg:#E9D7C0;--inp-border:rgba(155,125,97,.35);--inp-focus:#9B7D61;--inp-text:#2a1a0a;--inp-ph:#9B7D61;
+  --btn-bg:#9B7D61;--btn-text:#FED8A6;--btn-border:#6a4d38;
+  --chip-on:#6a4d38;--fall-bg:#E9D7C0;--fall-text:#2a1a0a;--fall-border:#DAA38F;
+  --floor-bg:#E9D7C0;--floor-border:rgba(155,125,97,.22);--floor-dash:rgba(155,125,97,.28);
+  --task-bg:#FED8A6;--task-border:rgba(155,125,97,.18);--task-hover:#E9D7C0;
+  --chk-border:#DAA38F;--chk-bg:#9B7D61;--chk-border2:#6a4d38;--chk-text:#FED8A6;
+  --prog-track:#DAA38F;--prog-fill:#9B7D61;--prog-border:#DAA38F;--prog-text:#6a4d38;
+  --panel-title:#2a1a0a;--sec-dash:rgba(155,125,97,.22);--empty:#9B7D61;--stat-op:.7;
+  --hero-ov:linear-gradient(to bottom,rgba(233,215,192,0) 30%,rgba(233,215,192,.88) 100%);
+  --hero-title:#2a1a0a;--hero-sub:#9B7D61;--dot:rgba(155,125,97,.3);--dot-on:#9B7D61;
+  --up-bg:rgba(254,216,166,.95);--up-text:#9B7D61;--up-border:rgba(155,125,97,.28);
+  --pt:#9B7D61;--ps:#92ADA4;--pl:#6a4d38;
+  --pmf-bg:#E9D7C0;--pmf-t:#2a1a0a;--pms-bg:#d8ebe8;--pms-t:#2a4a44;--pml-bg:#e8e0d4;--pml-t:#2a1a0a;
+  --pb-bg:#9B7D61;--pb-t:#FED8A6;--pb-b:#6a4d38;--pr-bg:#E9D7C0;--pr-t:#2a1a0a;--pr-b:#DAA38F;
+  --ptime:#2a1a0a;--psub:#9B7D61;--plog:#9B7D61;--plog-dash:rgba(155,125,97,.22);
+  --gc-bg:#E9D7C0;--gc-t:#2a1a0a;--gc-b:#DAA38F;--logout:#9B7D61;
+  --ch:#2a1a0a;--ct-bg:#9B7D61;--ct-t:#FED8A6;--cdot:#9B7D61;--csel:#E9D7C0;--chov:#E9D7C0;--cwknd:#DAA38F;
+  --clk-bg:#FED8A6;--clk-b:rgba(155,125,97,.22);--clk-t:#2a1a0a;--clk-s:#9B7D61;--clk-d:#9B7D61;
+  --sw:#9B7D61;--sp:#92ADA4;--sh:#6a8888;--sl:#b08080;--shm:#c8952a;--so:#9B7D61;
+  --db:#E9D7C0;--dbo:rgba(155,125,97,.22);--da:#9B7D61;
+  --att-bg:#E9D7C0;--att-border:rgba(155,125,97,.25);--att-text:#2a1a0a;
+  --del-bg:#DAA38F;--del-icon:#2a1a0a;--mascot-skin:#F0997B;--mascot-hair:#6a4d38;
+  --groc-clear-bg:#E9D7C0;--groc-clear-t:#6a4d38;--groc-clear-b:#DAA38F;
+}
+
+.theme-warmfog{
+  --sb:#d8cec4;--sb-text:#4a3828;--sb-active:rgba(180,155,135,.16);--sb-active-text:#2a1808;--sb-section:#a09080;--sb-border:rgba(180,155,135,.2);--sb-logo:#c8beb4;--sb-logo-text:#3a2818;
+  --sb-stat1:#c8beb4;--sb-stat1t:#2a1808;--sb-stat2:#c8beb4;--sb-stat2t:#2a1808;--sb-stat3:#c8beb4;--sb-stat3t:#2a1808;
+  --bg:#DDD3C9;--panel-bg:#ede8e2;--panel-border:rgba(180,155,135,.18);
+  --inp-bg:#d4cac0;--inp-border:rgba(180,155,135,.28);--inp-focus:#a09080;--inp-text:#2a1808;--inp-ph:#a09080;
+  --btn-bg:#a09080;--btn-text:#ede8e2;--btn-border:#706050;
+  --chip-on:#706050;--fall-bg:#d4cac0;--fall-text:#2a1808;--fall-border:#c8beb4;
+  --floor-bg:#DDD3C9;--floor-border:rgba(180,155,135,.18);--floor-dash:rgba(180,155,135,.24);
+  --task-bg:#ede8e2;--task-border:rgba(180,155,135,.14);--task-hover:#d4cac0;
+  --chk-border:#c8beb4;--chk-bg:#a09080;--chk-border2:#706050;--chk-text:#ede8e2;
+  --prog-track:#c8beb4;--prog-fill:#a09080;--prog-border:#c8beb4;--prog-text:#706050;
+  --panel-title:#2a1808;--sec-dash:rgba(180,155,135,.18);--empty:#a09080;--stat-op:.7;
+  --hero-ov:linear-gradient(to bottom,rgba(221,211,201,0) 30%,rgba(221,211,201,.9) 100%);
+  --hero-title:#2a1808;--hero-sub:#a09080;--dot:rgba(180,155,135,.3);--dot-on:#a09080;
+  --up-bg:rgba(237,232,226,.95);--up-text:#a09080;--up-border:rgba(180,155,135,.22);
+  --pt:#a09080;--ps:#B97D7B;--pl:#928E5E;
+  --pmf-bg:#d4cac0;--pmf-t:#2a1808;--pms-bg:#e0d8d0;--pms-t:#2a1808;--pml-bg:#d8d4ce;--pml-t:#2a1808;
+  --pb-bg:#a09080;--pb-t:#ede8e2;--pb-b:#706050;--pr-bg:#d4cac0;--pr-t:#2a1808;--pr-b:#c8beb4;
+  --ptime:#2a1808;--psub:#a09080;--plog:#a09080;--plog-dash:rgba(180,155,135,.18);
+  --gc-bg:#d4cac0;--gc-t:#2a1808;--gc-b:#c8beb4;--logout:#a09080;
+  --ch:#2a1808;--ct-bg:#a09080;--ct-t:#ede8e2;--cdot:#a09080;--csel:#d4cac0;--chov:#DDD3C9;--cwknd:#c8beb4;
+  --clk-bg:#ede8e2;--clk-b:rgba(180,155,135,.18);--clk-t:#2a1808;--clk-s:#a09080;--clk-d:#a09080;
+  --sw:#a09080;--sp:#B97D7B;--sh:#928E5E;--sl:#a09080;--shm:#a09080;--so:#706050;
+  --db:#d4cac0;--dbo:rgba(180,155,135,.18);--da:#a09080;
+  --att-bg:#d4cac0;--att-border:rgba(180,155,135,.2);--att-text:#2a1808;
+  --del-bg:#c8beb4;--del-icon:#2a1808;--mascot-skin:#e8b888;--mascot-hair:#4a3828;
+  --groc-clear-bg:#d4cac0;--groc-clear-t:#2a1808;--groc-clear-b:#c8beb4;
+}
+
+.theme-berry{
+  --sb:#f0dede;--sb-text:#4a2828;--sb-active:rgba(236,196,195,.3);--sb-active-text:#2a1818;--sb-section:#B97D7B;--sb-border:rgba(185,125,123,.2);--sb-logo:#ECC4C3;--sb-logo-text:#4a2828;
+  --sb-stat1:#ECC4C3;--sb-stat1t:#2a1818;--sb-stat2:#ECC4C3;--sb-stat2t:#2a1818;--sb-stat3:#ECC4C3;--sb-stat3t:#2a1818;
+  --bg:#ECC4C3;--panel-bg:#f8e8e8;--panel-border:rgba(185,125,123,.2);
+  --inp-bg:#e8d4d4;--inp-border:rgba(185,125,123,.3);--inp-focus:#B97D7B;--inp-text:#2a1818;--inp-ph:#B97D7B;
+  --btn-bg:#B97D7B;--btn-text:#f8e8e8;--btn-border:#8a5858;
+  --chip-on:#8a5858;--fall-bg:#e8d4d4;--fall-text:#2a1818;--fall-border:#ECC4C3;
+  --floor-bg:#ECC4C3;--floor-border:rgba(185,125,123,.18);--floor-dash:rgba(185,125,123,.24);
+  --task-bg:#f8e8e8;--task-border:rgba(185,125,123,.14);--task-hover:#e8d4d4;
+  --chk-border:#ECC4C3;--chk-bg:#B97D7B;--chk-border2:#8a5858;--chk-text:#f8e8e8;
+  --prog-track:#e8d4d4;--prog-fill:#B97D7B;--prog-border:#ECC4C3;--prog-text:#8a5858;
+  --panel-title:#2a1818;--sec-dash:rgba(185,125,123,.2);--empty:#B97D7B;--stat-op:.7;
+  --hero-ov:linear-gradient(to bottom,rgba(236,196,195,0) 30%,rgba(236,196,195,.9) 100%);
+  --hero-title:#2a1818;--hero-sub:#B97D7B;--dot:rgba(185,125,123,.3);--dot-on:#B97D7B;
+  --up-bg:rgba(248,232,232,.95);--up-text:#B97D7B;--up-border:rgba(185,125,123,.24);
+  --pt:#B97D7B;--ps:#928E5E;--pl:#575527;
+  --pmf-bg:#e8d4d4;--pmf-t:#2a1818;--pms-bg:#e4e0cc;--pms-t:#2a2808;--pml-bg:#ece4e0;--pml-t:#2a1818;
+  --pb-bg:#B97D7B;--pb-t:#f8e8e8;--pb-b:#8a5858;--pr-bg:#e8d4d4;--pr-t:#2a1818;--pr-b:#ECC4C3;
+  --ptime:#2a1818;--psub:#B97D7B;--plog:#B97D7B;--plog-dash:rgba(185,125,123,.2);
+  --gc-bg:#e8d4d4;--gc-t:#2a1818;--gc-b:#ECC4C3;--logout:#B97D7B;
+  --ch:#2a1818;--ct-bg:#B97D7B;--ct-t:#f8e8e8;--cdot:#B97D7B;--csel:#e8d4d4;--chov:#ECC4C3;--cwknd:#f0d8d8;
+  --clk-bg:#f8e8e8;--clk-b:rgba(185,125,123,.2);--clk-t:#2a1818;--clk-s:#B97D7B;--clk-d:#B97D7B;
+  --sw:#B97D7B;--sp:#928E5E;--sh:#575527;--sl:#B97D7B;--shm:#B97D7B;--so:#8a5858;
+  --db:#e8d4d4;--dbo:rgba(185,125,123,.18);--da:#B97D7B;
+  --att-bg:#e8d4d4;--att-border:rgba(185,125,123,.2);--att-text:#2a1818;
+  --del-bg:#ECC4C3;--del-icon:#2a1818;--mascot-skin:#e8b888;--mascot-hair:#4a2828;
+  --groc-clear-bg:#e8d4d4;--groc-clear-t:#2a1818;--groc-clear-b:#ECC4C3;
+}
+
+.theme-blossom{
+  --sb:#e8d4d2;--sb-text:#4a2820;--sb-active:rgba(185,125,123,.18);--sb-active-text:#2a1810;--sb-section:#B97D7B;--sb-border:rgba(185,125,123,.2);--sb-logo:#c8a0a0;--sb-logo-text:#4a2820;
+  --sb-stat1:#c8a0a0;--sb-stat1t:#2a1810;--sb-stat2:#c8a0a0;--sb-stat2t:#2a1810;--sb-stat3:#c8a0a0;--sb-stat3t:#2a1810;
+  --bg:#e8d0ce;--panel-bg:#f5e8e6;--panel-border:rgba(185,125,123,.18);
+  --inp-bg:#e0c8c6;--inp-border:rgba(185,125,123,.28);--inp-focus:#B97D7B;--inp-text:#2a1810;--inp-ph:#B97D7B;
+  --btn-bg:#B97D7B;--btn-text:#f5e8e6;--btn-border:#8a5550;
+  --chip-on:#8a5550;--fall-bg:#e0c8c6;--fall-text:#2a1810;--fall-border:#c8a0a0;
+  --floor-bg:#e8d0ce;--floor-border:rgba(185,125,123,.16);--floor-dash:rgba(185,125,123,.22);
+  --task-bg:#f5e8e6;--task-border:rgba(185,125,123,.13);--task-hover:#e0c8c6;
+  --chk-border:#c8a0a0;--chk-bg:#B97D7B;--chk-border2:#8a5550;--chk-text:#f5e8e6;
+  --prog-track:#e0c8c6;--prog-fill:#B97D7B;--prog-border:#c8a0a0;--prog-text:#8a5550;
+  --panel-title:#2a1810;--sec-dash:rgba(185,125,123,.18);--empty:#B97D7B;--stat-op:.7;
+  --hero-ov:linear-gradient(to bottom,rgba(232,208,206,0) 30%,rgba(232,208,206,.9) 100%);
+  --hero-title:#2a1810;--hero-sub:#B97D7B;--dot:rgba(185,125,123,.3);--dot-on:#B97D7B;
+  --up-bg:rgba(245,232,230,.95);--up-text:#B97D7B;--up-border:rgba(185,125,123,.22);
+  --pt:#B97D7B;--ps:#928E5E;--pl:#706050;
+  --pmf-bg:#e0c8c6;--pmf-t:#2a1810;--pms-bg:#dde0cc;--pms-t:#2a2808;--pml-bg:#e8e0de;--pml-t:#2a1810;
+  --pb-bg:#B97D7B;--pb-t:#f5e8e6;--pb-b:#8a5550;--pr-bg:#e0c8c6;--pr-t:#2a1810;--pr-b:#c8a0a0;
+  --ptime:#2a1810;--psub:#B97D7B;--plog:#B97D7B;--plog-dash:rgba(185,125,123,.18);
+  --gc-bg:#e0c8c6;--gc-t:#2a1810;--gc-b:#c8a0a0;--logout:#B97D7B;
+  --ch:#2a1810;--ct-bg:#B97D7B;--ct-t:#f5e8e6;--cdot:#B97D7B;--csel:#e0c8c6;--chov:#e8d0ce;--cwknd:#e0c8c6;
+  --clk-bg:#f5e8e6;--clk-b:rgba(185,125,123,.18);--clk-t:#2a1810;--clk-s:#B97D7B;--clk-d:#B97D7B;
+  --sw:#B97D7B;--sp:#928E5E;--sh:#706050;--sl:#B97D7B;--shm:#B97D7B;--so:#8a5550;
+  --db:#e0c8c6;--dbo:rgba(185,125,123,.18);--da:#B97D7B;
+  --att-bg:#e0c8c6;--att-border:rgba(185,125,123,.2);--att-text:#2a1810;
+  --del-bg:#c8a0a0;--del-icon:#2a1810;--mascot-skin:#e8b888;--mascot-hair:#4a2820;
+  --groc-clear-bg:#e0c8c6;--groc-clear-t:#2a1810;--groc-clear-b:#c8a0a0;
+}
+
+.theme-meadow{
+  --sb:#d0d0b0;--sb-text:#2a2808;--sb-active:rgba(146,142,94,.18);--sb-active-text:#1a1800;--sb-section:#928E5E;--sb-border:rgba(146,142,94,.22);--sb-logo:#b8b890;--sb-logo-text:#2a2808;
+  --sb-stat1:#b8b890;--sb-stat1t:#1a1800;--sb-stat2:#b8b890;--sb-stat2t:#1a1800;--sb-stat3:#b8b890;--sb-stat3t:#1a1800;
+  --bg:#d8d8b8;--panel-bg:#ececd8;--panel-border:rgba(146,142,94,.2);
+  --inp-bg:#d0d0b0;--inp-border:rgba(146,142,94,.3);--inp-focus:#928E5E;--inp-text:#1a1800;--inp-ph:#928E5E;
+  --btn-bg:#928E5E;--btn-text:#ececd8;--btn-border:#606030;
+  --chip-on:#606030;--fall-bg:#d0d0b0;--fall-text:#1a1800;--fall-border:#b8b890;
+  --floor-bg:#d8d8b8;--floor-border:rgba(146,142,94,.18);--floor-dash:rgba(146,142,94,.24);
+  --task-bg:#ececd8;--task-border:rgba(146,142,94,.14);--task-hover:#d0d0b0;
+  --chk-border:#b8b890;--chk-bg:#928E5E;--chk-border2:#606030;--chk-text:#ececd8;
+  --prog-track:#b8b890;--prog-fill:#928E5E;--prog-border:#b8b890;--prog-text:#606030;
+  --panel-title:#1a1800;--sec-dash:rgba(146,142,94,.2);--empty:#928E5E;--stat-op:.7;
+  --hero-ov:linear-gradient(to bottom,rgba(216,216,184,0) 30%,rgba(216,216,184,.9) 100%);
+  --hero-title:#1a1800;--hero-sub:#928E5E;--dot:rgba(146,142,94,.3);--dot-on:#928E5E;
+  --up-bg:rgba(236,236,216,.95);--up-text:#928E5E;--up-border:rgba(146,142,94,.24);
+  --pt:#928E5E;--ps:#B97D7B;--pl:#575527;
+  --pmf-bg:#d0d0b0;--pmf-t:#1a1800;--pms-bg:#dde0cc;--pms-t:#1a1800;--pml-bg:#d8d8c0;--pml-t:#1a1800;
+  --pb-bg:#928E5E;--pb-t:#ececd8;--pb-b:#606030;--pr-bg:#d0d0b0;--pr-t:#1a1800;--pr-b:#b8b890;
+  --ptime:#1a1800;--psub:#928E5E;--plog:#928E5E;--plog-dash:rgba(146,142,94,.2);
+  --gc-bg:#d0d0b0;--gc-t:#1a1800;--gc-b:#b8b890;--logout:#928E5E;
+  --ch:#1a1800;--ct-bg:#928E5E;--ct-t:#ececd8;--cdot:#928E5E;--csel:#d0d0b0;--chov:#d8d8b8;--cwknd:#b8b890;
+  --clk-bg:#ececd8;--clk-b:rgba(146,142,94,.18);--clk-t:#1a1800;--clk-s:#928E5E;--clk-d:#928E5E;
+  --sw:#928E5E;--sp:#B97D7B;--sh:#575527;--sl:#928E5E;--shm:#928E5E;--so:#606030;
+  --db:#d0d0b0;--dbo:rgba(146,142,94,.18);--da:#928E5E;
+  --att-bg:#d0d0b0;--att-border:rgba(146,142,94,.2);--att-text:#1a1800;
+  --del-bg:#b8b890;--del-icon:#1a1800;--mascot-skin:#e8b888;--mascot-hair:#2a2808;
+  --groc-clear-bg:#d0d0b0;--groc-clear-t:#1a1800;--groc-clear-b:#b8b890;
+}
+
+.theme-soldier{
+  --sb:#484828;--sb-text:#d8d8a0;--sb-active:rgba(87,85,39,.3);--sb-active-text:#e8e8b0;--sb-section:#928E5E;--sb-border:rgba(120,118,60,.28);--sb-logo:#606030;--sb-logo-text:#d8d8a0;
+  --sb-stat1:#606030;--sb-stat1t:#d8d8a0;--sb-stat2:#606030;--sb-stat2t:#d8d8a0;--sb-stat3:#606030;--sb-stat3t:#d8d8a0;
+  --bg:#383818;--panel-bg:#484828;--panel-border:rgba(120,118,60,.28);
+  --inp-bg:#404020;--inp-border:rgba(120,118,60,.38);--inp-focus:#928E5E;--inp-text:#e8e8c0;--inp-ph:#909060;
+  --btn-bg:#928E5E;--btn-text:#e8e8c0;--btn-border:#606030;
+  --chip-on:#606030;--fall-bg:#404020;--fall-text:#e8e8c0;--fall-border:#606030;
+  --floor-bg:#383818;--floor-border:rgba(120,118,60,.24);--floor-dash:rgba(120,118,60,.3);
+  --task-bg:#484828;--task-border:rgba(120,118,60,.2);--task-hover:#505030;
+  --chk-border:#928E5E;--chk-bg:#928E5E;--chk-border2:#606030;--chk-text:#e8e8c0;
+  --prog-track:#505030;--prog-fill:#928E5E;--prog-border:#606030;--prog-text:#d8d8a0;
+  --panel-title:#e8e8c0;--sec-dash:rgba(120,118,60,.28);--empty:#909060;--stat-op:.8;
+  --hero-ov:linear-gradient(to bottom,rgba(56,56,24,0) 30%,rgba(56,56,24,.92) 100%);
+  --hero-title:#e8e8c0;--hero-sub:#928E5E;--dot:rgba(146,142,94,.3);--dot-on:#928E5E;
+  --up-bg:rgba(72,72,40,.96);--up-text:#d8d8a0;--up-border:rgba(120,118,60,.3);
+  --pt:#928E5E;--ps:#B97D7B;--pl:#606030;
+  --pmf-bg:#404020;--pmf-t:#e8e8c0;--pms-bg:#383818;--pms-t:#d8d8a0;--pml-bg:#404028;--pml-t:#e8e8c0;
+  --pb-bg:#928E5E;--pb-t:#e8e8c0;--pb-b:#606030;--pr-bg:#404020;--pr-t:#e8e8c0;--pr-b:#606030;
+  --ptime:#e8e8c0;--psub:#909060;--plog:#928E5E;--plog-dash:rgba(120,118,60,.28);
+  --gc-bg:#404020;--gc-t:#e8e8c0;--gc-b:#606030;--logout:#909060;
+  --ch:#e8e8c0;--ct-bg:#928E5E;--ct-t:#e8e8c0;--cdot:#928E5E;--csel:#505030;--chov:#505030;--cwknd:#606030;
+  --clk-bg:#484828;--clk-b:rgba(120,118,60,.28);--clk-t:#e8e8c0;--clk-s:#909060;--clk-d:#928E5E;
+  --sw:#928E5E;--sp:#B97D7B;--sh:#606030;--sl:#928E5E;--shm:#928E5E;--so:#606030;
+  --db:#404020;--dbo:rgba(120,118,60,.28);--da:#928E5E;
+  --att-bg:#404020;--att-border:rgba(120,118,60,.28);--att-text:#e8e8c0;
+  --del-bg:#606030;--del-icon:#e8e8c0;--mascot-skin:#d8a870;--mascot-hair:#e8e8c0;
+  --groc-clear-bg:#404020;--groc-clear-t:#e8e8c0;--groc-clear-b:#606030;
+}
+
 
 /* ── ANIMS ── */
 @keyframes popIn{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.15)}80%{transform:scale(.95)}100%{transform:scale(1);opacity:1}}
@@ -414,12 +701,12 @@ body{font-family:'Nunito',sans-serif;overflow-x:hidden;overscroll-behavior:none;
 .sett-grid{display:grid;grid-template-columns:1fr;gap:12px;}
 @media(min-width:500px){.sett-grid{grid-template-columns:1fr 1fr;}}
 .sett-sec{font-size:13px;font-weight:900;color:var(--panel-title);margin-bottom:10px;padding-bottom:6px;border-bottom:1px dashed var(--sec-dash);}
-.t-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
-.t-tile{border-radius:11px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all .2s;}
-.t-tile:active{transform:scale(.9);}
-.t-tile.on{border-color:var(--panel-title);}
-.t-swatch{height:44px;}
-.t-label{font-size:9px;font-weight:800;padding:3px 4px;background:var(--floor-bg);color:var(--panel-title);text-align:center;}
+.t-tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:12px 8px;padding:6px 2px;}
+.t-tile{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;transition:all .2s;background:none;border:none;padding:0;}
+.t-tile:active{transform:scale(.88);}
+.t-swatch{width:46px;height:46px;border-radius:50%;border:3px solid transparent;transition:all .25s;flex-shrink:0;}
+.t-tile.on .t-swatch{border-color:var(--panel-title);outline:2px solid var(--panel-title);outline-offset:2px;}
+.t-label{font-size:9px;font-weight:800;color:var(--inp-ph);text-align:center;line-height:1.3;max-width:54px;word-break:break-word;}
 .sett-inp-row{display:flex;gap:7px;margin-bottom:8px;}
 .sett-inp-row input{flex:1;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;background:var(--inp-bg);border:1.5px solid var(--inp-border);border-radius:10px;padding:10px 12px;color:var(--inp-text);outline:none;-webkit-appearance:none;}
 .sett-inp-row input:focus{border-color:var(--inp-focus);}
@@ -877,6 +1164,25 @@ body{font-family:'Nunito',sans-serif;overflow-x:hidden;overscroll-behavior:none;
 .myday-chip:active{transform:scale(.9);}
 .myday-bar{height:3px;background:var(--floor-border);border-radius:2px;overflow:hidden;margin-top:2px;}
 .myday-fill{height:100%;background:var(--da);border-radius:2px;transition:width .4s;}
+
+/* ── DRAG TO REORDER TASKS ── */
+.task-wrap{cursor:grab;}
+.task-wrap.dragging{opacity:.45;transform:scale(.97);cursor:grabbing;z-index:999;}
+.task-wrap.drag-over{border-top:2px solid var(--da);}
+.drag-handle{display:flex;align-items:center;justify-content:center;width:18px;flex-shrink:0;color:var(--inp-ph);cursor:grab;touch-action:none;padding:0 2px;}
+.drag-handle svg{pointer-events:none;}
+
+/* ── BRAIN ITEM SWIPE ── */
+.brain-item{overflow:hidden;transition:transform .25s,opacity .25s;}
+.brain-item .brain-inner{display:flex;align-items:center;gap:10px;width:100%;transition:transform .2s;position:relative;z-index:1;}
+.brain-swipe-bg-left{position:absolute;left:0;top:0;bottom:0;width:100%;display:flex;align-items:center;padding-left:14px;background:var(--del-bg);border-radius:8px;font-size:11px;font-weight:900;color:var(--del-icon);gap:6px;z-index:0;opacity:0;transition:opacity .15s;}
+.brain-swipe-bg-right{position:absolute;right:0;top:0;bottom:0;width:100%;display:flex;align-items:center;justify-content:flex-end;padding-right:14px;background:var(--btn-bg);border-radius:8px;font-size:11px;font-weight:900;color:var(--btn-text);gap:6px;z-index:0;opacity:0;transition:opacity .15s;}
+
+/* ── COLLAPSIBLE THEME PANEL ── */
+.theme-toggle-row{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.theme-toggle-row:active{opacity:.7;}
+.theme-panel-body{max-height:0;overflow:hidden;transition:max-height .3s cubic-bezier(.4,0,.2,1),padding .3s;}
+.theme-panel-body.open{max-height:600px;padding:0 14px 14px;}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <!-- Firebase SDKs -->
@@ -1089,7 +1395,7 @@ const MONTHS=['January','February','March','April','May','June','July','August',
 const DAYS_F=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const DAYS_S=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const DEFAULT_DAILY=['Bath','Brush teeth','Eat','Use washroom','Work','Write thesis'];
-const THEMES=[{id:'parchment',label:'Parchment',sw:'linear-gradient(135deg,#f5e8c8,#c8952a)'},{id:'pink',label:'Pink',sw:'linear-gradient(135deg,#fde8f0,#d4537e)'},{id:'pastel',label:'Pastel',sw:'linear-gradient(135deg,#e8d5f0,#d8f5ec)'},{id:'storybook',label:'Storybook',sw:'linear-gradient(135deg,#2a4a30,#7ac870)'},{id:'sunset',label:'Sunset',sw:'linear-gradient(135deg,#3a1a2a,#e8b898)'},{id:'black',label:'Minimal',sw:'#111'},{id:'red',label:'Red',sw:'linear-gradient(135deg,#1a0505,#e87070)'},{id:'ocean',label:'Ocean',sw:'linear-gradient(135deg,#0a1a2a,#60b0e8)'},{id:'sand',label:'Sand',sw:'linear-gradient(135deg,#2a200a,#d8c070)'},{id:'white',label:'White',sw:'linear-gradient(135deg,#f0f0f0,#e8e8e8)'},{id:'journal',label:'Journal',sw:'linear-gradient(135deg,#f5f0e8,#e8e0d0)'}];
+const THEMES=[{id:'milky',label:'Milky Coffee',sw:'#9B7D61'},{id:'peach',label:'Roasted Peach',sw:'#DAA38F'},{id:'wheat',label:'Whole Wheat',sw:'#E9D7C0'},{id:'eucalyptus',label:'Eucalyptus',sw:'#92ADA4'},{id:'cream',label:'Cream',sw:'#FED8A6'},{id:'lemonade',label:'Pink Lemonade',sw:'linear-gradient(135deg,#f8c0d8,#e86898)'},{id:'cherry',label:'Cherry Red',sw:'linear-gradient(135deg,#8a1828,#e84858)'},{id:'terra',label:'Terracota',sw:'linear-gradient(135deg,#D06224,#8A8835)'},{id:'earth',label:'Natural Earth',sw:'linear-gradient(135deg,#9B7D61,#FED8A6)'},{id:'warmfog',label:'Warm Fog',sw:'#DDD3C9'},{id:'berry',label:'Berry Good',sw:'#ECC4C3'},{id:'blossom',label:'Blossom',sw:'#B97D7B'},{id:'meadow',label:'Meadow',sw:'#928E5E'},{id:'soldier',label:'Soldier',sw:'#575527'}];
 
 let tasks=[],grocs=[],pomoLog=[],photos=[],dailyTasks=[],dailyState={},progressHistory={},stuffiesState={};
 let brainDump=[];
@@ -1689,9 +1995,15 @@ function taskRowHTML(t,showSwipe=true){
     </div>`;
 
   if(showSwipe){
-    return`<div class="task-wrap" id="tw${t.id}">
+    return`<div class="task-wrap" id="tw${t.id}" draggable="true" data-id="${t.id}"
+      ondragstart="taskDragStart(event,${t.id})"
+      ondragover="taskDragOver(event,${t.id})"
+      ondragleave="taskDragLeave(event)"
+      ondrop="taskDrop(event,${t.id})"
+      ondragend="taskDragEnd(event)">
       <div class="task-del-bg"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 18,6"/><path d="M8 6V4h6v2"/><rect x="5" y="6" width="12" height="13" rx="2"/><line x1="9" y1="10" x2="9" y2="15"/><line x1="13" y1="10" x2="13" y2="15"/></svg></div>
       <div class="trow${t.done?' done':''}">
+        <div class="drag-handle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="3" y1="4" x2="11" y2="4"/><line x1="3" y1="7" x2="11" y2="7"/><line x1="3" y1="10" x2="11" y2="10"/></svg></div>
         ${inner}
       </div>
     </div>`;
@@ -1724,6 +2036,84 @@ function renderTasksView(){
 
 }
 
+
+// ── DRAG TO REORDER TASKS ──
+let _dragId=null;
+function taskDragStart(e,id){
+  _dragId=id;
+  e.dataTransfer.effectAllowed='move';
+  setTimeout(()=>{const el=document.getElementById('tw'+id);if(el)el.classList.add('dragging');},0);
+}
+function taskDragOver(e,id){
+  e.preventDefault();e.dataTransfer.dropEffect='move';
+  if(_dragId===id)return;
+  const el=document.getElementById('tw'+id);
+  if(el)el.classList.add('drag-over');
+}
+function taskDragLeave(e){
+  const el=e.currentTarget;if(el)el.classList.remove('drag-over');
+}
+function taskDrop(e,targetId){
+  e.preventDefault();
+  document.querySelectorAll('.task-wrap').forEach(el=>el.classList.remove('drag-over'));
+  if(_dragId===null||_dragId===targetId)return;
+  const fromIdx=tasks.findIndex(t=>t.id===_dragId);
+  const toIdx=tasks.findIndex(t=>t.id===targetId);
+  if(fromIdx===-1||toIdx===-1)return;
+  const [moved]=tasks.splice(fromIdx,1);
+  tasks.splice(toIdx,0,moved);
+  _dragId=null;
+  save();renderBoard();
+}
+function taskDragEnd(e){
+  document.querySelectorAll('.task-wrap').forEach(el=>{el.classList.remove('dragging');el.classList.remove('drag-over');});
+  _dragId=null;
+}
+
+// ── TOUCH DRAG (mobile) ──
+let _touchDragId=null,_touchClone=null,_touchLastOver=null;
+function setupTouchDrag(el,id){
+  el.addEventListener('touchstart',e=>{
+    if(!e.target.closest('.drag-handle'))return;
+    e.preventDefault();
+    _touchDragId=id;
+    el.classList.add('dragging');
+    // create floating clone
+    _touchClone=el.cloneNode(true);
+    _touchClone.style.cssText='position:fixed;z-index:9999;opacity:.85;pointer-events:none;width:'+el.offsetWidth+'px;border-radius:10px;';
+    document.body.appendChild(_touchClone);
+  },{passive:false});
+  el.addEventListener('touchmove',e=>{
+    if(!_touchDragId)return;
+    e.preventDefault();
+    const t=e.touches[0];
+    if(_touchClone){_touchClone.style.left=(t.clientX-el.offsetWidth/2)+'px';_touchClone.style.top=(t.clientY-30)+'px';}
+    // find element under touch
+    const under=document.elementFromPoint(t.clientX,t.clientY);
+    const overWrap=under?under.closest('.task-wrap'):null;
+    if(_touchLastOver&&_touchLastOver!==el)_touchLastOver.classList.remove('drag-over');
+    if(overWrap&&overWrap!==el){overWrap.classList.add('drag-over');_touchLastOver=overWrap;}
+  },{passive:false});
+  el.addEventListener('touchend',e=>{
+    if(!_touchDragId)return;
+    const t=e.changedTouches[0];
+    const under=document.elementFromPoint(t.clientX,t.clientY);
+    const overWrap=under?under.closest('.task-wrap'):null;
+    if(_touchClone){_touchClone.remove();_touchClone=null;}
+    document.querySelectorAll('.task-wrap').forEach(w=>w.classList.remove('dragging','drag-over'));
+    if(overWrap){
+      const targetId=parseInt(overWrap.dataset.id);
+      if(targetId&&targetId!==_touchDragId){
+        const fromIdx=tasks.findIndex(t=>t.id===_touchDragId);
+        const toIdx=tasks.findIndex(t=>t.id===targetId);
+        if(fromIdx!==-1&&toIdx!==-1){const[m]=tasks.splice(fromIdx,1);tasks.splice(toIdx,0,m);save();}
+      }
+    }
+    _touchDragId=null;_touchLastOver=null;
+    renderBoard();
+  });
+}
+
 function renderBoard(){
   const board=document.getElementById('board');if(!board)return;
   const vis=filter==='all'?tasks:tasks.filter(t=>t.cat===filter);
@@ -1739,7 +2129,7 @@ function renderBoard(){
   if(!html)html=`<div class="empty">Nothing here yet — add your first task!</div>`;
   board.innerHTML=html;
   // attach swipe handlers
-  cats.forEach(cat=>{vis.filter(t=>t.cat===cat.id).forEach(t=>{const w=document.getElementById('tw'+t.id);if(w)setupSwipe(w,t.id);});});
+  cats.forEach(cat=>{vis.filter(t=>t.cat===cat.id).forEach(t=>{const w=document.getElementById('tw'+t.id);if(w){setupSwipe(w,t.id);setupTouchDrag(w,t.id);}});});;
   const tot=tasks.length,dn=tasks.filter(t=>t.done).length,pct=tot?Math.round(dn/tot*100):0;
   const vb=document.getElementById('vineBar'),pl=document.getElementById('progLabel');
   if(vb)vb.style.width=pct+'%';if(pl)pl.textContent=`${dn} of ${tot} done`;
@@ -1837,8 +2227,17 @@ function renderMarketView(){
   if(stuffiesView==='list'){const gn=document.getElementById('gName'),gq=document.getElementById('gQty');if(gn)gn.addEventListener('keydown',e=>{if(e.key==='Enter')addGroc(e);});}
   renderTaskMini2();
 }
+
+function toggleThemePanel(){
+  const body=document.getElementById('themePanelBody');
+  const chev=document.getElementById('themeChevron');
+  if(!body)return;
+  const isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  if(chev)chev.style.transform=isOpen?'':'rotate(180deg)';
+}
 function renderSettingsView(){
-  const cur=localStorage.getItem('tw7_theme')||'pastel';
+  const cur=localStorage.getItem('tw7_theme')||'wheat';
   document.getElementById('mainPanel').innerHTML='<div class="sett-grid"><div style="grid-column:1/-1">'+ myDayStripHTML() +'</div><div class="panel" style="grid-column:1/-1;"><div class="sett-sec">Appearance — theme</div><div class="t-tiles">'+THEMES.map(t=>'<div class="t-tile'+(cur===t.id?' on':'')+'" onclick="setTheme(\''+t.id+'\')"><div class="t-swatch" style="background:'+t.sw+'"></div><div class="t-label">'+t.label+'</div></div>').join('')+'</div></div><div class="panel"><div class="sett-sec">Notifications</div><p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-bottom:12px;">Get notified when Pomodoro sessions finish and when tasks are due.</p><button class="notif-perm-btn" id="notifPermBtn" onclick="requestNotifPermission()">Enable notifications</button><div class="notif-status" id="notifStatus">Tap to allow reminders.</div><div style="margin-top:14px;"><p style="font-size:12px;font-weight:800;color:var(--panel-title);margin-bottom:3px;">Remind me before a deadline</p><p style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-bottom:0;">Currently: '+(notifyBeforeMins>=60?Math.round(notifyBeforeMins/60)+(notifyBeforeMins===60?' hour':' hours'):notifyBeforeMins+' minutes')+' before</p><div class="notif-lead-grid">'+[{m:5,l:'5 min'},{m:10,l:'10 min'},{m:15,l:'15 min'},{m:30,l:'30 min'},{m:60,l:'1 hour'},{m:120,l:'2 hours'},{m:1440,l:'1 day'}].map(o=>'<button class="notif-lead-btn'+(notifyBeforeMins===o.m?' on':'')+'" data-mins="'+o.m+'" onclick="setNotifyBefore('+o.m+',event)">'+o.l+'</button>').join('')+'</div></div></div><div class="panel"><div class="sett-sec">Pomodoro display</div><div class="flip-mode-toggle"><button class="flip-mode-btn'+(!flipClockMode?' on':'')+'" onclick="setFlipMode(false,event)">Ring timer</button><button class="flip-mode-btn'+(flipClockMode?' on':'')+'" onclick="setFlipMode(true,event)">Flip clock</button></div></div><div class="panel"><div class="sett-sec">Daily routine</div><p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-bottom:10px;">Resets every midnight.</p><div class="sett-inp-row"><input type="text" id="newDailyInp" placeholder="Add a daily task..." autocomplete="off"/><button class="addbtn" onclick="addDailyTask(event)">+ Add</button></div><div id="dlEditList"></div></div><div class="panel"><div class="sett-sec">Photo banner</div><p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-bottom:10px;">Swipe left/right on the banner to change photos.</p><label class="addbtn" for="photoUp2" style="display:inline-block;cursor:pointer;">+ Upload photos</label><input type="file" id="photoUp2" class="up-inp" accept="image/*" multiple onchange="handlePhotos(this)"/><p style="font-size:12px;font-weight:700;color:var(--inp-ph);margin-top:10px;">'+allPhotos.length+' photo'+(allPhotos.length!==1?'s':'')+' in rotation</p>'+(photos.length?'<button class="gc-btn" style="margin-top:6px;" onclick="clearPhotos(event)">Reset to defaults</button>':'')+'<div style="margin-top:12px;"><p style="font-size:12px;font-weight:800;color:var(--panel-title);margin-bottom:4px;">Auto-advance photos</p><p style="font-size:11px;font-weight:700;color:var(--inp-ph);margin-bottom:0;">Currently: '+photoDurationLabel(photoDuration)+'</p><div class="pdur-grid">'+[{ms:5000,label:'5 sec'},{ms:30000,label:'30 sec'},{ms:60000,label:'1 min'},{ms:300000,label:'5 min'},{ms:1800000,label:'30 min'},{ms:3600000,label:'1 hour'},{ms:86400000,label:'1 day'}].map(o=>'<button class="pdur-btn'+(photoDuration===o.ms?' on':'')+'" data-dur="'+o.ms+'" onclick="setPhotoDuration('+o.ms+',event)">'+o.label+'</button>').join('')+'</div></div></div></div>';
   document.getElementById('newDailyInp').addEventListener('keydown',e=>{if(e.key==='Enter')addDailyTask(e);});
   renderDLEditList();
@@ -1944,7 +2343,29 @@ function reassignTask(id,newCat,btn){
   const toast=document.getElementById('catToast');
   if(toast){toast.style.opacity='0';setTimeout(()=>toast.remove(),300);}
 }
-function toggleTask(id,chkEl,e){if(e)makeRipple(e);const t=tasks.find(t=>t.id===id);if(t){t.done=!t.done;if(chkEl)animCheck(chkEl);if(curView==='tasks')triggerMascotTick(t.done);save();saveProgressSnapshot();renderStats();if(curView==='docket')renderDocketView();else renderBoard();}}
+function toggleTask(id,chkEl,e){
+  if(e)makeRipple(e);
+  const t=tasks.find(t=>t.id===id);
+  if(!t)return;
+  t.done=!t.done;
+  if(chkEl)animCheck(chkEl);
+  if(curView==='tasks')triggerMascotTick(t.done);
+  save();saveProgressSnapshot();renderStats();
+  if(curView==='docket'){renderDocketView();return;}
+  if(t.done){
+    // fade out and remove after brief pause
+    const wrap=document.getElementById('tw'+id);
+    if(wrap){
+      wrap.style.transition='opacity .4s, transform .4s';
+      wrap.style.opacity='0';
+      wrap.style.transform='translateX(40px)';
+      setTimeout(()=>{
+        tasks=tasks.filter(x=>x.id!==id);
+        save();renderBoard();renderStats();
+      },420);
+    } else {renderBoard();}
+  } else {renderBoard();}
+}
 function delTask(id){tasks=tasks.filter(t=>t.id!==id);save();renderBoard();renderStats();}
 function addGroc(e){if(e)makeRipple(e);const n=document.getElementById('gName'),q=document.getElementById('gQty');if(!n)return;const name=n.value.trim();if(!name)return;grocs.push({id:Date.now(),name,qty:q?q.value.trim():'',cat:selGCat,got:false});n.value='';if(q)q.value='';save();renderGrocList();renderStats();}
 function toggleGroc(id,e){if(e)makeRipple(e);const g=grocs.find(g=>g.id===id);if(g){g.got=!g.got;save();renderStats();renderGrocList();}}
@@ -2352,9 +2773,9 @@ function cdtClear(taskId,e){
 function mascotTickingOffMini(){
   return `<svg width="36" height="36" viewBox="0 0 36 36" overflow="visible">
     <g id="mascotBody">
-      <!-- mini skirt -->
+      <!-- skirt -->
       <path d="M13 22 Q9 30 8 36 L28 36 Q27 30 23 22Z" fill="var(--btn-bg)"/>
-      <!-- mini apron -->
+      <!-- apron -->
       <path d="M15 22 Q14 30 14 36 L22 36 Q22 30 21 22Z" fill="#fff8e8" opacity=".7"/>
       <!-- bodice -->
       <rect x="12" y="15" width="12" height="8" rx="2" fill="var(--da)"/>
@@ -2367,14 +2788,49 @@ function mascotTickingOffMini(){
       </g>
       <!-- other arm -->
       <line x1="24" y1="17" x2="30" y2="22" stroke="var(--btn-bg)" stroke-width="3" stroke-linecap="round"/>
-      <!-- head + coif -->
+      <!-- head -->
       <circle cx="18" cy="8" r="7" fill="var(--mascot-skin)"/>
-      <path d="M11 7 Q12 2 18 1 Q24 2 25 7 Q25 4 18 3.5 Q11 4 11 7Z" fill="#fff8e8" stroke="var(--dbo)" stroke-width=".8"/>
-      <!-- eyes -->
+      <!-- short wavy green hair -->
+      <path d="M11 8 Q11 3 14 2 Q16 1 18 1 Q20 1 22 2 Q25 3 25 8" fill="#4a8a3a"/>
+      <!-- wavy hair sides — short bobs -->
+      <path d="M11 8 Q9 9 10 11 Q11 12 12 11 Q11 10 12 9" fill="#4a8a3a"/>
+      <path d="M25 8 Q27 9 26 11 Q25 12 24 11 Q25 10 24 9" fill="#4a8a3a"/>
+      <!-- mini flower crown -->
+      <ellipse cx="14" cy="3" rx="2.5" ry="1.2" fill="#5aaa48" transform="rotate(-15,14,3)"/>
+      <ellipse cx="18" cy="1.5" rx="2.5" ry="1.2" fill="#5aaa48"/>
+      <ellipse cx="22" cy="3" rx="2.5" ry="1.2" fill="#5aaa48" transform="rotate(15,22,3)"/>
+      <!-- white daisy -->
+      <circle cx="14" cy="2.5" r="1.4" fill="#fff8f0"/>
+      <circle cx="12.5" cy="1" r="1.2" fill="#fff8f0"/>
+      <circle cx="14" cy="0" r="1.2" fill="#fff8f0"/>
+      <circle cx="15.5" cy="1" r="1.2" fill="#fff8f0"/>
+      <circle cx="14" cy="2.5" r="1" fill="#f5d840"/>
+      <!-- pink flower -->
+      <circle cx="18" cy="1" r="1.4" fill="#f8b0d0"/>
+      <circle cx="16.5" cy="-0.5" r="1.2" fill="#f8b0d0"/>
+      <circle cx="18" cy="-1.5" r="1.2" fill="#f8b0d0"/>
+      <circle cx="19.5" cy="-0.5" r="1.2" fill="#f8b0d0"/>
+      <circle cx="18" cy="1" r="1" fill="#f5d840"/>
+      <!-- red poppy -->
+      <circle cx="22" cy="2.5" r="1.4" fill="#e85060"/>
+      <circle cx="20.5" cy="1" r="1.2" fill="#e85060"/>
+      <circle cx="22" cy="0" r="1.2" fill="#e85060"/>
+      <circle cx="23.5" cy="1" r="1.2" fill="#e85060"/>
+      <circle cx="22" cy="2.5" r="1" fill="#3a1808"/>
+      <!-- rosy cheeks -->
+      <ellipse cx="14" cy="9" rx="2" ry="1.4" fill="#e88898" opacity=".2"/>
+      <ellipse cx="22" cy="9" rx="2" ry="1.4" fill="#e88898" opacity=".2"/>
+      <!-- eyes with lashes -->
       <g style="transform-origin:16px 7px;animation:mBlink 3.5s ease-in-out infinite;">
         <ellipse cx="16" cy="7" rx="1.2" ry="1.2" fill="var(--mascot-hair)"/>
       </g>
       <ellipse cx="20" cy="7" rx="1.2" ry="1.2" fill="var(--mascot-hair)"/>
+      <line x1="15" y1="5.8" x2="14.4" y2="4.6" stroke="var(--mascot-hair)" stroke-width=".8" stroke-linecap="round"/>
+      <line x1="16" y1="5.5" x2="16" y2="4.3" stroke="var(--mascot-hair)" stroke-width=".8" stroke-linecap="round"/>
+      <line x1="17" y1="5.8" x2="17.4" y2="4.6" stroke="var(--mascot-hair)" stroke-width=".8" stroke-linecap="round"/>
+      <line x1="19" y1="5.8" x2="18.6" y2="4.6" stroke="var(--mascot-hair)" stroke-width=".8" stroke-linecap="round"/>
+      <line x1="20" y1="5.5" x2="20" y2="4.3" stroke="var(--mascot-hair)" stroke-width=".8" stroke-linecap="round"/>
+      <line x1="21" y1="5.8" x2="21.6" y2="4.6" stroke="var(--mascot-hair)" stroke-width=".8" stroke-linecap="round"/>
       <!-- smile -->
       <path d="M15 10 Q18 13 21 10" fill="none" stroke="var(--mascot-hair)" stroke-width="1" stroke-linecap="round"/>
     </g>
@@ -2386,96 +2842,109 @@ function mascotTickingOff(){
     <svg id="taskMascotSVG" width="88" height="112" viewBox="0 0 88 112">
       <style>
         #taskMascotSVG .wn-scroll{fill:#fff8e8;stroke:var(--da);stroke-width:1.5}
-        #taskMascotSVG .wn-roll{fill:var(--dbo)}
+        #taskMascotSVG .wn-scroll-end{fill:var(--dbo)}
         #taskMascotSVG .wn-tick{fill:var(--da)}
-        #taskMascotSVG .wn-skirt{fill:var(--btn-bg)}
-        #taskMascotSVG .wn-skirt2{fill:var(--da);opacity:.35}
-        #taskMascotSVG .wn-bodice{fill:var(--da)}
-        #taskMascotSVG .wn-apron{fill:#fff8e8;opacity:.7}
-        #taskMascotSVG .wn-sleeve{stroke:var(--btn-bg);stroke-width:5;fill:none;stroke-linecap:round}
-        #taskMascotSVG .wn-arm{stroke:var(--da);stroke-width:3;fill:none;stroke-linecap:round}
-        #taskMascotSVG .wn-skin{fill:var(--mascot-skin)}
-        #taskMascotSVG .wn-hair{fill:var(--mascot-hair)}
-        #taskMascotSVG .wn-coif{fill:#fff8e8;stroke:var(--dbo);stroke-width:1}
-        #taskMascotSVG .wn-ribbon{fill:var(--btn-bg)}
-        #taskMascotSVG .wn-eye{fill:var(--mascot-hair)}
-        #taskMascotSVG .wn-lash{stroke:var(--mascot-hair);stroke-width:1;fill:none;stroke-linecap:round}
-        #taskMascotSVG .wn-smile{stroke:var(--mascot-hair);stroke-width:1.2;fill:none;stroke-linecap:round}
-        #taskMascotSVG .wn-cheek{fill:#e88898;opacity:.25}
-        #taskMascotSVG .wn-quill{stroke:var(--da);stroke-width:1.5;fill:none;stroke-linecap:round}
-        #taskMascotSVG .wn-quill-tip{fill:#e8d060;opacity:.9}
+        #taskMascotSVG .wn-cloak{stroke:#8b3a1a;stroke-linecap:round;fill:none;opacity:.6}
         #taskMascotSVG .wn-boot{fill:var(--panel-title)}
-        #taskMascotSVG .wn-collar{fill:#fff8e8;opacity:.8}
+        #taskMascotSVG .wn-sole{fill:var(--btn-border)}
+        #taskMascotSVG .wn-tunic{fill:var(--btn-bg)}
+        #taskMascotSVG .wn-belt{fill:var(--da)}
+        #taskMascotSVG .wn-sword{stroke:#c0c8d8;stroke-width:2;fill:none;stroke-linecap:round}
+        #taskMascotSVG .wn-guard{stroke:var(--da);stroke-width:2;fill:none;stroke-linecap:round}
+        #taskMascotSVG .wn-shield{fill:#8b1a1a;stroke:var(--da);stroke-width:1.5}
+        #taskMascotSVG .wn-skin{fill:var(--mascot-skin)}
+        #taskMascotSVG .wn-arm{stroke:var(--panel-title);stroke-width:3;fill:none;stroke-linecap:round}
+        #taskMascotSVG .wn-eye{fill:var(--mascot-hair)}
+        #taskMascotSVG .wn-brow{stroke:var(--mascot-hair);stroke-width:1.2;fill:none;stroke-linecap:round}
+        #taskMascotSVG .wn-mouth{stroke:var(--mascot-hair);stroke-width:1.1;fill:none;stroke-linecap:round}
+        #taskMascotSVG .wn-hair{fill:#4a8a3a}
+        #taskMascotSVG .wn-hairs{stroke:#4a8a3a;stroke-width:3.5;fill:none;stroke-linecap:round}
+        #taskMascotSVG .wn-lash{stroke:var(--mascot-hair);stroke-width:1;fill:none;stroke-linecap:round}
+        #taskMascotSVG .wn-cheek{fill:#e88898;opacity:.2}
+        #taskMascotSVG .wn-leaf{fill:#5aaa48}
       </style>
-
-      <!-- scroll -->
+      <!-- quest scroll -->
       <rect x="18" y="12" width="44" height="50" rx="4" class="wn-scroll"/>
-      <rect x="18" y="12" width="44" height="7" rx="4" class="wn-roll"/>
-      <rect x="18" y="55" width="44" height="7" rx="4" class="wn-roll"/>
+      <rect x="18" y="12" width="44" height="7" rx="4" class="wn-scroll-end"/>
+      <rect x="18" y="55" width="44" height="7" rx="4" class="wn-scroll-end"/>
       <line x1="28" y1="27" x2="52" y2="27" stroke="var(--dbo)" stroke-width="1" opacity=".5" stroke-linecap="round"/>
       <line x1="28" y1="35" x2="50" y2="35" stroke="var(--dbo)" stroke-width="1" opacity=".5" stroke-linecap="round"/>
       <line x1="28" y1="43" x2="51" y2="43" stroke="var(--dbo)" stroke-width="1" opacity=".5" stroke-linecap="round"/>
       <circle cx="23" cy="27" r="5" class="wn-tick"/>
       <polyline points="20,27 22.5,30.5 28,24" fill="none" stroke="var(--panel-bg)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-
       <!-- figure -->
-      <g id="mascotBody">
-        <!-- boots peeking under skirt -->
-        <rect x="35" y="98" width="6" height="10" rx="2" class="wn-boot"/>
-        <rect x="45" y="98" width="6" height="10" rx="2" class="wn-boot"/>
-        <!-- full skirt — A-line -->
-        <path d="M34 76 Q24 92 22 112 L66 112 Q64 92 54 76 Z" class="wn-skirt"/>
-        <!-- skirt folds -->
-        <path d="M34 76 Q30 92 28 112 L35 112 Q35 96 36 80Z" class="wn-skirt2"/>
-        <path d="M54 76 Q58 92 60 112 L53 112 Q53 96 52 80Z" class="wn-skirt2"/>
-        <!-- apron over skirt -->
-        <path d="M38 78 Q36 92 36 112 L52 112 Q52 92 50 78Z" class="wn-apron"/>
-        <!-- bodice -->
-        <rect x="33" y="64" width="22" height="14" rx="3" class="wn-bodice"/>
-        <!-- collar lace -->
-        <path d="M33 66 Q44 70 55 66" class="wn-collar" stroke="var(--dbo)" stroke-width=".8" fill="none"/>
-        <!-- sleeve left — writing arm -->
-        <g id="mascotTickArm" style="transform-origin:33px 68px;">
-          <path d="M33 68 Q22 70 16 78" class="wn-sleeve"/>
-          <!-- hand + quill -->
-          <circle cx="15" cy="79" r="3.5" class="wn-skin"/>
-          <line x1="15" y1="79" x2="18" y2="68" class="wn-quill"/>
-          <polygon points="18,68 15,62 21,69" class="wn-quill-tip"/>
+      <g id="mascotBody" style="animation:mWalkBody .7s ease-in-out infinite;">
+        <!-- cloak -->
+        <path d="M34 73 Q26 86 28 106" stroke-width="9" class="wn-cloak"/>
+        <!-- boots -->
+        <rect x="33" y="94" width="7" height="13" rx="2" class="wn-boot"/>
+        <rect x="42" y="94" width="7" height="13" rx="2" class="wn-boot"/>
+        <rect x="31" y="103" width="11" height="5" rx="2.5" class="wn-sole"/>
+        <rect x="40" y="103" width="11" height="5" rx="2.5" class="wn-sole"/>
+        <!-- tunic -->
+        <rect x="31" y="73" width="20" height="22" rx="3" class="wn-tunic"/>
+        <rect x="30" y="86" width="22" height="4" rx="2" class="wn-belt"/>
+        <!-- sword arm -->
+        <g id="mascotTickArm" style="transform-origin:31px 77px;">
+          <line x1="31" y1="77" x2="22" y2="68" class="wn-arm"/>
+          <line x1="22" y1="68" x2="14" y2="54" class="wn-sword"/>
+          <line x1="17" y1="64" x2="22" y2="64" class="wn-guard"/>
         </g>
-        <!-- sleeve right -->
-        <path d="M55 68 Q64 71 68 78" class="wn-sleeve"/>
-        <circle cx="69" cy="79" r="3.5" class="wn-skin"/>
-        <!-- neck -->
-        <rect x="40" y="58" width="8" height="8" rx="3" class="wn-skin"/>
-        <!-- head -->
-        <circle cx="44" cy="52" r="12" class="wn-skin"/>
-        <!-- cheeks -->
-        <ellipse cx="38" cy="55" rx="3.5" ry="2.5" class="wn-cheek"/>
-        <ellipse cx="50" cy="55" rx="3.5" ry="2.5" class="wn-cheek"/>
-        <!-- hair behind head -->
-        <path d="M32 50 Q30 58 32 66" stroke-width="5" stroke="var(--mascot-hair)" fill="none" stroke-linecap="round"/>
-        <path d="M56 50 Q58 58 56 66" stroke-width="5" stroke="var(--mascot-hair)" fill="none" stroke-linecap="round"/>
-        <!-- medieval coif / head covering -->
-        <path d="M32 48 Q33 38 44 36 Q55 38 56 48 Q56 44 44 43 Q32 44 32 48Z" class="wn-coif"/>
-        <!-- hair showing at sides under coif -->
-        <path d="M32 48 Q30 52 32 56" stroke="var(--mascot-hair)" stroke-width="4" fill="none" stroke-linecap="round"/>
-        <path d="M56 48 Q58 52 56 56" stroke="var(--mascot-hair)" stroke-width="4" fill="none" stroke-linecap="round"/>
-        <!-- ribbon on coif -->
-        <path d="M32 48 Q44 52 56 48" class="wn-ribbon" fill="none" stroke="var(--btn-bg)" stroke-width="2" stroke-linecap="round"/>
+        <!-- shield -->
+        <path d="M52 74 Q58 76 59 84 Q59 91 52 94" class="wn-shield"/>
+        <!-- green hair flowing from hood -->
+        <path d="M31 66 Q27 74 29 84" class="wn-hairs"/>
+        <path d="M57 66 Q61 74 59 84" class="wn-hairs"/>
+        <!-- hood -->
+        <path d="M30 66 Q28 56 32 50 Q36 44 44 43 Q52 44 56 50 Q60 56 58 66 Q54 70 44 71 Q34 70 30 66Z" fill="#8b3a1a"/>
+        <!-- hair peeking under hood top -->
+        <path d="M32 54 Q36 48 44 47 Q52 48 56 54" class="wn-hair"/>
         <!-- face -->
-        <g style="transform-origin:41px 51px;animation:mBlink 3.5s ease-in-out infinite;">
-          <ellipse cx="41" cy="51" rx="1.5" ry="1.5" class="wn-eye"/>
+        <circle cx="44" cy="60" r="10" class="wn-skin"/>
+        <!-- hood shadows -->
+        <path d="M30 66 Q32 58 34 56" fill="none" stroke="#6b2a0a" stroke-width="3" stroke-linecap="round" opacity=".4"/>
+        <path d="M58 66 Q56 58 54 56" fill="none" stroke="#6b2a0a" stroke-width="3" stroke-linecap="round" opacity=".4"/>
+        <!-- rosy cheeks -->
+        <ellipse cx="39" cy="63" rx="3" ry="2" class="wn-cheek"/>
+        <ellipse cx="49" cy="63" rx="3" ry="2" class="wn-cheek"/>
+        <!-- eyes with lashes -->
+        <g style="transform-origin:41px 59px;animation:mBlink 4s ease-in-out infinite;">
+          <ellipse cx="41" cy="59" rx="1.4" ry="1.4" class="wn-eye"/>
         </g>
-        <ellipse cx="47" cy="51" rx="1.5" ry="1.5" class="wn-eye"/>
-        <!-- lashes -->
-        <line x1="39.5" y1="49.5" x2="39" y2="47.5" class="wn-lash"/>
-        <line x1="41" y1="49" x2="41" y2="47" class="wn-lash"/>
-        <line x1="42.5" y1="49.5" x2="43" y2="47.5" class="wn-lash"/>
-        <line x1="45.5" y1="49.5" x2="45" y2="47.5" class="wn-lash"/>
-        <line x1="47" y1="49" x2="47" y2="47" class="wn-lash"/>
-        <line x1="48.5" y1="49.5" x2="49" y2="47.5" class="wn-lash"/>
-        <!-- warm smile -->
-        <path d="M40 55 Q44 59 48 55" class="wn-smile"/>
+        <ellipse cx="47" cy="59" rx="1.4" ry="1.4" class="wn-eye"/>
+        <line x1="39.5" y1="57.5" x2="38.5" y2="55.5" class="wn-lash"/>
+        <line x1="41" y1="57" x2="41" y2="55" class="wn-lash"/>
+        <line x1="42.5" y1="57.5" x2="43" y2="55.5" class="wn-lash"/>
+        <line x1="45.5" y1="57.5" x2="45" y2="55.5" class="wn-lash"/>
+        <line x1="47" y1="57" x2="47" y2="55" class="wn-lash"/>
+        <line x1="48.5" y1="57.5" x2="49.5" y2="55.5" class="wn-lash"/>
+        <!-- brows -->
+        <line x1="39" y1="56" x2="43" y2="57" class="wn-brow"/>
+        <line x1="45" y1="57" x2="49" y2="56" class="wn-brow"/>
+        <!-- flower crown on hood -->
+        <ellipse cx="37" cy="50" rx="4" ry="2" class="wn-leaf" transform="rotate(-15,37,50)"/>
+        <ellipse cx="44" cy="47" rx="4" ry="2" class="wn-leaf"/>
+        <ellipse cx="51" cy="50" rx="4" ry="2" class="wn-leaf" transform="rotate(15,51,50)"/>
+        <!-- white daisy -->
+        <circle cx="37" cy="49" r="1.8" fill="#fff8f0"/>
+        <circle cx="34.8" cy="46.8" r="1.8" fill="#fff8f0"/>
+        <circle cx="37" cy="45.4" r="1.8" fill="#fff8f0"/>
+        <circle cx="39.2" cy="46.8" r="1.8" fill="#fff8f0"/>
+        <circle cx="37" cy="49" r="1.5" fill="#f5d840"/>
+        <!-- pink flower -->
+        <circle cx="44" cy="46" r="1.8" fill="#f8b0d0"/>
+        <circle cx="41.8" cy="43.8" r="1.8" fill="#f8b0d0"/>
+        <circle cx="44" cy="42.4" r="1.8" fill="#f8b0d0"/>
+        <circle cx="46.2" cy="43.8" r="1.8" fill="#f8b0d0"/>
+        <circle cx="44" cy="46" r="1.5" fill="#f5d840"/>
+        <!-- red poppy -->
+        <circle cx="51" cy="49" r="2" fill="#e85060"/>
+        <circle cx="48.8" cy="46.8" r="2" fill="#e85060"/>
+        <circle cx="51" cy="45.4" r="2" fill="#e85060"/>
+        <circle cx="53.2" cy="46.8" r="2" fill="#e85060"/>
+        <circle cx="51" cy="49" r="1.5" fill="#3a1808"/>
+        <!-- smile -->
+        <path d="M41 63 Q44 66 47 63" class="wn-mouth"/>
       </g>
     </svg>
   </div>`;
@@ -2577,16 +3046,16 @@ function mascotDeepFocus(){
         #pomoMascotSVG .w-page{fill:#fff8e8}
         #pomoMascotSVG .w-line{stroke:var(--dbo);stroke-width:.7;fill:none;opacity:.5}
         #pomoMascotSVG .w-dress{fill:var(--btn-bg)}
-        #pomoMascotSVG .w-dress-dark{fill:var(--btn-border);opacity:.4}
+        #pomoMascotSVG .w-dress-dk{fill:var(--btn-border);opacity:.4}
         #pomoMascotSVG .w-arm{stroke:var(--btn-border);stroke-width:4;fill:none;stroke-linecap:round}
         #pomoMascotSVG .w-hat{fill:var(--panel-title)}
-        #pomoMascotSVG .w-hat-band{fill:var(--da)}
+        #pomoMascotSVG .w-band{fill:var(--da)}
         #pomoMascotSVG .w-brim{fill:var(--panel-title)}
         #pomoMascotSVG .w-staff{stroke:var(--da);stroke-width:2.5;fill:none;stroke-linecap:round}
         #pomoMascotSVG .w-orb{fill:var(--da);opacity:.9}
         #pomoMascotSVG .w-skin{fill:var(--mascot-skin)}
-        #pomoMascotSVG .w-hair{fill:var(--mascot-hair)}
-        #pomoMascotSVG .w-hair-s{stroke:var(--mascot-hair);stroke-width:4.5;fill:none;stroke-linecap:round}
+        #pomoMascotSVG .w-hair{fill:#4a8a3a}
+        #pomoMascotSVG .w-hairs{stroke:#4a8a3a;stroke-width:4.5;fill:none;stroke-linecap:round}
         #pomoMascotSVG .w-eye{fill:var(--mascot-hair)}
         #pomoMascotSVG .w-lash{stroke:var(--mascot-hair);stroke-width:1;fill:none;stroke-linecap:round}
         #pomoMascotSVG .w-smile{stroke:var(--mascot-hair);stroke-width:1.2;fill:none;stroke-linecap:round}
@@ -2596,155 +3065,176 @@ function mascotDeepFocus(){
         #pomoMascotSVG .w-cape{fill:var(--panel-title);opacity:.7}
         #pomoMascotSVG .w-belt{fill:var(--da)}
         #pomoMascotSVG .w-buckle{fill:var(--panel-bg)}
+        #pomoMascotSVG .w-leaf{fill:#5aaa48}
       </style>
-
-      <!-- floating open spellbook -->
+      <!-- floating spellbook -->
       <g id="pomoTomato" style="transform-origin:48px 26px;">
         <rect x="17" y="14" width="54" height="28" rx="3" class="w-book"/>
         <rect x="19" y="16" width="25" height="24" rx="2" class="w-page"/>
         <rect x="46" y="16" width="23" height="24" rx="2" class="w-page"/>
         <line x1="44" y1="16" x2="44" y2="40" stroke="var(--da)" stroke-width="1.5"/>
-        <!-- arcane symbols left page -->
         <circle cx="27" cy="24" r="4" fill="none" stroke="var(--da)" stroke-width=".8" opacity=".5"/>
-        <line x1="23" y1="24" x2="31" y2="24" class="w-line"/>
-        <line x1="27" y1="20" x2="27" y2="28" class="w-line"/>
         <line x1="34" y1="22" x2="42" y2="22" class="w-line"/>
         <line x1="34" y1="26" x2="42" y2="26" class="w-line"/>
-        <line x1="34" y1="30" x2="41" y2="30" class="w-line"/>
-        <line x1="21" y1="34" x2="42" y2="34" class="w-line"/>
-        <line x1="21" y1="37" x2="40" y2="37" class="w-line"/>
-        <!-- right page -->
-        <line x1="48" y1="20" x2="66" y2="20" class="w-line"/>
-        <line x1="48" y1="24" x2="66" y2="24" class="w-line"/>
-        <line x1="48" y1="28" x2="65" y2="28" class="w-line"/>
-        <line x1="48" y1="32" x2="66" y2="32" class="w-line"/>
-        <line x1="48" y1="36" x2="64" y2="36" class="w-line"/>
+        <line x1="48" y1="22" x2="66" y2="22" class="w-line"/>
+        <line x1="48" y1="26" x2="66" y2="26" class="w-line"/>
+        <line x1="48" y1="30" x2="65" y2="30" class="w-line"/>
+        <line x1="48" y1="34" x2="66" y2="34" class="w-line"/>
       </g>
-
-      <!-- witch figure -->
+      <!-- witch body -->
       <g style="transform-origin:44px 82px;">
-        <!-- cape flowing behind -->
         <path d="M36 70 Q26 88 24 118 L44 118" class="w-cape"/>
-        <!-- long dress / skirt -->
         <path d="M34 70 Q28 88 26 118 L62 118 Q60 88 54 70 Z" class="w-dress"/>
-        <path d="M34 70 Q32 88 30 118 L38 118 Q37 94 38 74Z" class="w-dress-dark"/>
-        <path d="M54 70 Q56 88 58 118 L50 118 Q51 94 50 74Z" class="w-dress-dark"/>
-        <!-- belt with buckle -->
+        <path d="M34 70 Q32 88 30 118 L38 118 Q37 94 38 74Z" class="w-dress-dk"/>
+        <path d="M54 70 Q56 88 58 118 L50 118 Q51 94 50 74Z" class="w-dress-dk"/>
         <rect x="30" y="82" width="28" height="5" rx="2.5" class="w-belt"/>
         <rect x="40" y="81" width="8" height="7" rx="1.5" class="w-belt"/>
         <rect x="42" y="83" width="4" height="3" rx="1" class="w-buckle"/>
-        <!-- staff arm left -->
         <g id="pomoArmL" style="transform-origin:34px 73px;">
           <path d="M34 73 Q24 68 16 58" class="w-arm"/>
           <line x1="16" y1="58" x2="8" y2="42" class="w-staff"/>
-          <!-- orb -->
           <circle cx="6" cy="40" r="5.5" class="w-orb"/>
           <g style="transform-origin:6px 40px;animation:mStarSpin 2.5s linear infinite;">
             <path d="M6 36 L7 39 L10 39 L8 41 L9 44 L6 42 L3 44 L4 41 L2 39 L5 39 Z" fill="var(--panel-bg)" opacity=".85"/>
           </g>
         </g>
-        <!-- book arm right -->
         <g id="pomoArmR" style="transform-origin:54px 73px;">
           <path d="M54 73 Q64 66 72 56" class="w-arm"/>
         </g>
-        <!-- long flowing hair behind -->
-        <path d="M33 60 Q28 72 30 86" class="w-hair-s"/>
-        <path d="M55 60 Q60 72 58 86" class="w-hair-s"/>
-        <!-- hair on top / sides -->
+        <!-- green hair -->
+        <path d="M33 60 Q28 72 30 86" class="w-hairs"/>
+        <path d="M55 60 Q60 72 58 86" class="w-hairs"/>
         <path d="M33 58 Q30 50 34 46 Q38 42 44 42 Q50 42 54 46 Q58 50 55 58" class="w-hair"/>
-        <!-- pointed witch hat — wide brim -->
+        <!-- wide brim hat -->
         <ellipse cx="44" cy="53" rx="18" ry="5" class="w-brim"/>
-        <!-- hat cone -->
         <path d="M34 53 Q38 40 44 28 Q50 40 54 53 Z" class="w-hat"/>
-        <!-- hat band with buckle -->
-        <rect x="34" y="51" width="20" height="4" rx="2" class="w-hat-band"/>
-        <rect x="41" y="50" width="6" height="6" rx="1" class="w-hat-band"/>
-        <rect x="43" y="52" width="2" height="2" rx=".5" class="w-buckle"/>
-        <!-- slight hat tilt -->
+        <rect x="34" y="51" width="20" height="4" rx="2" class="w-band"/>
         <path d="M44 28 Q46 22 48 18" stroke="var(--panel-title)" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <!-- star on hat tip -->
         <g style="transform-origin:49px 17px;animation:mStarSpin 4s linear infinite reverse;">
           <path d="M49 13 L50 16 L53 16 L51 18 L52 21 L49 19 L46 21 L47 18 L45 16 L48 16 Z" class="w-star"/>
         </g>
-        <!-- face — slightly mischievous -->
+        <!-- flower crown on brim -->
+        <ellipse cx="31" cy="52" rx="4" ry="2" class="w-leaf" transform="rotate(-20,31,52)"/>
+        <ellipse cx="44" cy="49" rx="4" ry="2" class="w-leaf"/>
+        <ellipse cx="57" cy="52" rx="4" ry="2" class="w-leaf" transform="rotate(20,57,52)"/>
+        <!-- white daisy -->
+        <circle cx="32" cy="50" r="2" fill="#fff8f0"/><circle cx="29.5" cy="47.5" r="2" fill="#fff8f0"/>
+        <circle cx="32" cy="46" r="2" fill="#fff8f0"/><circle cx="34.5" cy="47.5" r="2" fill="#fff8f0"/>
+        <circle cx="32" cy="50" r="1.8" fill="#f5d840"/>
+        <!-- pink flower -->
+        <circle cx="44" cy="48" r="2" fill="#f8b0d0"/><circle cx="41.5" cy="45.5" r="2" fill="#f8b0d0"/>
+        <circle cx="44" cy="44" r="2" fill="#f8b0d0"/><circle cx="46.5" cy="45.5" r="2" fill="#f8b0d0"/>
+        <circle cx="44" cy="48" r="1.8" fill="#f5d840"/>
+        <!-- red poppy -->
+        <circle cx="56" cy="50" r="2.2" fill="#e85060"/><circle cx="53.5" cy="47.5" r="2.2" fill="#e85060"/>
+        <circle cx="56" cy="46" r="2.2" fill="#e85060"/><circle cx="58.5" cy="47.5" r="2.2" fill="#e85060"/>
+        <circle cx="56" cy="50" r="1.8" fill="#3a1808"/>
+        <!-- face -->
         <circle cx="44" cy="62" r="10" class="w-skin"/>
-        <!-- rosy cheeks -->
         <ellipse cx="39" cy="65" rx="3" ry="2" class="w-cheek"/>
         <ellipse cx="49" cy="65" rx="3" ry="2" class="w-cheek"/>
-        <!-- eyes with lashes -->
         <g style="transform-origin:41px 61px;animation:mBlink 3.5s ease-in-out infinite;">
           <ellipse cx="41" cy="61" rx="1.5" ry="1.5" class="w-eye"/>
         </g>
         <ellipse cx="47" cy="61" rx="1.5" ry="1.5" class="w-eye"/>
-        <!-- lashes -->
         <line x1="39" y1="59" x2="38" y2="57" class="w-lash"/>
         <line x1="41" y1="58.5" x2="41" y2="56.5" class="w-lash"/>
         <line x1="43" y1="59" x2="43.5" y2="57" class="w-lash"/>
         <line x1="45" y1="59" x2="44.5" y2="57" class="w-lash"/>
         <line x1="47" y1="58.5" x2="47" y2="56.5" class="w-lash"/>
         <line x1="49" y1="59" x2="50" y2="57" class="w-lash"/>
-        <!-- slightly pointed nose -->
         <path d="M44 63 Q45 65 43 66" class="w-nose"/>
-        <!-- sly smile -->
         <path d="M40 68 Q44 72 48 68" class="w-smile"/>
       </g>
     </svg>
   </div>`;
 }
-
 function mascotCelebrating(){
   return `<div class="mascot-wrap">
     <svg width="96" height="118" viewBox="0 0 96 118">
-      <!-- spinning stars using theme accent colors -->
       <g style="transform-origin:18px 22px;animation:mStarSpin 2s linear infinite;">
         <path d="M18 16L19.5 21L24 21L21 24L22.5 28L18 25.5L13.5 28L15 24L12 21L16.5 21Z" fill="var(--da)"/>
       </g>
-      <g style="transform-origin:72px 16px;animation:mStarSpin 1.6s linear infinite reverse;animation-delay:-.4s">
-        <path d="M72 11L73 14.5L77 14.5L74.5 16.5L75.5 20L72 18L68.5 20L69.5 16.5L67 14.5L71 14.5Z" fill="var(--btn-bg)"/>
+      <g style="transform-origin:74px 20px;animation:mStarSpin 1.6s linear infinite reverse;">
+        <path d="M74 15L75 18L78 18L76 20L77 23L74 21L71 23L72 20L70 18L73 18Z" fill="var(--btn-bg)"/>
       </g>
-      <g style="transform-origin:82px 46px;animation:mStarSpin 2.4s linear infinite;animation-delay:-.8s">
-        <path d="M82 41L83 44L86 44L84 46L85 49L82 47L79 49L80 46L78 44L81 44Z" fill="var(--prog-fill)"/>
+      <g style="transform-origin:80px 46px;animation:mStarSpin 2.4s linear infinite;">
+        <path d="M80 41L81 44L84 44L82 46L83 49L80 47L77 49L78 46L76 44L79 44Z" fill="var(--da)"/>
       </g>
-      <g style="transform-origin:10px 55px;animation:mStarSpin 1.9s linear infinite reverse;animation-delay:-.2s">
-        <path d="M10 50L11 53L14 53L12 55L13 58L10 56L7 58L8 55L6 53L9 53Z" fill="var(--inp-focus)"/>
-      </g>
-      <!-- confetti dots -->
-      <circle cx="30" cy="18" r="3" fill="var(--btn-bg)" style="animation:mConfetti 1.8s ease-in-out infinite;animation-delay:-.3s"/>
-      <circle cx="62" cy="24" r="2.5" fill="var(--da)" style="animation:mConfetti 2.1s ease-in-out infinite;animation-delay:-.9s"/>
-      <circle cx="22" cy="40" r="2" fill="var(--prog-fill)" style="animation:mConfetti 1.5s ease-in-out infinite;animation-delay:-.6s"/>
-      <!-- person floating arms up -->
-      <g style="transform-origin:48px 85px;animation:mFloat .9s ease-in-out infinite;">
-        <line x1="44" y1="100" x2="40" y2="114" stroke="var(--panel-title)" stroke-width="4" stroke-linecap="round"/>
-        <line x1="52" y1="100" x2="56" y2="114" stroke="var(--panel-title)" stroke-width="4" stroke-linecap="round"/>
-        <rect x="38" y="84" width="20" height="17" rx="5" fill="var(--btn-bg)"/>
-        <!-- gold trim on tabard -->
-        <rect x="38" y="84" width="20" height="3" rx="2" fill="var(--da)"/>
-        <rect x="38" y="98" width="20" height="3" rx="2" fill="var(--da)"/>
-        <g style="transform-origin:38px 88px;animation:mArmUp .7s ease-in-out infinite;">
-          <line x1="38" y1="88" x2="26" y2="74" stroke="var(--panel-title)" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="30" cy="18" r="3" fill="var(--btn-bg)" style="animation:mConfetti 1.8s ease-in-out infinite;"/>
+      <circle cx="62" cy="24" r="2.5" fill="var(--da)" style="animation:mConfetti 2.1s ease-in-out infinite;animation-delay:-.6s"/>
+      <!-- queen floating -->
+      <g style="animation:mFloat .9s ease-in-out infinite;">
+        <!-- gown -->
+        <path d="M36 86 Q26 100 24 118 L68 118 Q66 100 56 86 Z" fill="var(--btn-bg)"/>
+        <path d="M36 86 Q32 100 30 118 L40 118 Q39 100 40 90Z" fill="var(--da)" opacity=".45"/>
+        <path d="M56 86 Q60 100 62 118 L52 118 Q53 100 52 90Z" fill="var(--da)" opacity=".45"/>
+        <path d="M24 118 Q46 113 68 118" fill="none" stroke="var(--da)" stroke-width="2"/>
+        <!-- bodice -->
+        <rect x="35" y="74" width="22" height="14" rx="4" fill="var(--da)"/>
+        <rect x="34" y="84" width="24" height="4" rx="2" fill="var(--btn-bg)"/>
+        <circle cx="46" cy="86" r="2.5" fill="var(--panel-bg)" opacity=".8"/>
+        <!-- bouquet arm -->
+        <g style="transform-origin:35px 78px;animation:mArmUp .7s ease-in-out infinite;">
+          <line x1="35" y1="78" x2="22" y2="64" stroke="var(--da)" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="18" cy="60" r="5" fill="#e890c0"/>
+          <circle cx="15" cy="57" r="3.5" fill="#f5d840"/>
+          <circle cx="21" cy="56" r="3.5" fill="#ff8080"/>
+          <circle cx="16" cy="62" r="3" fill="#fff8f0"/>
+          <circle cx="18" cy="60" r="1.8" fill="#c04070" opacity=".6"/>
+          <line x1="18" y1="65" x2="16" y2="72" stroke="#5aaa48" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="18" y1="65" x2="20" y2="72" stroke="#5aaa48" stroke-width="1.5" stroke-linecap="round"/>
         </g>
-        <g style="transform-origin:58px 88px;animation:mArmUp .7s ease-in-out infinite reverse;">
-          <line x1="58" y1="88" x2="70" y2="74" stroke="var(--panel-title)" stroke-width="4" stroke-linecap="round"/>
+        <!-- wave arm -->
+        <g style="transform-origin:57px 78px;animation:mArmUp .7s ease-in-out infinite reverse;">
+          <line x1="57" y1="78" x2="70" y2="64" stroke="var(--da)" stroke-width="4" stroke-linecap="round"/>
         </g>
-        <!-- crown -->
-        <rect x="38" y="65" width="20" height="5" rx="2" fill="var(--da)"/>
-        <polygon points="38,65 41,58 44,65" fill="var(--da)"/>
-        <polygon points="44,65 48,60 52,65" fill="var(--da)"/>
-        <polygon points="52,65 55,58 58,65" fill="var(--da)"/>
-        <circle cx="41" cy="64" r="1.8" fill="var(--btn-bg)"/>
-        <circle cx="48" cy="62" r="2" fill="var(--btn-bg)"/>
-        <circle cx="55" cy="64" r="1.8" fill="var(--btn-bg)"/>
-        <!-- head -->
-        <circle cx="48" cy="75" r="11" fill="var(--mascot-skin)"/>
-        <path d="M42 72 Q45 70 47 72" fill="none" stroke="var(--mascot-hair)" stroke-width="1.6" stroke-linecap="round"/>
-        <path d="M49 72 Q51 70 54 72" fill="none" stroke="var(--mascot-hair)" stroke-width="1.6" stroke-linecap="round"/>
-        <path d="M42 78 Q48 85 54 78" fill="none" stroke="var(--mascot-hair)" stroke-width="1.8" stroke-linecap="round"/>
+        <!-- neck + head -->
+        <rect x="42" y="68" width="8" height="8" rx="3" fill="var(--mascot-skin)"/>
+        <circle cx="46" cy="59" r="13" fill="var(--mascot-skin)"/>
+        <!-- hair -->
+        <path d="M33 62 Q30 72 32 84" stroke="var(--mascot-hair)" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M59 62 Q62 72 60 84" stroke="var(--mascot-hair)" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M33 60 Q35 50 46 48 Q57 50 59 60" fill="var(--mascot-hair)"/>
+        <!-- flower crown leaves -->
+        <ellipse cx="36" cy="51" rx="5" ry="2.5" fill="#5aaa48" transform="rotate(-15,36,51)"/>
+        <ellipse cx="56" cy="51" rx="5" ry="2.5" fill="#5aaa48" transform="rotate(15,56,51)"/>
+        <ellipse cx="46" cy="48" rx="4" ry="2" fill="#5aaa48"/>
+        <!-- pink flower -->
+        <circle cx="36" cy="50" r="2" fill="#f8b0d0"/><circle cx="33.5" cy="47.5" r="2" fill="#f8b0d0"/>
+        <circle cx="36" cy="46" r="2" fill="#f8b0d0"/><circle cx="38.5" cy="47.5" r="2" fill="#f8b0d0"/>
+        <circle cx="36" cy="50" r="1.8" fill="#f5d840"/>
+        <!-- white daisy -->
+        <circle cx="46" cy="47" r="2" fill="#fff8f0"/><circle cx="43.5" cy="44.5" r="2" fill="#fff8f0"/>
+        <circle cx="46" cy="43" r="2" fill="#fff8f0"/><circle cx="48.5" cy="44.5" r="2" fill="#fff8f0"/>
+        <circle cx="46" cy="47" r="1.8" fill="#f5d840"/>
+        <!-- red flower -->
+        <circle cx="56" cy="50" r="2.2" fill="#ff8080"/><circle cx="53.5" cy="47.5" r="2.2" fill="#ff8080"/>
+        <circle cx="56" cy="46" r="2.2" fill="#ff8080"/><circle cx="58.5" cy="47.5" r="2.2" fill="#ff8080"/>
+        <circle cx="56" cy="50" r="1.8" fill="#f5d840"/>
+        <!-- queen crown -->
+        <rect x="33" y="53" width="26" height="6" rx="2" fill="var(--da)"/>
+        <polygon points="33,53 36,46 39,53" fill="var(--da)"/>
+        <polygon points="39,53 43,48 47,53" fill="var(--da)"/>
+        <polygon points="47,53 51,48 55,53" fill="var(--da)"/>
+        <polygon points="55,53 58,46 59,53" fill="var(--da)"/>
+        <circle cx="36" cy="52" r="2" fill="var(--btn-bg)" opacity=".9"/>
+        <circle cx="46" cy="50" r="2.8" fill="#e84878"/>
+        <circle cx="56" cy="52" r="2" fill="var(--btn-bg)" opacity=".9"/>
+        <circle cx="41" cy="51" r="1.5" fill="#f5d840"/>
+        <circle cx="51" cy="51" r="1.5" fill="#f5d840"/>
+        <!-- face -->
+        <ellipse cx="39" cy="64" rx="4" ry="3" fill="#e88898" opacity=".22"/>
+        <ellipse cx="53" cy="64" rx="4" ry="3" fill="#e88898" opacity=".22"/>
+        <g style="transform-origin:42px 60px;animation:mBlink 4s ease-in-out infinite;">
+          <ellipse cx="42" cy="60" rx="1.4" ry="1.4" fill="var(--mascot-hair)"/>
+        </g>
+        <ellipse cx="50" cy="60" rx="1.4" ry="1.4" fill="var(--mascot-hair)"/>
+        <path d="M40 65 Q46 70 52 65" fill="none" stroke="var(--mascot-hair)" stroke-width="1.6" stroke-linecap="round"/>
       </g>
     </svg>
   </div>`;
 }
-
-
 function toggleKing(e){
   if(e)makeRipple(e);
   _kingVisible=!_kingVisible;
@@ -3085,6 +3575,74 @@ function myDayStripHTML(){
   </div>`;
 }
 
+
+// ── BRAIN ITEM SWIPE ──
+function setupBrainSwipe(el,id){
+  let sx=0,sy=0,swiping=false,dir=null;
+  const inner=el.querySelector('.brain-inner');
+  const bgL=el.querySelector('.brain-swipe-bg-left');
+  const bgR=el.querySelector('.brain-swipe-bg-right');
+  const THRESH=90,DIR_LOCK=12;
+
+  el.addEventListener('touchstart',e=>{
+    sx=e.touches[0].clientX;sy=e.touches[0].clientY;
+    swiping=false;dir=null;
+  },{passive:true});
+
+  el.addEventListener('touchmove',e=>{
+    const dx=e.touches[0].clientX-sx;
+    const dy=e.touches[0].clientY-sy;
+    // lock direction early
+    if(!dir){
+      if(Math.abs(dx)>DIR_LOCK||Math.abs(dy)>DIR_LOCK)
+        dir=Math.abs(dx)>Math.abs(dy)?'h':'v';
+    }
+    if(dir==='v')return;
+    e.preventDefault();
+    swiping=true;
+    const clamped=Math.max(-160,Math.min(160,dx));
+    inner.style.transform=`translateX(${clamped}px)`;
+    if(clamped<0){
+      // left → delete
+      bgL.style.opacity=Math.min(1,Math.abs(clamped)/THRESH);
+      bgR.style.opacity=0;
+    } else {
+      // right → board
+      bgR.style.opacity=Math.min(1,clamped/THRESH);
+      bgL.style.opacity=0;
+    }
+  },{passive:false});
+
+  el.addEventListener('touchend',e=>{
+    if(!swiping){inner.style.transform='';bgL.style.opacity=0;bgR.style.opacity=0;return;}
+    const dx=e.changedTouches[0].clientX-sx;
+    inner.style.transition='transform .25s';
+    bgL.style.transition='opacity .25s';
+    bgR.style.transition='opacity .25s';
+    if(dx<-THRESH){
+      // swipe left → delete
+      inner.style.transform='translateX(-100%)';
+      bgL.style.opacity=1;
+      setTimeout(()=>delBrain(id),260);
+    } else if(dx>THRESH){
+      // swipe right → send to board
+      inner.style.transform='translateX(100%)';
+      bgR.style.opacity=1;
+      setTimeout(()=>sendToBoard(id,null),260);
+    } else {
+      inner.style.transform='';
+      bgL.style.opacity=0;
+      bgR.style.opacity=0;
+    }
+    setTimeout(()=>{
+      inner.style.transition='';
+      bgL.style.transition='';
+      bgR.style.transition='';
+    },300);
+    swiping=false;dir=null;
+  },{passive:true});
+}
+
 // ════════════════════════════════════════
 // ── BRAIN DUMP ──
 // ════════════════════════════════════════
@@ -3094,13 +3652,22 @@ function renderBrainView(){
   const done=brainDump.filter(i=>i.done);
   const todoHTML=todo.length
     ?todo.map(item=>`<div class="brain-item" id="bi-${item.id}">
-        <div class="brain-chk" onclick="toggleBrain(${item.id})"></div>
-        <span class="brain-txt" contenteditable="true" spellcheck="true"
-          onblur="renameBrain(${item.id},this.textContent)"
-          onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur();document.getElementById('brainInp').focus();}"
-        >${esc(item.text)}</span>
-        <button class="brain-move-btn" onclick="sendToBoard(${item.id},event)" title="Send to My board">→ Board</button>
-        <button class="brain-del" onclick="delBrain(${item.id})">×</button>
+        <div class="brain-swipe-bg-left" id="bsl-${item.id}">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="4,6 18,6"/><path d="M5 6V4h4v2"/><rect x="3" y="6" width="8" height="7" rx="1.5"/></svg>
+          Delete
+        </div>
+        <div class="brain-swipe-bg-right" id="bsr-${item.id}">
+          → Board
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="12" height="10" rx="2"/><line x1="4" y1="7" x2="10" y2="7"/><line x1="4" y1="10" x2="8" y2="10"/></svg>
+        </div>
+        <div class="brain-inner">
+          <div class="brain-chk" onclick="toggleBrain(${item.id})"></div>
+          <span class="brain-txt" contenteditable="true" spellcheck="true"
+            onblur="renameBrain(${item.id},this.textContent)"
+            onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur();document.getElementById('brainInp').focus();}"
+          >${esc(item.text)}</span>
+          <button class="brain-del" onclick="delBrain(${item.id})">×</button>
+        </div>
       </div>`).join('')
     :'';
   const doneHTML=done.length?`<div class="brain-done-section">
@@ -3127,6 +3694,11 @@ function renderBrainView(){
     inp.addEventListener('keydown',e=>{if(e.key==='Enter')addBrainItem(e);});
     inp.focus();
   }
+  // attach swipe handlers to all brain items
+  document.querySelectorAll('.brain-item').forEach(el=>{
+    const id=parseInt(el.id.replace('bi-',''));
+    if(id)setupBrainSwipe(el,id);
+  });
 }
 
 function addBrainItem(e){
@@ -3421,7 +3993,7 @@ function skipAuth(){document.getElementById('authOverlay').style.display='none';
 window._onAuthChange=function(user){updateSbUserArea(user);document.getElementById('authOverlay').style.display='none';if(user){loadFromFirestore(user.uid);startRealtimeSync(user.uid);if(typeof Notification!=='undefined'&&Notification.permission==='granted'){scheduleNotifications();}}else{stopRealtimeSync();renderMain();}};
 
 // ── INIT ──
-try{const t=localStorage.getItem('tw7_theme');if(t)document.getElementById('app').className='shell theme-'+t;}catch(e){}
+try{const t=localStorage.getItem('tw7_theme')||'wheat';document.getElementById('app').className='shell theme-'+t;}catch(e){}
 migrateDailyTasks();checkDailyReset();tickClock();initHero();
 setTimeout(()=>{if(!window._currentUser){const seen=localStorage.getItem('tw7_auth_seen');if(!seen){localStorage.setItem('tw7_auth_seen','1');document.getElementById('authOverlay').style.display='flex';}else{renderMain();}}},1500);
 </script>
