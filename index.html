@@ -1183,6 +1183,40 @@ body{font-family:'Nunito',sans-serif;overflow-x:hidden;overscroll-behavior:none;
 .theme-toggle-row:active{opacity:.7;}
 .theme-panel-body{max-height:0;overflow:hidden;transition:max-height .3s cubic-bezier(.4,0,.2,1),padding .3s;}
 .theme-panel-body.open{max-height:600px;padding:0 14px 14px;}
+
+/* ── MARKET RUN ── */
+.mr-dish-pick{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;background:var(--task-bg);border:1.5px solid var(--task-border);margin-bottom:6px;cursor:pointer;transition:all .2s;}
+.mr-dish-pick:active{transform:scale(.97);}
+.mr-dish-pick.on{background:var(--db);border-color:var(--dbo);}
+.mr-dish-emoji{font-size:18px;flex-shrink:0;}
+.mr-dish-name{flex:1;font-size:13px;font-weight:800;color:var(--panel-title);}
+.mr-dish-chk{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--chk-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
+.mr-dish-pick.on .mr-dish-chk{background:var(--da);border-color:var(--da);color:var(--btn-text);font-size:10px;}
+.mr-section-hdr{font-size:10px;font-weight:900;color:var(--inp-ph);text-transform:uppercase;letter-spacing:.7px;margin:12px 0 6px;display:flex;align-items:center;justify-content:space-between;}
+.mr-ing-row{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;background:var(--task-bg);border:1px solid var(--task-border);margin-bottom:4px;}
+.mr-ing-row.got{opacity:.4;}
+.mr-ing-row.got .mr-ing-name{text-decoration:line-through;}
+.mr-ing-name{flex:1;font-size:13px;font-weight:700;color:var(--panel-title);}
+.mr-ing-qty{font-size:11px;font-weight:700;color:var(--inp-ph);}
+.mr-ing-dishes{font-size:9px;font-weight:800;color:var(--da);margin-top:1px;}
+.mr-chk{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--chk-border);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;font-size:9px;transition:all .2s;}
+.mr-chk.got{background:var(--chk-bg);border-color:var(--chk-border2);color:var(--chk-text);}
+.mr-cat-block{background:var(--floor-bg);border:1px solid var(--floor-border);border-radius:10px;padding:8px 10px;margin-bottom:8px;}
+.mr-cat-label{font-size:10px;font-weight:900;color:var(--inp-ph);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;}
+.mr-run-btn{width:100%;font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;padding:10px;background:var(--btn-bg);color:var(--btn-text);border:1.5px solid var(--btn-border);border-radius:10px;cursor:pointer;margin-top:8px;transition:all .2s;}
+.mr-run-btn:active{transform:scale(.97);}
+.mr-clear-btn{font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;color:var(--inp-ph);background:none;border:none;cursor:pointer;padding:2px 0;}
+
+/* ── DISH INGREDIENT EDITOR ── */
+.dish-edit-btn{font-family:'Nunito',sans-serif;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;border:1.5px solid var(--floor-border);background:var(--floor-bg);color:var(--inp-ph);cursor:pointer;margin-left:auto;flex-shrink:0;transition:all .2s;}
+.dish-edit-btn.active{background:var(--btn-bg);color:var(--btn-text);border-color:var(--btn-border);}
+.dish-edit-btn:active{transform:scale(.9);}
+.ing-edit-row{display:flex;align-items:center;gap:6px;margin-bottom:5px;}
+.ing-edit-row .ing-name-inp{flex:1;font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;background:var(--inp-bg);border:1.5px solid var(--inp-border);border-radius:8px;padding:5px 8px;color:var(--inp-text);outline:none;}
+.ing-edit-row .ing-qty-inp{width:64px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;background:var(--inp-bg);border:1.5px solid var(--inp-border);border-radius:8px;padding:5px 8px;color:var(--inp-text);outline:none;}
+.ing-edit-row .ing-del-btn{background:none;border:none;cursor:pointer;color:var(--inp-ph);font-size:16px;font-weight:700;padding:0 3px;flex-shrink:0;}
+.ing-add-small{font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;padding:4px 10px;border-radius:8px;border:1.5px dashed var(--floor-border);background:none;color:var(--inp-ph);cursor:pointer;width:100%;margin-top:2px;transition:all .2s;}
+.ing-add-small:active{transform:scale(.97);}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <!-- Firebase SDKs -->
@@ -1407,8 +1441,12 @@ try{notifyBeforeMins=parseInt(localStorage.getItem('tw7_notifbefore')||'15');}ca
 let _notifiedTasks=new Set();
 let _kingVisible=true; // track which tasks we already notified to avoid repeats
 let flipClockMode=false;
-let stuffiesView='list'; // 'list' or 'stuffies'
+let stuffiesView='list'; // 'list', 'stuffies', or 'marketrun'
 let openDishes=new Set();
+let editingDish=null; // dish id currently being edited
+let marketRunDishes=new Set(); // dish ids selected for market run
+try{const mr=localStorage.getItem('tw7_marketrun');if(mr)marketRunDishes=new Set(JSON.parse(mr));}catch(e){}
+function saveMarketRun(){try{localStorage.setItem('tw7_marketrun',JSON.stringify([...marketRunDishes]));}catch(e){}}
 try{tasks=JSON.parse(localStorage.getItem('tw7_tasks')||'[]');}catch(e){}
 try{grocs=JSON.parse(localStorage.getItem('tw7_grocs')||'[]');}catch(e){}
 try{pomoLog=JSON.parse(localStorage.getItem('tw7_plog')||'[]');}catch(e){}
@@ -1550,7 +1588,7 @@ function switchViewById(id){
   document.querySelectorAll('[data-view]').forEach(n=>n.classList.toggle('active',n.dataset.view===id));
   curView=id;
   const titles={brain:'Brain dump',routine:'Daily routine',tasks:'My board',docket:'My docket',progress:'Progress history',history:'History',budget:'Spending Plan',pomo:'Pomodoro',market:'Stuffies 🛒',settings:'Settings'};
-  const subs={brain:'Everything on your mind, right now',routine:'Your 1-hour morning flow',tasks:'Your organised quests',docket:'Plan your days ahead',progress:'How far you have come',history:'Your spending & task records',budget:'50 / 30 / 20 rule — in GH₵',pomo:'Focus deep, rest well',market:"What are we cooking today?",settings:'Customise your tower'};
+  const subs={brain:'Everything on your mind, right now',routine:'Your 2-hour morning flow',tasks:'Your organised quests',docket:'Plan your days ahead',progress:'How far you have come',history:'Your spending & task records',budget:'50 / 30 / 20 rule — in GH₵',pomo:'Focus deep, rest well',market:"What are we cooking today?",settings:'Customise your tower'};
   document.getElementById('vTitle').textContent=titles[id];
   document.getElementById('vSub').textContent=subs[id];
   renderMain();
@@ -1799,35 +1837,72 @@ function renderStuffiesView(){
   const ingState=stuffiesState;
   const dishCards=allDishes().map(dish=>{
     const isOpen=openDishes.has(dish.id);
+    const isEditing=editingDish===dish.id;
+    const ingState=stuffiesState;
     const allCount=dish.ingredients.length;
     const gotCount=dish.ingredients.filter((_,i)=>ingState[dish.id+'-'+i]).length;
-    const ings=isOpen?dish.ingredients.map((ing,i)=>{
+
+    // normal ingredient rows (tick mode)
+    const ings=isOpen&&!isEditing?dish.ingredients.map((ing,i)=>{
       const got=!!ingState[dish.id+'-'+i];
-      return`<div class="dish-ing-row${got?' got':''}" onclick="toggleIng('${dish.id}',${i},event)">
-        <div class="chk${got?' yes':''}">${got?'✓':''}</div>
-        <span class="ing-name">${esc(ing.name)}</span>
-        ${ing.qty?`<span class="ing-qty">${esc(ing.qty)}</span>`:''}
-      </div>`;
+      return'<div class="dish-ing-row'+(got?' got':'')+'" onclick="toggleIng(\''+dish.id+'\','+i+',event)">'+
+        '<div class="chk'+(got?' yes':'')+'">'+(got?'✓':'')+'</div>'+
+        '<span class="ing-name">'+esc(ing.name)+'</span>'+
+        (ing.qty?'<span class="ing-qty">'+esc(ing.qty)+'</span>':'')+
+      '</div>';
     }).join(''):'';
-    return`<div class="dish-card">
-      <div class="dish-hdr" onclick="toggleDish('${dish.id}',event)">
-        <div>
-          <div class="dish-name">${dish.emoji} ${esc(dish.name)}</div>
-          <div class="dish-meta">${gotCount}/${allCount} ingredients ticked</div>
-        </div>
-        <div class="dish-arrow${isOpen?' open':''}">▼</div>
-      </div>
-      ${isOpen?`<div class="dish-body">${ings}<button class="gc-btn" style="margin-top:4px;" onclick="clearDish('${dish.id}',event)">Clear ticks</button></div>`:''}
-    </div>`;
+
+    // editable ingredient rows
+    const editRows=isEditing?dish.ingredients.map((ing,i)=>
+      '<div class="ing-edit-row">'+
+        '<input class="ing-name-inp" type="text" placeholder="Ingredient..." autocomplete="off" value="'+esc(ing.name)+'"/>'+
+        '<input class="ing-qty-inp" type="text" placeholder="Qty..." autocomplete="off" value="'+esc(ing.qty||'')+'"/>'+
+        '<button class="ing-del-btn" onclick="this.closest(\'.ing-edit-row\').remove()">×</button>'+
+      '</div>'
+    ).join(''):'';
+
+    const body=isEditing?
+      '<div class="dish-body">'+
+        '<div id="dish-edit-'+dish.id+'">'+
+          editRows+
+          '<button class="ing-add-small" onclick="addIngToDish(\''+dish.id+'\')">+ Add ingredient</button>'+
+        '</div>'+
+        '<div style="display:flex;gap:6px;margin-top:8px;">'+
+          '<button class="gc-btn" style="flex:1;background:var(--btn-bg);color:var(--btn-text);border-color:var(--btn-border);" onclick="saveDishEdits(\''+dish.id+'\')">Save</button>'+
+          '<button class="gc-btn" onclick="toggleDishEdit(\''+dish.id+'\',event)">Cancel</button>'+
+        '</div>'+
+      '</div>'
+    :isOpen?
+      '<div class="dish-body">'+ings+
+        '<div style="display:flex;gap:6px;margin-top:6px;">'+
+          '<button class="gc-btn" style="flex:1;" onclick="clearDish(\''+dish.id+'\',event)">Clear ticks</button>'+
+          (dish.isCustom?'<button class="gc-btn" onclick="deleteCustomDish(\''+dish.id+'\',event)">Delete dish</button>':'')+
+        '</div>'+
+      '</div>'
+    :'';
+
+    return'<div class="dish-card">'+
+      '<div class="dish-hdr" onclick="toggleDish(\''+dish.id+'\',event)">'+
+        '<div><div class="dish-name">'+(dish.emoji||'🍽️')+' '+esc(dish.name)+'</div>'+
+        '<div class="dish-meta">'+gotCount+'/'+allCount+' ticked</div></div>'+
+        '<div style="display:flex;align-items:center;gap:6px;">'+
+          '<button class="dish-edit-btn'+(isEditing?' active':'')+'" onclick="toggleDishEdit(\''+dish.id+'\',event)">'+(isEditing?'✕ Editing':'✎ Edit')+'</button>'+
+          '<div class="dish-arrow'+(isOpen?' open':'')+'">▼</div>'+
+        '</div>'+
+      '</div>'+
+      body+
+    '</div>';
   }).join('');
 
   mp.innerHTML=`<div class="panel anim-up">
+    ${myDayStripHTML()}
     <div class="ptitle">Stuffies 🛒</div>
     <div class="stuffies-tab-bar">
       <button class="stuffies-tab${stuffiesView==='list'?' on':''}" onclick="setStuffiesView('list',event)">Grocery list</button>
       <button class="stuffies-tab${stuffiesView==='stuffies'?' on':''}" onclick="setStuffiesView('stuffies',event)">By dish</button>
+      <button class="stuffies-tab${stuffiesView==='marketrun'?' on':''}" onclick="setStuffiesView('marketrun',event)">Market run</button>
     </div>
-    ${stuffiesView==='stuffies'?`<div class="stuffies-wrap">${dishCards}</div>`:renderGrocListHTML()}
+    ${stuffiesView==='stuffies'?`<div class="stuffies-wrap">${dishCards}<button class="gc-btn" style="width:100%;margin-top:8px;" onclick="toggleAddDishForm(event)">+ Add a dish</button>${showAddDishForm?`<div id="addDishForm">${addDishFormHTML()}</div>`:''}</div>`:stuffiesView==='marketrun'?renderMarketRunView():renderGrocListHTML()}
   </div>`;
 
   if(stuffiesView==='list'){
@@ -2212,6 +2287,192 @@ function renderPomoView(){
   if(!flipClockMode)updateArc();else renderFlipClock(pomoSecs);
   renderPomoLogEl('plog2');renderTaskMini();
 }
+
+// ════════════════════════════════════════
+// ── MARKET RUN ──
+// ════════════════════════════════════════
+let marketRunGot={}; // tracks ticked ingredients in the combined list
+try{const mg=localStorage.getItem('tw7_mrGot');if(mg)marketRunGot=JSON.parse(mg);}catch(e){}
+function saveMarketRunGot(){try{localStorage.setItem('tw7_mrGot',JSON.stringify(marketRunGot));}catch(e){}}
+
+function toggleMarketDish(id){
+  if(marketRunDishes.has(id))marketRunDishes.delete(id);
+  else marketRunDishes.add(id);
+  saveMarketRun();
+  renderMarketView();
+}
+
+function toggleMarketIng(key){
+  marketRunGot[key]=!marketRunGot[key];
+  saveMarketRunGot();
+  // update in place
+  const row=document.getElementById('mri-'+key);
+  if(row){
+    row.classList.toggle('got',!!marketRunGot[key]);
+    const chk=row.querySelector('.mr-chk');
+    if(chk){chk.classList.toggle('got',!!marketRunGot[key]);chk.textContent=marketRunGot[key]?'✓':'';}
+  }
+}
+
+function clearMarketRun(e){
+  if(e)makeRipple(e);
+  marketRunDishes.clear();marketRunGot={};
+  saveMarketRun();saveMarketRunGot();
+  renderMarketView();
+}
+
+function renderMarketRunView(){
+  const dishes=allDishes().filter(d=>marketRunDishes.has(d.id));
+
+  // ── dish picker ──
+  const pickerHTML=allDishes().map(d=>{
+    const on=marketRunDishes.has(d.id);
+    return`<div class="mr-dish-pick${on?' on':''}" onclick="toggleMarketDish('${d.id}')">
+      <span class="mr-dish-emoji">${d.emoji||'🍽️'}</span>
+      <span class="mr-dish-name">${esc(d.name)}</span>
+      <div class="mr-dish-chk">${on?'✓':''}</div>
+    </div>`;
+  }).join('');
+
+  if(!dishes.length){
+    return`<div class="mr-section-hdr"><span>Pick dishes for your run</span></div>
+      ${pickerHTML}`;
+  }
+
+  // ── merge ingredients, group by ingredient name ──
+  const ingMap={};
+  dishes.forEach(dish=>{
+    dish.ingredients.forEach((ing,i)=>{
+      const norm=ing.name.trim().toLowerCase();
+      if(!ingMap[norm])ingMap[norm]={name:ing.name,qty:[],dishes:[]};
+      ingMap[norm].qty.push(ing.qty||'');
+      ingMap[norm].dishes.push(dish.name);
+    });
+  });
+
+  // ── group merged ingredients by first letter / category ──
+  const sorted=Object.entries(ingMap).sort((a,b)=>a[0].localeCompare(b[0]));
+
+  const ingHTML=sorted.map(([key,v])=>{
+    const mkKey='mr-'+key.replace(/\s+/g,'-');
+    const got=!!marketRunGot[mkKey];
+    const qtyStr=[...new Set(v.qty.filter(Boolean))].join(' + ');
+    const dishStr=v.dishes.length>1?v.dishes.join(', '):'';
+    return`<div class="mr-ing-row${got?' got':''}" id="mri-${mkKey}">
+      <div class="mr-chk${got?' got':''}" onclick="toggleMarketIng('${mkKey}')">${got?'✓':''}</div>
+      <div style="flex:1;min-width:0;">
+        <div class="mr-ing-name">${esc(v.name)}</div>
+        ${dishStr?`<div class="mr-ing-dishes">${esc(dishStr)}</div>`:''}
+      </div>
+      ${qtyStr?`<div class="mr-ing-qty">${esc(qtyStr)}</div>`:''}
+    </div>`;
+  }).join('');
+
+  const doneCount=sorted.filter(([k])=>marketRunGot['mr-'+k.replace(/\s+/g,'-')]).length;
+
+  return`<div class="mr-section-hdr">
+      <span>Dishes (${dishes.length})</span>
+      <button class="mr-clear-btn" onclick="clearMarketRun(event)">Clear all</button>
+    </div>
+    ${pickerHTML}
+    <div class="mr-section-hdr" style="margin-top:14px;">
+      <span>Shopping list</span>
+      <span style="font-size:10px;font-weight:800;color:var(--da);">${doneCount}/${sorted.length}</span>
+    </div>
+    ${ingHTML}`;
+}
+
+
+// ── DISH INGREDIENT EDITING ──
+function toggleDishEdit(dishId, e){
+  if(e)e.stopPropagation();
+  editingDish = editingDish===dishId ? null : dishId;
+  // ensure dish is open
+  if(editingDish) openDishes.add(dishId);
+  renderMarketView();
+}
+
+// dishOverrides: edits to built-in dishes stored in localStorage
+let dishOverrides={};
+try{const o=localStorage.getItem('tw7_dishOverrides');if(o)dishOverrides=JSON.parse(o);}catch(e){}
+function saveDishOverrides(){try{localStorage.setItem('tw7_dishOverrides',JSON.stringify(dishOverrides));}catch(e){}}
+
+function getDishRef(dishId){
+  // for custom dishes return the live object; for built-ins return merged override
+  const custom=customDishes.find(x=>x.id===dishId);
+  if(custom)return custom;
+  const builtin=STUFFIES_DISHES.find(x=>x.id===dishId);
+  if(!builtin)return null;
+  // return a live reference via override record
+  if(!dishOverrides[dishId]){
+    // clone into overrides on first edit
+    dishOverrides[dishId]={...builtin,ingredients:builtin.ingredients.map(i=>({...i}))};
+  }
+  return dishOverrides[dishId];
+}
+
+function allDishesResolved(){
+  // built-in dishes merged with any overrides, plus custom dishes
+  return[
+    ...STUFFIES_DISHES.map(d=>dishOverrides[d.id]||d),
+    ...customDishes
+  ];
+}
+
+function saveDishEdits(dishId){
+  // read current values from DOM inputs
+  const list=document.getElementById('dish-edit-'+dishId);
+  if(!list)return;
+  const rows=list.querySelectorAll('.ing-edit-row');
+  const updated=[];
+  rows.forEach(row=>{
+    const nameInp=row.querySelector('.ing-name-inp');
+    const qtyInp=row.querySelector('.ing-qty-inp');
+    const name=nameInp?nameInp.value.trim():'';
+    const qty=qtyInp?qtyInp.value.trim():'';
+    if(name)updated.push({name,qty});
+  });
+  // get or create the mutable reference
+  const isCustom=!!customDishes.find(x=>x.id===dishId);
+  if(isCustom){
+    const d=customDishes.find(x=>x.id===dishId);
+    if(d){d.ingredients=updated;saveCustomDishes();}
+  } else {
+    // built-in: store in overrides
+    const base=STUFFIES_DISHES.find(x=>x.id===dishId);
+    if(!dishOverrides[dishId])dishOverrides[dishId]={...base};
+    dishOverrides[dishId].ingredients=updated;
+    saveDishOverrides();
+  }
+  editingDish=null;
+  showNotif('✅','Saved','Ingredients updated');
+  renderMarketView();
+}
+
+function addIngToDish(dishId){
+  const list=document.getElementById('dish-edit-'+dishId);
+  if(!list)return;
+  const row=document.createElement('div');
+  row.className='ing-edit-row';
+  row.innerHTML='<input class="ing-name-inp" type="text" placeholder="Ingredient..." autocomplete="off" style="flex:1;font-family:Nunito,sans-serif;font-size:12px;font-weight:700;background:var(--inp-bg);border:1.5px solid var(--inp-border);border-radius:8px;padding:5px 8px;color:var(--inp-text);outline:none;"/>'+
+    '<input class="ing-qty-inp" type="text" placeholder="Qty..." autocomplete="off" style="width:64px;font-family:Nunito,sans-serif;font-size:12px;font-weight:700;background:var(--inp-bg);border:1.5px solid var(--inp-border);border-radius:8px;padding:5px 8px;color:var(--inp-text);outline:none;"/>'+
+    '<button class="ing-del-btn" onclick="this.closest(\'.ing-edit-row\').remove()">×</button>';
+  // insert before the Add ingredient button (last child)
+  const addBtn=list.querySelector('.ing-add-small');
+  list.insertBefore(row,addBtn||null);
+  row.querySelector('.ing-name-inp').focus();
+}
+
+function deleteIngFromDish(dishId, idx, e){
+  if(e) e.stopPropagation();
+  // just re-render — actual save happens via saveDishEdits
+  const list=document.getElementById('dish-edit-'+dishId);
+  if(list){
+    const rows=list.querySelectorAll('.ing-edit-row');
+    if(rows[idx])rows[idx].remove();
+  }
+}
+
 function renderMarketView(){
   const mp=document.getElementById('mainPanel');
   const ingState=stuffiesState;
@@ -2220,10 +2481,33 @@ function renderMarketView(){
     const allCount=dish.ingredients.length;
     const gotCount=dish.ingredients.filter((_,i)=>ingState[dish.id+'-'+i]).length;
     const ings=isOpen?dish.ingredients.map((ing,i)=>{const got=!!ingState[dish.id+'-'+i];return'<div class="dish-ing-row'+(got?' got':'')+'" onclick="toggleIng(\''+dish.id+'\','+i+',event)"><div class="chk'+(got?' yes':'')+'">'+( got?'✓':'')+'</div><span class="ing-name">'+esc(ing.name)+'</span>'+(ing.qty?'<span class="ing-qty">'+esc(ing.qty)+'</span>':'')+'</div>';}).join(''):'';
-    return'<div class="dish-card"><div class="dish-hdr" onclick="toggleDish(\''+dish.id+'\',event)"><div><div class="dish-name">'+dish.emoji+' '+esc(dish.name)+'</div><div class="dish-meta">'+gotCount+'/'+allCount+' ticked</div></div><div class="dish-arrow'+(isOpen?' open':'')+'">▼</div></div>'+(isOpen?'<div class="dish-body">'+ings+'<button class="gc-btn" style="margin-top:4px;" onclick="clearDish(\''+dish.id+'\',event)">Clear ticks</button></div>':'')+'</div>';
+    const isEditing=editingDish===dish.id;
+    const editIng=isEditing?dish.ingredients.map((ing,i)=>'<div class="ing-edit-row">'+
+      '<input class="ing-name-inp" type="text" placeholder="Ingredient..." autocomplete="off" value="'+esc(ing.name)+'"/>'+
+      '<input class="ing-qty-inp" type="text" placeholder="Qty..." autocomplete="off" value="'+esc(ing.qty||'')+'"/>'+
+      '<button class="ing-del-btn" onclick="deleteIngFromDish(\''+dish.id+'\','+i+',event)">×</button>'+
+    '</div>').join(''):'';
+    const editFooter=isEditing?
+      '<div id="dish-edit-'+dish.id+'">'+editIng+
+      '<button class="ing-add-small" onclick="addIngToDish(\''+dish.id+'\')">+ Add ingredient</button></div>'+
+      '<div style="display:flex;gap:6px;margin-top:8px;">'+
+        '<button class="gc-btn" style="flex:1;background:var(--btn-bg);color:var(--btn-text);border-color:var(--btn-border);" onclick="saveDishEdits(\''+dish.id+'\')">Save</button>'+
+        '<button class="gc-btn" onclick="toggleDishEdit(\''+dish.id+'\',event)">Cancel</button>'+
+      '</div>':'';
+    return'<div class="dish-card"><div class="dish-hdr" onclick="toggleDish(\''+dish.id+'\',event)">'+
+      '<div><div class="dish-name">'+dish.emoji+' '+esc(dish.name)+'</div><div class="dish-meta">'+gotCount+'/'+allCount+' ticked</div></div>'+
+      '<div style="display:flex;align-items:center;gap:6px;">'+
+        '<button class="dish-edit-btn'+(isEditing?' active':'')+'" onclick="toggleDishEdit(\''+dish.id+'\',event)">'+(isEditing?'Editing':'Edit')+'</button>'+
+        '<div class="dish-arrow'+(isOpen?' open':'')+'">▼</div>'+
+      '</div></div>'+
+      (isOpen?'<div class="dish-body">'+(isEditing?editFooter:ings+
+        '<div style="display:flex;gap:6px;margin-top:6px;">'+
+          '<button class="gc-btn" style="flex:1;" onclick="clearDish(\''+dish.id+'\',event)">Clear ticks</button>'+
+          (dish.isCustom?'<button class="gc-btn" onclick="deleteCustomDish(\''+dish.id+'\',event)">Delete dish</button>':'')+
+        '</div>')+'</div>':'')+'</div>';
   }).join('');
   const grocHTML=renderGrocListHTML();
-  mp.innerHTML='<div class="two-col"><div class="panel anim-up">'+ myDayStripHTML() +'<div class="ptitle">Stuffies 🛒</div><div class="stuffies-tab-bar"><button class="stuffies-tab'+(stuffiesView==='list'?' on':'')+'" onclick="setStuffiesView(\'list\',event)">Grocery list</button><button class="stuffies-tab'+(stuffiesView==='stuffies'?' on':'')+'" onclick="setStuffiesView(\'stuffies\',event)">By dish</button></div>'+(stuffiesView==='stuffies'?'<div class="stuffies-wrap">'+dishCards+'</div>':grocHTML)+'</div><div class="panel" style="align-self:start;"><div class="ptitle">Pending tasks</div><div id="taskMini2"></div></div></div>';
+  mp.innerHTML='<div class="two-col"><div class="panel anim-up">'+ myDayStripHTML() +'<div class="ptitle">Stuffies 🛒</div><div class="stuffies-tab-bar"><button class="stuffies-tab'+(stuffiesView==='list'?' on':'')+'" onclick="setStuffiesView(\'list\',event)">Grocery list</button><button class="stuffies-tab'+(stuffiesView==='stuffies'?' on':'')+'" onclick="setStuffiesView(\'stuffies\',event)">By dish</button><button class="stuffies-tab'+(stuffiesView==='marketrun'?' on':'')+'" onclick="setStuffiesView(\'marketrun\',event)">Market run</button></div>'+(stuffiesView==='stuffies'?'<div class="stuffies-wrap">'+dishCards+'</div>':stuffiesView==='marketrun'?renderMarketRunView():grocHTML)+'</div><div class="panel" style="align-self:start;"><div class="ptitle">Pending tasks</div><div id="taskMini2"></div></div></div>';
   if(stuffiesView==='list'){const gn=document.getElementById('gName'),gq=document.getElementById('gQty');if(gn)gn.addEventListener('keydown',e=>{if(e.key==='Enter')addGroc(e);});}
   renderTaskMini2();
 }
@@ -3361,14 +3645,17 @@ function fmt(n){return 'GH₵'+Number(n||0).toLocaleString('en-GH',{minimumFract
 // ── ROUTINE VIEW ──
 // ════════════════════════════════════════
 const ROUTINE_STEPS=[
-  {name:'Make the bed',mins:5,color:'#EF9F27'},
-  {name:'Stretch',mins:5,color:'#BA7517'},
-  {name:'Drink water',mins:5,color:'#5DCAA5'},
-  {name:'Write to-do list',mins:5,color:'#1D9E75'},
-  {name:'Eat breakfast',mins:25,color:'#0F6E56'},
-  {name:'Cold shower',mins:15,color:'#85B7EB'},
+  {name:'Make the bed',mins:2,color:'#EF9F27'},
+  {name:'Use the washroom',mins:10,color:'#BA7517'},
+  {name:'Brush teeth',mins:6,color:'#5DCAA5'},
+  {name:'Take pills',mins:2,color:'#1D9E75'},
+  {name:'Write to-do list',mins:50,color:'#92ADA4'},
+  {name:'Eat breakfast',mins:15,color:'#0F6E56'},
+  {name:'Cold shower',mins:20,color:'#85B7EB'},
+  {name:'Iron clothes',mins:5,color:'#B97D7B'},
+  {name:'Get dressed',mins:10,color:'#D06224'},
 ];
-const ROUTINE_TOTAL=60;
+const ROUTINE_TOTAL=120;
 let routineDone=new Set();
 let routineTimer=null;
 let routineActive=null;
@@ -3444,8 +3731,8 @@ function renderRoutineView(){
   mp.innerHTML=`<div class="panel anim-up">
     <div class="routine-card">
       <div class="routine-section-title">
-        <span>1-hour morning routine</span>
-        <span class="r-timer-badge${routineRunning?' running':''}" id="rTimerBadge">${routineRunning?routineFmt(routineSecsLeft)+' left':routineMinsDone()+' / '+ROUTINE_TOTAL+' min'}</span>
+        <span>Morning routine</span>
+        <span class="r-timer-badge${routineRunning?' running':''}" id="rTimerBadge">${routineRunning?routineFmt(routineSecsLeft)+' left':(()=>{const m=routineMinsDone();return(m>=60?Math.floor(m/60)+'h '+(m%60?m%60+'m':''):m+'min')+' / 2h';})()}</span>
       </div>
       <div class="routine-ring-wrap">
         <div class="routine-ring-side">${leftHTML}</div>
@@ -3507,8 +3794,8 @@ function toggleRoutineTimer(){
       if(nx===-1){
         routineActive=null;
         playNotifSound();
-        showNotif('🌅','Routine complete!','All 60 minutes done. Great start!');
-        sendPushNotif('🌅 Routine complete!','All 60 minutes done. Great start!');
+        showNotif('🌅','Routine complete!','All 2 hours done. Great start!');
+        sendPushNotif('🌅 Routine complete!','All 2 hours done. Great start!');
       } else {
         const nextStep=ROUTINE_STEPS[nx];
         routineActive=nx;routineSecsLeft=nextStep.mins*60;
@@ -3809,7 +4096,28 @@ function renderHistoryView(){
 // ════════════════════════════════════════
 let newDishIngredients=[];
 let showAddDishForm=false;
-function allDishes(){return[...STUFFIES_DISHES,...customDishes];}
+function allDishes(){return allDishesResolved();}
+
+function addDishFormHTML(){
+  const ings=newDishIngredients.map((_,i)=>`<div class="ing-add-row">
+    <input class="ing-name-inp" type="text" placeholder="Ingredient..." autocomplete="off" value="${esc(newDishIngredients[i].name)}" oninput="newDishIngredients[${i}].name=this.value"/>
+    <input class="ing-qty-inp" type="text" placeholder="Qty..." autocomplete="off" value="${esc(newDishIngredients[i].qty)}" oninput="newDishIngredients[${i}].qty=this.value"/>
+    <button class="ing-del-btn" onclick="removeIngFromNewDish(${i},event)">×</button>
+  </div>`).join('');
+  return`<div class="add-dish-form" style="margin-top:10px;">
+    <div style="display:flex;gap:8px;margin-bottom:8px;">
+      <input class="di" id="newDishEmoji" type="text" placeholder="🍽️" style="width:44px;text-align:center;" autocomplete="off"/>
+      <input class="di" id="newDishName" type="text" placeholder="Dish name..." style="flex:1;" autocomplete="off"/>
+    </div>
+    <div id="newDishIngList">${ings}</div>
+    <div style="display:flex;gap:8px;margin-top:8px;">
+      <button class="gc-btn" style="flex:1;" onclick="addIngToNewDish(event)">+ Ingredient</button>
+      <button class="gc-btn" style="flex:1;background:var(--btn-bg);color:var(--btn-text);border-color:var(--btn-border);" onclick="saveNewDish(event)">Save dish</button>
+      <button class="gc-btn" onclick="toggleAddDishForm(event)">Cancel</button>
+    </div>
+  </div>`;
+}
+
 function toggleAddDishForm(e){if(e)makeRipple(e);showAddDishForm=!showAddDishForm;newDishIngredients=[];renderMarketView();}
 function addIngToNewDish(e){if(e)makeRipple(e);newDishIngredients.push({name:'',qty:''});renderNewDishIngList();}
 function removeIngFromNewDish(idx,e){if(e)e.stopPropagation();newDishIngredients.splice(idx,1);renderNewDishIngList();}
@@ -3963,6 +4271,8 @@ function updateSbUserArea(user){const area=document.getElementById('sbUserArea')
 async function loadFromFirestore(uid){if(!window._fbDb)return;setSyncStatus('syncing');try{const snap=await window._fbGetDoc(window._fbDoc(window._fbDb,'users',uid));if(snap.exists()){const d=snap.data();if(d.tasks){const lam={};tasks.forEach(t=>{if(t.attachments&&t.attachments.length)lam[t.id]=t.attachments;});tasks=d.tasks.map(t=>({...t,attachments:lam[t.id]||t.attachments||[]}));}if(d.grocs)grocs=d.grocs;if(d.pomoLog)pomoLog=d.pomoLog;if(d.dailyTasks)dailyTasks=d.dailyTasks;if(d.dailyState)dailyState=d.dailyState;if(d.progressHistory)progressHistory=d.progressHistory;if(d.stuffiesState)stuffiesState=d.stuffiesState;if(d.budget)budget=d.budget;
       if(d.customDishes)customDishes=d.customDishes;
       if(d.brainDump)brainDump=d.brainDump;
+      if(d.marketRunDishes)marketRunDishes=new Set(d.marketRunDishes);
+      if(d.marketRunGot)marketRunGot=d.marketRunGot;
       // ── daily reset: check AFTER loading Firestore state ──
       // load lastDay from Firestore only if it's not already today locally
       const localLast=localStorage.getItem('tw7_dlast')||'';
@@ -3976,14 +4286,16 @@ async function loadFromFirestore(uid){if(!window._fbDb)return;setSyncStatus('syn
         localStorage.setItem('tw7_dlast',todayNow);
       }tasks.forEach(t=>{if(!t.attachments)t.attachments=[];if(!('deadline' in t))t.deadline='';});}setSyncStatus('synced');renderMain();}catch(e){console.warn('Firestore load error',e);setSyncStatus('offline');renderMain();}}
 
-window.saveToFirestore=function(){if(!window._currentUser||!window._fbDb)return;setSyncStatus('syncing');clearTimeout(_syncTimeout);_syncTimeout=setTimeout(async()=>{try{const ts=new Date().toISOString();_lastRemoteUpdate=ts;const tl=tasks.map(t=>({...t,attachments:(t.attachments||[]).map(a=>({name:a.name,type:a.type,size:a.size||0}))}));await window._fbSetDoc(window._fbDoc(window._fbDb,'users',window._currentUser.uid),{tasks:tl,grocs,pomoLog,dailyTasks,dailyState,progressHistory,stuffiesState,budget,customDishes,brainDump,lastDay:localStorage.getItem('tw7_dlast')||'',updatedAt:ts},{merge:true});setSyncStatus('synced');_syncTimeout=null;}catch(e){console.warn('Firestore save error',e);setSyncStatus('offline');_syncTimeout=null;}},1200);};
+window.saveToFirestore=function(){if(!window._currentUser||!window._fbDb)return;setSyncStatus('syncing');clearTimeout(_syncTimeout);_syncTimeout=setTimeout(async()=>{try{const ts=new Date().toISOString();_lastRemoteUpdate=ts;const tl=tasks.map(t=>({...t,attachments:(t.attachments||[]).map(a=>({name:a.name,type:a.type,size:a.size||0}))}));await window._fbSetDoc(window._fbDoc(window._fbDb,'users',window._currentUser.uid),{tasks:tl,grocs,pomoLog,dailyTasks,dailyState,progressHistory,stuffiesState,budget,customDishes,brainDump,marketRunDishes:[...marketRunDishes],marketRunGot,lastDay:localStorage.getItem('tw7_dlast')||'',updatedAt:ts},{merge:true});setSyncStatus('synced');_syncTimeout=null;}catch(e){console.warn('Firestore save error',e);setSyncStatus('offline');_syncTimeout=null;}},1200);};
 
 const _localSave=save;
 window.save=function(){_localSave();if(typeof window.saveToFirestore==='function')window.saveToFirestore();};
 
 function startRealtimeSync(uid){if(_realtimeUnsub){_realtimeUnsub();_realtimeUnsub=null;}if(!window._fbDb||!window._fbDoc||!window._fbOnSnapshot)return;_realtimeUnsub=window._fbOnSnapshot(window._fbDoc(window._fbDb,'users',uid),(snap)=>{if(!snap.exists())return;const d=snap.data();if(d.updatedAt&&d.updatedAt===_lastRemoteUpdate)return;if(d.updatedAt)_lastRemoteUpdate=d.updatedAt;if(_syncTimeout)return;let changed=false;if(d.tasks){const lam={};tasks.forEach(t=>{if(t.attachments&&t.attachments.length)lam[t.id]=t.attachments;});tasks=d.tasks.map(t=>({...t,attachments:lam[t.id]||t.attachments||[]}));changed=true;}if(d.grocs){grocs=d.grocs;changed=true;}if(d.pomoLog)pomoLog=d.pomoLog;if(d.dailyTasks){dailyTasks=d.dailyTasks;changed=true;}if(d.dailyState){dailyState=d.dailyState;changed=true;}if(d.progressHistory)progressHistory=d.progressHistory;if(d.stuffiesState){stuffiesState=d.stuffiesState;changed=true;}if(d.budget)budget=d.budget;
       if(d.customDishes)customDishes=d.customDishes;
-      if(d.brainDump)brainDump=d.brainDump;if(changed){const dot=document.getElementById('syncDot');if(dot){dot.classList.add('pulse');setTimeout(()=>dot.classList.remove('pulse'),500);}setSyncStatus('synced');renderMain();showNotif('🔄','Synced from another device','Your data was updated.');}},err=>{console.warn('Realtime sync error',err);setSyncStatus('offline');});}
+      if(d.brainDump)brainDump=d.brainDump;
+      if(d.marketRunDishes)marketRunDishes=new Set(d.marketRunDishes);
+      if(d.marketRunGot)marketRunGot=d.marketRunGot;if(changed){const dot=document.getElementById('syncDot');if(dot){dot.classList.add('pulse');setTimeout(()=>dot.classList.remove('pulse'),500);}setSyncStatus('synced');renderMain();showNotif('🔄','Synced from another device','Your data was updated.');}},err=>{console.warn('Realtime sync error',err);setSyncStatus('offline');});}
 function stopRealtimeSync(){if(_realtimeUnsub){_realtimeUnsub();_realtimeUnsub=null;}}
 
 async function signInGoogle(){if(!window._fbAuth)return;try{makeRipple({clientX:window.innerWidth/2,clientY:window.innerHeight/2});await window._fbSignInWithPopup(window._fbAuth,window._fbGoogleProvider);}catch(e){alert('Sign-in failed: '+e.message);}}
